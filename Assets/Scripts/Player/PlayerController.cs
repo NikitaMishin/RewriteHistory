@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour
     private float _characterHeight;
     private Vector3 _initialLocalScale;
 
+    //UPDATED_BY_GD
+    private bool isReadyToJump = true;
+    private float jumpPressTime = -1; // when Jump button was pressed
+    //private float directionChangeInAirCoof = 0.3;
+    //private float directionChangeInAirCurrent = 0;
+
 
     void Start()
     {
@@ -93,11 +99,28 @@ public class PlayerController : MonoBehaviour
         {
             MoveBack();
         }
+        //UPDATED_BY_GD - more natural behavior of jump button
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            isReadyToJump = true;
+            jumpPressTime = Time.time;
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            isReadyToJump = false;
+        }
+        else if (Time.time - jumpPressTime > 0.3)
+        {
+            isReadyToJump = false;
+        }
 
-        if (charOnTheGround && Input.GetKey(KeyCode.W))
+        if (charOnTheGround && isReadyToJump)
         {
             Jump();
+            isReadyToJump = false;
         }
+
+        //UPDATE_END
 
         _jSpeed += Gravity * Time.deltaTime * FallSpeed;
 
@@ -137,7 +160,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateCameraPosition()
     {
-        camera.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, -4);
+        //UPDATED_BY_GD
+        camera.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 9);
     }
 
     private void Jump()
