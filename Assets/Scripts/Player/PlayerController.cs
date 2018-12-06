@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public float LocalScaleY; // Y scale of tMesh aka local height when he crouch
     public float ControllerHeight; // Y scale of the character controller when he crouch
 
+    public Camera camera;
+
 
     // could be used from other scripts like rotate on triggers
     public bool direction = true; // for moving along axis (need for rotating) true for positive false for negative
@@ -102,6 +104,7 @@ public class PlayerController : MonoBehaviour
         dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
 
         _controller.Move(dirVector);
+        UpdateCameraPosition();
     }
 
     public bool isOnTheGround()
@@ -130,6 +133,11 @@ public class PlayerController : MonoBehaviour
         }
 
         dirVector += transform.forward * _currentActualSpeed;
+    }
+
+    private void UpdateCameraPosition()
+    {
+        camera.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, -4);
     }
 
     private void Jump()
