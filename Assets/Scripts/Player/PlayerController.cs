@@ -53,10 +53,6 @@ public class PlayerController : MonoBehaviour
     // must be between 0 and 1
 
 
-    //CAMERA STUFF
-    public Camera camera;
-
-
     // could be used from other scripts like rotate on triggers
 
     //PRIVATE VARS
@@ -86,6 +82,7 @@ public class PlayerController : MonoBehaviour
     private float _jSpeed = 0; // initial y axis speed;
 
 
+
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -95,6 +92,7 @@ public class PlayerController : MonoBehaviour
         _remainDash = Mathf.Max(DashMaxSpeed - _currentNormalSpeed, 0);
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
+
     }
 
     void Update()
@@ -163,7 +161,7 @@ public class PlayerController : MonoBehaviour
         dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
 
         _controller.Move(dirVector);
-        UpdateCameraPosition();
+        //UpdateCameraPosition();
     }
 
     public bool IsOnTheGround()
@@ -257,12 +255,6 @@ public class PlayerController : MonoBehaviour
             Math.Max(0f, _currentActualSpeed - _currentNormalSpeed * InertiaStopPercentCoef);
     }
 
-    private void UpdateCameraPosition()
-    {
-        //UPDATED_BY_GD
-        camera.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,
-            gameObject.transform.position.z - 9);
-    }
 
     private void Jump()
     {
