@@ -3841,7 +3841,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0000005
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5396,7 +5396,6 @@ GameObject:
   - component: {fileID: 947517275}
   - component: {fileID: 947517271}
   - component: {fileID: 947517277}
-  - component: {fileID: 947517276}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5500,36 +5499,9 @@ MonoBehaviour:
   JumpSpeed: 10
   SpeedInAir: 0.4
   OnWhichSpeedCanRotate: 0
-  InertiaStopPercentCoef: 0.33
-  SpeedAccelerationPercent: 0.23
-  ThresholdPercent: 0.15
---- !u!114 &947517276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947517270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef39fc9f11880a4b9875f52c0462f5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 1
-  DashLimitSec: 5
-  DashMaxSpeed: 12
-  DashAccelerationPercent: 1
-  Gravity: -9.81
-  FallSpeed: 1.5
-  SpeedOnGround: 6
-  CrouchSpeed: 3
-  LocalScaleY: 0
-  ControllerHeight: 0
-  JumpSpeed: 8
-  SpeedInAir: 4
-  OnWhichSpeedCanRotate: 0
-  InertiaStopPercentCoef: 0.33
-  SpeedAccelerationPercent: 0.23
-  ThresholdPercent: 0.15
+  InertiaStopPercentCoef: 1
+  SpeedAccelerationPercent: 1
+  ThresholdPercent: 1
 --- !u!114 &947517277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5554,9 +5526,10 @@ MonoBehaviour:
   JumpSpeed: 8
   SpeedInAir: 4
   OnWhichSpeedCanRotate: 0
-  InertiaStopPercentCoef: 0.33
-  SpeedAccelerationPercent: 0.23
-  ThresholdPercent: 0.15
+  InertiaStopPercentCoef: 1
+  SpeedAccelerationPercent: 1
+  ThresholdPercent: 1
+  _stairSpeed: 10
 --- !u!1001 &948918373
 Prefab:
   m_ObjectHideFlags: 0
@@ -7603,11 +7576,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.80168045
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0000005
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7616,6 +7589,10 @@ Prefab:
     - target: {fileID: 100000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
       propertyPath: m_Name
       value: egyptian_column (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d23fca227c10848b8940ca7764932c, type: 3}
@@ -7641,8 +7618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03471055a013804d9f95ba2b025887b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnStair: 0
-  _stairSpeed: 10
 --- !u!65 &1272818330
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7653,8 +7628,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8019743, y: 2.437251, z: 3.158645}
-  m_Center: {x: -0.023947239, y: 0.51862603, z: 1.4293222}
+  m_Size: {x: 0.8019743, y: 2.437251, z: 3.4467306}
+  m_Center: {x: -0.023947239, y: 0.5186261, z: 1.5733652}
 --- !u!1001 &1294215606
 Prefab:
   m_ObjectHideFlags: 0
