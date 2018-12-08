@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviour
 
     //PRIVATE VARS
 
-    private CharacterController _controller;
-    private Vector3 dirVector = Vector3.zero; // direction vector
+    protected CharacterController _controller;
+    protected Vector3 dirVector = Vector3.zero; // direction vector
     private float _currentNormalSpeed; // depends on isGrounded and Crouch status 
     private float _currentActualSpeed; // actual speed 
 
@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Move forward according to all forces,speeds,inertia that had been applied
     /// </summary>
-    private void PressRightMove()
+    public void PressRightMove()
     {
         if (!direction)
         {
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PressLeftMove()
+    public void PressLeftMove()
     {
         if (direction)
         {
@@ -290,7 +290,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void InitialSpeedSetup()
+    public void InitialSpeedSetup()
     {
         bool charOnTheGround = IsOnTheGround();
         if (charOnTheGround)
