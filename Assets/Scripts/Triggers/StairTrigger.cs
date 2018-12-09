@@ -15,7 +15,7 @@ public class StairTrigger : MonoBehaviour {
 
     void Awake()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
+        player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         stairController = player.GetComponent<StairController>();
     }
