@@ -82,7 +82,6 @@ public class PlayerController : MonoBehaviour
     private float _jSpeed = 0; // initial y axis speed;
 
 
-
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -92,7 +91,6 @@ public class PlayerController : MonoBehaviour
         _remainDash = Mathf.Max(DashMaxSpeed - _currentNormalSpeed, 0);
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
-
     }
 
     void Update()
@@ -159,7 +157,7 @@ public class PlayerController : MonoBehaviour
         _jSpeed += Gravity * Time.deltaTime * FallSpeed;
 
         dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
-
+       
         _controller.Move(dirVector);
         //UpdateCameraPosition();
     }
