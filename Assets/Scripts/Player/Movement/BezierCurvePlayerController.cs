@@ -185,6 +185,7 @@ public class BezierCurvePlayerController : MonoBehaviour
                 //  transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
+                UpdateIndexPoint();
                 MoveForward();
             }
             else
@@ -207,6 +208,7 @@ public class BezierCurvePlayerController : MonoBehaviour
                 // transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
+                UpdateIndexPoint();
                 MoveForward();
             }
             else
