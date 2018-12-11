@@ -305,4 +305,9 @@ public class OrdinaryPlayerController : MonoBehaviour
         _currentActualSpeed = speed;
     }
 
+    public float GetActualSpeed()
+    {
+        return _currentActualSpeed;
+    }
+
 }

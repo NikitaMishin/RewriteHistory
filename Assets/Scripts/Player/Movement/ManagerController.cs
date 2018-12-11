@@ -62,9 +62,9 @@ public class ManagerController : MonoBehaviour
                 playerController.enabled = true;
                 break;
             case Signals.ActivateBezierController:
-                var component = GetComponent<BezierCurvePlayerController>();
-                component.SetActualSpeed(_currentActualSpeed);
-                component.enabled = true;
+                var bezierController = GetComponent<BezierCurvePlayerController>();
+                bezierController.SetActualSpeed(_currentActualSpeed);
+                bezierController.enabled = true;
                 break;
             default: throw new NotImplementedException();
         }

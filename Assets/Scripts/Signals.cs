@@ -3,6 +3,7 @@
 public enum Signals
 {
     ActivateBezierController,
-    ActivatePlayerController
+    ActivatePlayerController,
+    ActivateStairsController,
 }
 

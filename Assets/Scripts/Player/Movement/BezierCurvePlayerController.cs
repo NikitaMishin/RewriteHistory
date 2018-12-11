@@ -20,7 +20,7 @@ public class BezierCurvePlayerController : MonoBehaviour
 
     //PRIVATE VARS
 
-    private List<Vector3> CurvePoints;
+    public List<Vector3> CurvePoints;
     private CharacterController _controller;
     private Vector3 dirVector = Vector3.zero; // direction vector
     private float _currentNormalSpeed; // depends on isGrounded and Crouch status 
@@ -60,9 +60,8 @@ public class BezierCurvePlayerController : MonoBehaviour
         {
             throw new Exception("USER COULDONT MOVE ON CLOSED PATH.PLEASE UNMARK CLOSE PROPERTY");
         }
-
-        CurvePoints = Curve.GetAllPointsAlongCurve();
     }
+
 
     private void OnDisable()
     {
@@ -79,12 +78,13 @@ public class BezierCurvePlayerController : MonoBehaviour
         {
             // reach last point
             this.enabled = false;
-            ;
+            directionCurve = !directionCurve;
         }
         else if (!directionCurve && CurrentWayPointId == 0)
         {
             //reach first point
             this.enabled = false;
+            directionCurve = !directionCurve;
         }
         else if (directionCurve)
         {
@@ -182,7 +182,7 @@ public class BezierCurvePlayerController : MonoBehaviour
             // Rotate
             if (_currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
-              //  transform.rotation *= Quaternion.Euler(0, 180f, 0);
+                //  transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
                 MoveForward();
@@ -204,7 +204,7 @@ public class BezierCurvePlayerController : MonoBehaviour
         {
             if (_currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
-               // transform.rotation *= Quaternion.Euler(0, 180f, 0);
+                // transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
                 MoveForward();
@@ -286,7 +286,6 @@ public class BezierCurvePlayerController : MonoBehaviour
     private void Jump()
     {
         _jSpeed += _managerController.JumpSpeed;
-       
     }
 
     /// <summary>
@@ -372,9 +371,14 @@ public class BezierCurvePlayerController : MonoBehaviour
         isCrouch = false;
         _currentNormalSpeed = _managerController.SpeedOnGround;
     }
-    
+
     public void SetActualSpeed(float speed)
     {
         _currentActualSpeed = speed;
+    }
+
+    public float GetActualSpeed()
+    {
+        return _currentActualSpeed;
     }
 }

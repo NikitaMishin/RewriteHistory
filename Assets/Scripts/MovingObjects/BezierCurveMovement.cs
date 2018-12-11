@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BezierCurveMovement : MonoBehaviour
 {
+    /*
+   * NOTE: direction of Curve determined by direction of point (0,1,2,3 and so on) e.t 01234==positive,4321=negative 
+   * USAGE:
+   * Add script to object that must move along curved path
+   * Add bezierPath to this script
+   */
+
     public BezierCurve Path;
     public int CurrentWayPointId = 0;
     public float Speed = 0.5f;
@@ -14,6 +21,7 @@ public class BezierCurveMovement : MonoBehaviour
 
     private List<Vector3> PathPoints;
 
+    
 
     // Use this for initialization
     void Start()
