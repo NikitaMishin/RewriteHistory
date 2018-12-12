@@ -7,6 +7,17 @@ using UnityEngine;
 
 public class BezierCurvePlayerController : MonoBehaviour
 {
+    /*
+     *HOW TO
+     * add script manager Controller to player
+     * add this script to player
+     * add characterController script to player
+     * directionCurve  is direction of curve
+     * RotationSpeed speed of rotation when move along curve
+     * ReachDistance on which delta we can set  new target point on curve
+     */
+    
+    
     public bool directionCurve = true; // for moving from start to end or end to start
     public BezierCurve Curve; //curve along we move// can setup
 
@@ -65,26 +76,27 @@ public class BezierCurvePlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        //send signal that 
+        // set actual speed in manager
         _managerController.SetActualSpeed(_currentActualSpeed);
-        _managerController.SendSignal(Signals.ActivatePlayerController);
     }
 
     private void UpdateIndexPoint()
     {
         //directionCurve=true when index from left to right
 
-        if (directionCurve && CurrentWayPointId >= CurvePoints.Count - 1)
+        if (directionCurve && CurrentWayPointId == CurvePoints.Count - 1)
         {
             // reach last point
-            this.enabled = false;
-            directionCurve = !directionCurve;
+            //this.enabled = false;
+            //directionCurve = !directionCurve;
+            CurrentWayPointId = CurvePoints.Count;
         }
         else if (!directionCurve && CurrentWayPointId == 0)
         {
+            CurrentWayPointId = -1;
             //reach first point
-            this.enabled = false;
-            directionCurve = !directionCurve;
+            //this.enabled = false;
+            //directionCurve = !directionCurve;
         }
         else if (directionCurve)
         {
@@ -172,9 +184,6 @@ public class BezierCurvePlayerController : MonoBehaviour
         return _controller.isGrounded;
     }
 
-    /// <summary>
-    /// Move forward according to all forces,speeds,inertia that had been applied
-    /// </summary>
     private void PressRightMove()
     {
         if (!_managerController.direction)
@@ -250,6 +259,46 @@ public class BezierCurvePlayerController : MonoBehaviour
         }
 
 
+        ApplyMoveBezier();
+    }
+
+    private void ApplyMoveBezier()
+    {
+        Vector3 lookPos;
+        Quaternion rotation;
+
+        if (CurrentWayPointId == -1 && directionCurve)
+        {
+            // move to curve  start
+            CurrentWayPointId++;
+        }
+        else if (CurrentWayPointId == -1 && !directionCurve)
+        {
+            // move in opposite side with inverse rotation
+            lookPos = CurvePoints[0] - CurvePoints[1];
+            lookPos.y = 0;
+            rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
+            dirVector += lookPos.normalized * _currentActualSpeed;
+            return;
+        }
+        else if (CurrentWayPointId == CurvePoints.Count - 1 && !directionCurve)
+        {
+            // move to curve end
+            CurrentWayPointId--;
+        }
+        else if (CurrentWayPointId == CurvePoints.Count && directionCurve)
+        {
+            // move in opposite side with inverse rotation
+            lookPos = CurvePoints[CurvePoints.Count - 1] - CurvePoints[CurvePoints.Count - 2];
+            lookPos.y = 0;
+            rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
+            dirVector += lookPos.normalized * _currentActualSpeed;
+            return;
+        }
+
+
         //проверяем без y
         Vector3 pos = transform.position;
         pos.y = 0;
@@ -259,15 +308,15 @@ public class BezierCurvePlayerController : MonoBehaviour
         float distance = Vector3.Distance(curWayPoint, pos); //without y axis
 
         //ROTATION
-        var lookPos = CurvePoints[CurrentWayPointId] - transform.position;
+        lookPos = CurvePoints[CurrentWayPointId] - transform.position;
         lookPos.y = 0;
-        var rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
+        rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
         //ROTATION
 
         if (distance <= ReachDistance)
         {
-            //just move
+            //update next target point on curve
             UpdateIndexPoint();
         }
 

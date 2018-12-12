@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class OrdinaryPlayerController : MonoBehaviour
 {
+    /*
+     * For moving in 2axis
+     * add script to player
+     * add managerController to player
+     * add characterController to player
+     */
     private ManagerController _managerController;
 
     private CharacterController _controller;
@@ -299,7 +305,7 @@ public class OrdinaryPlayerController : MonoBehaviour
         isCrouch = false;
         _currentNormalSpeed = _managerController.SpeedOnGround;
     }
-    
+
     public void SetActualSpeed(float speed)
     {
         _currentActualSpeed = speed;
@@ -309,5 +315,4 @@ public class OrdinaryPlayerController : MonoBehaviour
     {
         return _currentActualSpeed;
     }
-
 }

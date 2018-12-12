@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class ManagerController : MonoBehaviour
 {
+    /*
+     * add script to player
+     * set constant as u wish
+     * 
+     */
     // DIRECTION
     public bool direction = true; // for moving along axis (need for rotating) true for positive false for negative
 
@@ -48,7 +53,7 @@ public class ManagerController : MonoBehaviour
 
 
     /// <summary>
-    /// SIGNAL ACTIVATE scripts for specific movement
+    /// SIGNAL ACTIVATE scripts for specific movement and action
     /// 
     /// </summary>
     /// <param name="signal"></param>

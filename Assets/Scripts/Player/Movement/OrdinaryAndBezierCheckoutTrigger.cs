@@ -19,13 +19,13 @@ public class OrdinaryAndBezierCheckoutTrigger : MonoBehaviour
      */
 
 
-    public BezierCurve BezierPath;//path that player will follow when  triggered 
-    public bool StartFromEndOfCurve = false;//from where we continue move when reachCurve
+    public BezierCurve BezierPath; //path that player will follow when  triggered 
+    public bool StartFromEndOfCurve = false; //from where we continue move when reachCurve
     public OrdinaryAndBezierCheckoutTrigger connectedTrigger;
-    
+
     private List<Vector3> CurvePoints;
     private bool _isOnCurve = false;
-    
+    public Vector3 DirectionOfMovementWhenLeaveCurve;
 
 
     // Use this for initialization
@@ -48,14 +48,16 @@ public class OrdinaryAndBezierCheckoutTrigger : MonoBehaviour
             if (_isOnCurve || connectedTrigger.GetIsOnCurve())
             {
                 _isOnCurve = false;
+                bezierPlayerController.enabled = false;
                 connectedTrigger.SetIsOnCurve(false);
+                player.transform.rotation = Quaternion.Euler(DirectionOfMovementWhenLeaveCurve);
                 manager.SendSignal(Signals.ActivatePlayerController);
                 return;
             }
 
             _isOnCurve = true;
             connectedTrigger.SetIsOnCurve(true);
-            
+
             ordinaryPlayerController.enabled = false;
             SetupCurveController(bezierPlayerController);
 
@@ -82,7 +84,6 @@ public class OrdinaryAndBezierCheckoutTrigger : MonoBehaviour
     public void SetIsOnCurve(bool status)
     {
         _isOnCurve = status;
-
     }
 
     public bool GetIsOnCurve()

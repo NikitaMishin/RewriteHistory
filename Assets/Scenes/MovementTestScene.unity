@@ -398,7 +398,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481717316}
   m_LocalRotation: {x: 0, y: -0.86602545, z: 0, w: 0.49999994}
-  m_LocalPosition: {x: 11.32, y: -0.62, z: 3.26}
+  m_LocalPosition: {x: 10.27, y: -0.62, z: 2.65}
   m_LocalScale: {x: 6, y: 5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -418,6 +418,7 @@ MonoBehaviour:
   BezierPath: {fileID: 1878008435}
   StartFromEndOfCurve: 0
   connectedTrigger: {fileID: 572537989}
+  DirectionOfMovementWhenLeaveCurve: {x: 0, y: -300, z: 0}
 --- !u!1 &536277653
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +553,7 @@ MonoBehaviour:
   BezierPath: {fileID: 1878008435}
   StartFromEndOfCurve: 1
   connectedTrigger: {fileID: 481717319}
+  DirectionOfMovementWhenLeaveCurve: {x: 0, y: 0, z: 0}
 --- !u!65 &572537990
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1314,13 +1316,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1734177937}
-  m_LocalRotation: {x: -0, y: -0.86602545, z: 0, w: 0.49999994}
+  m_LocalRotation: {x: -0, y: -0.5000001, z: 0, w: -0.86602527}
   m_LocalPosition: {x: 11.32, y: -0.62, z: 3.26}
   m_LocalScale: {x: 6, y: 5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -300, z: 0}
 --- !u!1 &1768233964
 GameObject:
   m_ObjectHideFlags: 0
