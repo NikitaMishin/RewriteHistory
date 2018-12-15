@@ -34,3 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Scripts/Player/PlayerController.cs
+Assets/Scripts/Player/PlayerController.cs
+Assets/Scenes/NarutoTest.unity
+*.unity
+*.unity
