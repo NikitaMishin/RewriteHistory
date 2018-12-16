@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6471ebbefb74205489c80f66b3ecfe87
+=======
+guid: 41e2897ced6a8704b98a2789ec85728c
+>>>>>>> testTrapAndMovementItems
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
