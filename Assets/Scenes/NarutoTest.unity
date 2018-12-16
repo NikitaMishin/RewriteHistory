@@ -4226,7 +4226,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3db7d58d4ccec417696f49abdade7255, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b8aa89a553d2da45acc11db1bb5c7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 947517270}
@@ -4236,7 +4236,7 @@ MonoBehaviour:
   _playerSpeedY: 30
   _maxCameraOffsetX: 3
   _maxCameraOffsetY: 3
-  _errorBackX: 0.05
+  _errorBackX: 0.2
 --- !u!1001 &538139284
 Prefab:
   m_ObjectHideFlags: 0
@@ -6529,6 +6529,7 @@ GameObject:
   - component: {fileID: 947517271}
   - component: {fileID: 947517276}
   - component: {fileID: 947517278}
+  - component: {fileID: 947517282}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6601,13 +6602,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947517270}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -10, y: 0.5, z: 2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &947517275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6619,22 +6620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d499e2a4aa184e49aada26641c70484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
-  DashLimitSec: 100
-  DashMaxSpeed: 10
-  DashAccelerationPercent: 1
-  Gravity: -9.81
-  FallSpeed: 1
-  SpeedOnGround: 5
-  CrouchSpeed: 3
-  LocalScaleY: 0
-  ControllerHeight: 0
-  JumpSpeed: 10
-  SpeedInAir: 0.4
-  OnWhichSpeedCanRotate: 0
-  InertiaStopPercentCoef: 1
-  SpeedAccelerationPercent: 1
-  ThresholdPercent: 1
 --- !u!114 &947517276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6658,22 +6643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef39fc9f11880a4b9875f52c0462f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 1
-  DashLimitSec: 5
-  DashMaxSpeed: 12
-  DashAccelerationPercent: 1
-  Gravity: -9.81
-  FallSpeed: 1.5
-  SpeedOnGround: 6
-  CrouchSpeed: 3
-  LocalScaleY: 0
-  ControllerHeight: 0
-  JumpSpeed: 8
-  SpeedInAir: 4
-  OnWhichSpeedCanRotate: 0
-  InertiaStopPercentCoef: 1
-  SpeedAccelerationPercent: 1
-  ThresholdPercent: 1
   _stairSpeed: 10
 --- !u!114 &947517278
 MonoBehaviour:
@@ -6690,6 +6659,34 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &947517282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947517270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0cd4bfe525a47fe939e502597ea270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  DashLimitSec: 5
+  DashMaxSpeed: 12
+  DashAccelerationPercent: 1
+  Gravity: -9.81
+  FallSpeed: 1.5
+  SpeedOnGround: 6
+  CrouchSpeed: 3
+  LocalScaleY: 0
+  ControllerHeight: 0
+  JumpSpeed: 8
+  SpeedInAir: 4
+  OnWhichSpeedCanRotate: 0
+  InertiaStopPercentCoef: 0.33
+  SpeedAccelerationPercent: 0.23
+  ThresholdPercent: 0.15
+  _currentActualSpeed: 0
 --- !u!1001 &948918373
 Prefab:
   m_ObjectHideFlags: 0
@@ -8936,6 +8933,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8019743, y: 2.437251, z: 3.4467306}
   m_Center: {x: -0.023947239, y: 0.5186261, z: 1.5733652}
+--- !u!114 &1272818331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1272818328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03471055a013804d9f95ba2b025887b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1282638612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 3742d037b0e4975439b1777436089a0f,

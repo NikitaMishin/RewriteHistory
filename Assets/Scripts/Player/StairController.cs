@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StairController : PlayerController {
+public class StairController : OrdinaryPlayerController {
 
     [SerializeField]
     private float _stairSpeed = 10;
