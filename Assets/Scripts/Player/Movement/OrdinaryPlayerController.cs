@@ -1,8 +1,9 @@
 ﻿using System;
+using ReverseTime;
 using UnityEngine;
 
 
-public class OrdinaryPlayerController : MonoBehaviour
+public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 {
     /*
      * For moving in 2axis
@@ -36,6 +37,8 @@ public class OrdinaryPlayerController : MonoBehaviour
     private float jumpPressTime = -1; // when Jump button was pressed
     private float _jSpeed = 0; // initial y axis speed;
 
+    private TimeController _timeController;
+
 
     void Awake()
     {
@@ -48,6 +51,7 @@ public class OrdinaryPlayerController : MonoBehaviour
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
         _managerController = GetComponent<ManagerController>();
+        _timeController = FindObjectOfType<TimeController>();
     }
 
     private void OnDisable()
@@ -57,6 +61,8 @@ public class OrdinaryPlayerController : MonoBehaviour
 
     void Update()
     {
+        if (_managerController.ShouldRewind()) return;
+
         bool charOnTheGround = IsOnTheGround();
 
         dirVector = Vector3.zero;
@@ -314,5 +320,75 @@ public class OrdinaryPlayerController : MonoBehaviour
     public float GetActualSpeed()
     {
         return _currentActualSpeed;
+    }
+
+    public void RecordTimePoint()
+    {
+        _managerController.TimePoints.AddLast(new OrdinaryPlayerControllerTimePoint
+            {
+                position = transform.position,
+                rotation = transform.rotation,
+                _characterHeight = _characterHeight,
+                _remainDash = _remainDash,
+                _tMesh = _tMesh,
+                isCrouch = isCrouch,
+                _currentActualSpeed = _currentActualSpeed,
+                _currentDashTime = _currentDashTime,
+                jumpPressTime = jumpPressTime,
+                isReadyToJump = isReadyToJump,
+                Direction = _managerController.direction,
+                localScale = _tMesh.localScale
+            }
+        );
+    }
+
+    public void StartRewind()
+    {
+        if (_managerController.TimePoints.Count <= 0)
+        {
+            return;
+        }
+
+        OrdinaryPlayerControllerTimePoint timePoint =
+            (OrdinaryPlayerControllerTimePoint) _managerController.TimePoints.Last.Value;
+
+        //apply rewind
+
+        transform.position = timePoint.position;
+        transform.rotation = timePoint.rotation;
+        _characterHeight = timePoint._characterHeight;
+        _remainDash = timePoint._remainDash;
+        _tMesh = timePoint._tMesh;
+        isCrouch = timePoint.isCrouch;
+        _currentActualSpeed = timePoint._currentActualSpeed;
+        jumpPressTime = timePoint.jumpPressTime;
+        isReadyToJump = timePoint.isReadyToJump;
+        _currentDashTime = timePoint._currentDashTime;
+        _managerController.direction = timePoint.Direction;
+        _tMesh.localScale = timePoint.localScale;
+
+
+        // delete Point
+
+        _managerController.TimePoints.RemoveLast();
+    }
+
+
+    public void DeleteOldRecord()
+    {
+        //manager handle this
+        throw new NotImplementedException();
+    }
+
+    public void DeleteAllRecord()
+    {
+        //manager handle this
+        throw new NotImplementedException();
+    }
+
+    public bool ShouldRewind()
+    {    //manager handle this
+        throw new NotImplementedException();
+
     }
 }

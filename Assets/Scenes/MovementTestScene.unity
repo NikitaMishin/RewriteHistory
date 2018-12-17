@@ -418,7 +418,10 @@ MonoBehaviour:
   BezierPath: {fileID: 1878008435}
   StartFromEndOfCurve: 0
   connectedTrigger: {fileID: 572537989}
+  _isOnCurve: 0
   DirectionOfMovementWhenLeaveCurve: {x: 0, y: -300, z: 0}
+  enterDir: 0
+  exitDir: 0
 --- !u!1 &536277653
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,12 +462,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 536277653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5eed117f47a145e6b2a57527d1a47c1, type: 3}
+  m_Script: {fileID: 11500000, guid: e219097e9305410aaba33426546c505a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Path: {fileID: 1222499575}
   CurrentWayPointId: 0
-  Speed: 0.5
+  Speed: 5
   RotationSpeed: 5
   Direction: 1
   reachDistance: 1
@@ -553,7 +556,10 @@ MonoBehaviour:
   BezierPath: {fileID: 1878008435}
   StartFromEndOfCurve: 1
   connectedTrigger: {fileID: 481717319}
+  _isOnCurve: 0
   DirectionOfMovementWhenLeaveCurve: {x: 0, y: 0, z: 0}
+  enterDir: 0
+  exitDir: 0
 --- !u!65 &572537990
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -982,7 +988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 30
   drawColor: {r: 0.2924528, g: 0.0744927, b: 0.17842491, a: 1}
-  _close: 1
+  _close: 0
   points:
   - {fileID: 971678515}
   - {fileID: 860985194}
@@ -1537,6 +1543,8 @@ GameObject:
   - component: {fileID: 2105751141}
   - component: {fileID: 2105751140}
   - component: {fileID: 2105751139}
+  - component: {fileID: 2105751142}
+  - component: {fileID: 2105751143}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1597,10 +1605,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2105751138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.73, z: -39.8}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 15.5, y: 7, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!114 &2105751142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105751138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64a2da8d744ad79d21e3b0968dd305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CouldUseReverse: 1
+  IsReversing: 0
+  MaxTimeReverse: 5
+  _currentTimeReverse: 0
+--- !u!114 &2105751143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105751138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0953edd0d0b4ec745b5d84e646af6908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 462376967}

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using ReverseTime;
 using UnityEngine;
 
-public class ManagerController : MonoBehaviour
+public class ManagerController : MonoBehaviour, IRevertListener
 {
     /*
      * add script to player
@@ -51,6 +52,44 @@ public class ManagerController : MonoBehaviour
 
     public float _currentActualSpeed = 0; // actual speed
 
+    private TimeController _timeController;
+    private OrdinaryPlayerController _ordinaryPlayerController;
+    private BezierCurvePlayerController _bezierCurvePlayerController;
+
+
+    public LinkedList<BasePlayerMovementTimePoint> TimePoints; //storage where we save user move
+
+
+    private void Start()
+    {
+        _timeController = FindObjectOfType<TimeController>();
+        _ordinaryPlayerController = GetComponent<OrdinaryPlayerController>();
+        _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
+        TimePoints = new LinkedList<BasePlayerMovementTimePoint>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (ShouldRewind())
+        {
+            //start reverse
+            StartRewind();
+        }
+        else if (ShouldClearWhenOtherRewind())
+        {
+            DeleteOldRecord();
+        }
+        else
+        {
+            //record point
+            RecordTimePoint();
+        }
+
+        if (_timeController.ShouldRemoveOldRecord())
+        {
+            DeleteOldRecord();
+        }
+    }
 
     /// <summary>
     /// SIGNAL ACTIVATE scripts for specific movement and action
@@ -78,5 +117,67 @@ public class ManagerController : MonoBehaviour
     public void SetActualSpeed(float speed)
     {
         _currentActualSpeed = speed;
+    }
+
+    public void RecordTimePoint()
+    {
+        //determine from what script we record
+        if (_ordinaryPlayerController.enabled)
+        {
+            _ordinaryPlayerController.RecordTimePoint();
+        }
+        else if (_bezierCurvePlayerController.enabled)
+        {
+            _bezierCurvePlayerController.RecordTimePoint();
+        }
+    }
+
+    public void StartRewind()
+    {
+        if (TimePoints.Count == 0)
+        {
+            return;
+        }
+
+
+        var timePoint = TimePoints.Last.Value;
+        if (timePoint is OrdinaryPlayerControllerTimePoint)
+        {
+            //disable bezier
+            //_bezierCurvePlayerController.enabled = false;
+            //_ordinaryPlayerController.enabled = true;
+            _ordinaryPlayerController.StartRewind();
+        }
+        else if (timePoint is BezierCurvePlayerControllerTimePoint)
+        {
+            //disable bezier
+            //_bezierCurvePlayerController.enabled = true;
+            //_ordinaryPlayerController.enabled = false;
+            _bezierCurvePlayerController.StartRewind();
+        }
+    }
+
+    public void DeleteOldRecord()
+    {
+        if (TimePoints.Count > 0)
+        {
+            TimePoints.RemoveFirst();
+            Debug.Log(TimePoints.Count);
+        }
+    }
+
+    public void DeleteAllRecord()
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool ShouldRewind()
+    {
+        return _timeController.IsReversing && _timeController.IsUserShouldReverse;
+    }
+
+    private bool ShouldClearWhenOtherRewind()
+    {
+        return _timeController.IsReversing && !_timeController.IsUserShouldReverse;
     }
 }
