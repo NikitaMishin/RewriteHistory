@@ -126,7 +126,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
         {
             _ordinaryPlayerController.RecordTimePoint();
         }
-        else if (_bezierCurvePlayerController.enabled)
+        else if (_bezierCurvePlayerController != null && _bezierCurvePlayerController.enabled)
         {
             _bezierCurvePlayerController.RecordTimePoint();
         }
