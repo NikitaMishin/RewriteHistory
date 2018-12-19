@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ReverseTime;
 using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 
@@ -22,57 +23,78 @@ public class OrdinaryAndBezierCheckoutTrigger : MonoBehaviour
     public BezierCurve BezierPath; //path that player will follow when  triggered 
     public bool StartFromEndOfCurve = false; //from where we continue move when reachCurve
     public OrdinaryAndBezierCheckoutTrigger connectedTrigger;
-
-    private List<Vector3> CurvePoints;
-    private bool _isOnCurve = false;
     public Vector3 DirectionOfMovementWhenLeaveCurve;
+
+
+    private List<Vector3> _curvePoints;
+    private bool _isOnCurve = false;
+    private bool _enterDir = false;
 
 
     // Use this for initialization
     private void Awake()
     {
-        CurvePoints = BezierPath.GetAllPointsAlongCurve();
+        _curvePoints = BezierPath.GetAllPointsAlongCurve();
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+
+        var player = other.gameObject;
+        var manager = player.GetComponent<ManagerController>();
+
+        _enterDir = manager.direction;
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player")) return;
+
+
+        var player = other.gameObject;
+        var ordinaryPlayerController = player.GetComponent<OrdinaryPlayerController>();
+        var bezierPlayerController = player.GetComponent<BezierCurvePlayerController>();
+        var manager = player.GetComponent<ManagerController>();
+
+
+        if (manager.direction != _enterDir)
         {
-            var player = other.gameObject;
-            var ordinaryPlayerController = player.GetComponent<OrdinaryPlayerController>();
-            var bezierPlayerController = player.GetComponent<BezierCurvePlayerController>();
-            var manager = player.GetComponent<ManagerController>();
-
-
-            if (_isOnCurve || connectedTrigger.GetIsOnCurve())
-            {
-                _isOnCurve = false;
-                bezierPlayerController.enabled = false;
-                connectedTrigger.SetIsOnCurve(false);
-                player.transform.rotation = Quaternion.Euler(DirectionOfMovementWhenLeaveCurve);
-                manager.SendSignal(Signals.ActivatePlayerController);
-                return;
-            }
-
-            _isOnCurve = true;
-            connectedTrigger.SetIsOnCurve(true);
-
-            ordinaryPlayerController.enabled = false;
-            SetupCurveController(bezierPlayerController);
-
-            manager.SendSignal(Signals.ActivateBezierController);
+            return;
         }
+
+
+        if (_isOnCurve || connectedTrigger.GetIsOnCurve())
+        {
+            _isOnCurve = false;
+            bezierPlayerController.enabled = false;
+            connectedTrigger.SetIsOnCurve(false);
+            player.transform.rotation = Quaternion.Euler(DirectionOfMovementWhenLeaveCurve);
+            manager.SendSignal(Signals.ActivatePlayerController);
+            return;
+        }
+
+
+        _isOnCurve = true;
+        connectedTrigger.SetIsOnCurve(true);
+
+        ordinaryPlayerController.enabled = false;
+        SetupCurveController(bezierPlayerController);
+
+        manager.SendSignal(Signals.ActivateBezierController);
     }
 
     private void SetupCurveController(BezierCurvePlayerController controller)
     {
-        controller.CurvePoints = CurvePoints;
+        controller.CurvePoints = _curvePoints;
 
         if (StartFromEndOfCurve)
         {
             controller.directionCurve = false;
-            controller.CurrentWayPointId = CurvePoints.Count - 1;
+            controller.CurrentWayPointId = _curvePoints.Count - 1;
         }
         else
         {

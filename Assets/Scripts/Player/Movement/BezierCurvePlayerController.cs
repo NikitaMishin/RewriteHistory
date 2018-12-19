@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using ReverseTime;
 using UnityEngine;
 
-public class BezierCurvePlayerController : MonoBehaviour
+public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
 {
     /*
      *HOW TO
@@ -16,8 +17,8 @@ public class BezierCurvePlayerController : MonoBehaviour
      * RotationSpeed speed of rotation when move along curve
      * ReachDistance on which delta we can set  new target point on curve
      */
-    
-    
+
+
     public bool directionCurve = true; // for moving from start to end or end to start
     public BezierCurve Curve; //curve along we move// can setup
 
@@ -57,6 +58,8 @@ public class BezierCurvePlayerController : MonoBehaviour
     private float _jSpeed = 0; // initial y axis speed;
 
 
+    private TimeController _timeController;
+
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -67,6 +70,7 @@ public class BezierCurvePlayerController : MonoBehaviour
         _remainDash = Mathf.Max(_managerController.DashMaxSpeed - _currentNormalSpeed, 0);
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
+        _timeController = FindObjectOfType<TimeController>();
         if (Curve.close)
         {
             throw new Exception("USER COULDONT MOVE ON CLOSED PATH.PLEASE UNMARK CLOSE PROPERTY");
@@ -111,6 +115,7 @@ public class BezierCurvePlayerController : MonoBehaviour
 
     void Update()
     {
+        if (_managerController.ShouldRewind()) return;
         bool charOnTheGround = IsOnTheGround();
 
         dirVector = Vector3.zero;
@@ -431,5 +436,78 @@ public class BezierCurvePlayerController : MonoBehaviour
     public float GetActualSpeed()
     {
         return _currentActualSpeed;
+    }
+
+    public void RecordTimePoint()
+    {
+        _managerController.TimePoints.AddLast(new BezierCurvePlayerControllerTimePoint
+            {
+                position = transform.position,
+                rotation = transform.rotation,
+                _characterHeight = _characterHeight,
+                _remainDash = _remainDash,
+                _tMesh = _tMesh,
+                isCrouch = isCrouch,
+                _currentActualSpeed = _currentActualSpeed,
+                _currentDashTime = _currentDashTime,
+                jumpPressTime = jumpPressTime,
+                isReadyToJump = isReadyToJump,
+                Direction = _managerController.direction,
+                localScale = _tMesh.localScale,
+                directionCurve = directionCurve,
+                CurrentWayPointId = CurrentWayPointId
+            }
+        );
+    }
+
+    public void StartRewind()
+    {
+        if (_managerController.TimePoints.Count <= 0)
+        {
+            return;
+        }
+
+        var timePoint = (BezierCurvePlayerControllerTimePoint) _managerController.TimePoints.Last.Value;
+
+        //apply rewind
+        transform.position = timePoint.position;
+        transform.rotation = timePoint.rotation;
+        _characterHeight = timePoint._characterHeight;
+        _remainDash = timePoint._remainDash;
+        _tMesh = timePoint._tMesh;
+        isCrouch = timePoint.isCrouch;
+        _currentActualSpeed = timePoint._currentActualSpeed;
+        jumpPressTime = timePoint.jumpPressTime;
+        isReadyToJump = timePoint.isReadyToJump;
+        _currentDashTime = timePoint._currentDashTime;
+        _managerController.direction = timePoint.Direction;
+        _tMesh.localScale = timePoint.localScale;
+
+
+        directionCurve = timePoint.directionCurve;
+        CurrentWayPointId = timePoint.CurrentWayPointId;
+
+
+        // delete Point
+
+        _managerController.TimePoints.RemoveLast();
+    }
+
+    public void DeleteOldRecord()
+    {
+        //manager handle this
+        throw new NotImplementedException();
+    }
+
+    public void DeleteAllRecord()
+    {
+        //manager handle this
+        throw new NotImplementedException();
+    }
+
+    public bool ShouldRewind()
+    {
+        //manager handle this
+        throw  new NotImplementedException();
     }
 }
