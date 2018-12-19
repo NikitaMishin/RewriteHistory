@@ -12,6 +12,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
    * USAGE:
    * Add script to object that must move along curved path
    * Add bezierPath to this script
+     * space complexity = fixedUpdatePerSec * TimeWindow * (7 float+int + bool)
+	 * 1523kbyte for 300seconds  with 50fixedUpdate per sec and float=8byte,int4
    */
     private LinkedList<BezierCurveObjectTimePoint> _timePoints;
 
@@ -146,7 +148,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         if (_timePoints.Count > 0)
         {
             _timePoints.RemoveFirst();
-       //     Debug.Log(_timePoints.Count);
+            //     Debug.Log(_timePoints.Count);
         }
     }
 
