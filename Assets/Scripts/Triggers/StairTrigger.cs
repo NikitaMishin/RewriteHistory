@@ -7,7 +7,7 @@ public class StairTrigger : MonoBehaviour {
     private GameObject player;
     private OrdinaryPlayerController playerController;
     private StairController stairController;
-
+    private ManagerController _managerController;
     // Use this for initialization
 	void Start () {
 		
@@ -18,6 +18,7 @@ public class StairTrigger : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<OrdinaryPlayerController>();
         stairController = player.GetComponent<StairController>();
+        _managerController = player.GetComponent<ManagerController>();
     }
 
     // Update is called once per frame
@@ -28,16 +29,15 @@ public class StairTrigger : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         playerController.enabled = false;
-        stairController.enabled = true;
-
-        stairController.SetManagerController(playerController.GetManagerController());
+        _managerController.SendSignal(Signals.ActivateStairsController);
+        //stairController.SetManagerController(playerController.GetManagerController());
     }
 
     private void OnTriggerExit(Collider other)
     {
         playerController.enabled = true;
-        stairController.enabled = false;
+        _managerController.SendSignal(Signals.ActivatePlayerController);
 
-        playerController.SetManagerController(stairController.GetManagerController());
+        //playerController.SetManagerController(stairController.GetManagerController());
     }
 }

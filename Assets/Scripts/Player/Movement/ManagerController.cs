@@ -55,9 +55,10 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private TimeController _timeController;
     private OrdinaryPlayerController _ordinaryPlayerController;
     private BezierCurvePlayerController _bezierCurvePlayerController;
+    private StairController _stairController;
 
 
-    public LinkedList<BasePlayerMovementTimePoint> TimePoints; //storage where we save user move
+    public LinkedList<ITimePoint> TimePoints; //storage where we save user move
 
 
     private void Start()
@@ -65,7 +66,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
         _timeController = FindObjectOfType<TimeController>();
         _ordinaryPlayerController = GetComponent<OrdinaryPlayerController>();
         _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
-        TimePoints = new LinkedList<BasePlayerMovementTimePoint>();
+        _stairController = GetComponent<StairController>();
+        TimePoints = new LinkedList<ITimePoint>();
     }
 
     private void FixedUpdate()
@@ -101,14 +103,15 @@ public class ManagerController : MonoBehaviour, IRevertListener
         switch (signal)
         {
             case Signals.ActivatePlayerController:
-                var playerController = GetComponent<OrdinaryPlayerController>();
-                playerController.SetActualSpeed(_currentActualSpeed);
-                playerController.enabled = true;
+                _ordinaryPlayerController.SetActualSpeed(_currentActualSpeed);
+                _ordinaryPlayerController.enabled = true;
                 break;
             case Signals.ActivateBezierController:
-                var bezierController = GetComponent<BezierCurvePlayerController>();
-                bezierController.SetActualSpeed(_currentActualSpeed);
-                bezierController.enabled = true;
+                _bezierCurvePlayerController.SetActualSpeed(_currentActualSpeed);
+                _bezierCurvePlayerController.enabled = true;
+                break;
+            case Signals.ActivateStairsController:
+                _stairController.enabled = true;
                 break;
             default: throw new NotImplementedException();
         }
@@ -126,9 +129,13 @@ public class ManagerController : MonoBehaviour, IRevertListener
         {
             _ordinaryPlayerController.RecordTimePoint();
         }
-        else if (_bezierCurvePlayerController != null && _bezierCurvePlayerController.enabled)
+        else if (_bezierCurvePlayerController.enabled)
         {
             _bezierCurvePlayerController.RecordTimePoint();
+        }
+        else if (_stairController.enabled)
+        {
+            _stairController.RecordTimePoint();
         }
     }
 
@@ -154,6 +161,10 @@ public class ManagerController : MonoBehaviour, IRevertListener
             //_bezierCurvePlayerController.enabled = true;
             //_ordinaryPlayerController.enabled = false;
             _bezierCurvePlayerController.StartRewind();
+        }
+        else if (timePoint is StairPlayerControllerTimePoint)
+        {
+            _stairController.StartRewind();
         }
     }
 
