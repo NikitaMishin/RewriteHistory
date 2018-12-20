@@ -80,6 +80,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
         else if (ShouldClearWhenOtherRewind())
         {
             DeleteOldRecord();
+            DeleteOldRecord();
+            RecordTimePoint();
         }
         else
         {
