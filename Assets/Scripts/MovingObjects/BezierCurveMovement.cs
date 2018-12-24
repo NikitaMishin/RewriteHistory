@@ -16,12 +16,11 @@ public class BezierCurveMovement : MonoBehaviour
     public float Speed = 0.5f;
     public float RotationSpeed = 5f;
     public bool Direction = true;
-    
+
     public float reachDistance = 1.0f; //to smooth
 
     private List<Vector3> PathPoints;
 
-    
 
     // Use this for initialization
     void Start()
@@ -40,16 +39,15 @@ public class BezierCurveMovement : MonoBehaviour
 
         var lookPos = PathPoints[CurrentWayPointId] - transform.position;
         var rotation = Quaternion.LookRotation(lookPos);
-        
+
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
 
         if (distance <= reachDistance)
         {
             UpdateIndexPoint();
         }
-
     }
-    
+
 
     /// <summary>
     /// Assign next point to follow based on  Direction Current poinr and Path.close
@@ -61,7 +59,7 @@ public class BezierCurveMovement : MonoBehaviour
         {
             CurrentWayPointId = 0;
         }
-        else if (Direction && CurrentWayPointId>=PathPoints.Count - 1  && !Path.close)
+        else if (Direction && CurrentWayPointId >= PathPoints.Count - 1 && !Path.close)
         {
             CurrentWayPointId--;
             Direction = !Direction;
@@ -70,13 +68,14 @@ public class BezierCurveMovement : MonoBehaviour
         {
             CurrentWayPointId++;
             Direction = !Direction;
-        } else if (Direction)
+        }
+        else if (Direction)
         {
             CurrentWayPointId++;
-        } else if (!Direction)
+        }
+        else if (!Direction)
         {
             CurrentWayPointId--;
         }
-   
     }
 }

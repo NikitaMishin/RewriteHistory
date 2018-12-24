@@ -14,6 +14,9 @@ public class ManagerController : MonoBehaviour, IRevertListener
     // DIRECTION
     public bool direction = true; // for moving along axis (need for rotating) true for positive false for negative
 
+    public bool _isDashPressed = false;
+    public bool isCrouch = false;
+    public float _currentNormalSpeed; // depends on isGrounded and Crouch status 
 
     // DASH
     public float DashLimitSec = 5f; // interval when user can dash;ус

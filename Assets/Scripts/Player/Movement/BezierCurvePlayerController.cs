@@ -20,7 +20,6 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
 
 
     public bool directionCurve = true; // for moving from start to end or end to start
-    public BezierCurve Curve; //curve along we move// can setup
 
     public int CurrentWayPointId = 0;
     public float RotationSpeed = 3f;
@@ -35,18 +34,14 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     public List<Vector3> CurvePoints;
     private CharacterController _controller;
     private Vector3 dirVector = Vector3.zero; // direction vector
-    private float _currentNormalSpeed; // depends on isGrounded and Crouch status 
-    private float _currentActualSpeed; // actual speed 
 
 
     //FOR DASH
     private float _currentDashTime = 0f; // in what period we press dash
     private float _remainDash; // delta between maxDash and NormalSpeed
-    private bool _isDashPressed = false;
 
 
     // FOR CROUCH
-    private bool isCrouch = false;
     private Transform _tMesh; // Player Transform
     private float _characterHeight;
     private Vector3 _initialLocalScale;
@@ -65,23 +60,19 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         _controller = GetComponent<CharacterController>();
         _tMesh = GetComponent<Transform>();
         _managerController = GetComponent<ManagerController>();
-        _currentNormalSpeed = _managerController.SpeedOnGround;
-        _currentActualSpeed = 0f;
-        _remainDash = Mathf.Max(_managerController.DashMaxSpeed - _currentNormalSpeed, 0);
+        _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
+        _managerController._currentActualSpeed = 0f;
+        _remainDash = Mathf.Max(_managerController.DashMaxSpeed - _managerController._currentNormalSpeed, 0);
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
         _timeController = FindObjectOfType<TimeController>();
-        if (Curve.close)
-        {
-            throw new Exception("USER COULDONT MOVE ON CLOSED PATH.PLEASE UNMARK CLOSE PROPERTY");
-        }
     }
 
 
     private void OnDisable()
     {
         // set actual speed in manager
-        _managerController.SetActualSpeed(_currentActualSpeed);
+        _managerController.SetActualSpeed(_managerController._currentActualSpeed);
     }
 
     private void UpdateIndexPoint()
@@ -126,21 +117,21 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         {
             CrouchPressed();
         }
-        else if (isCrouch)
+        else if (_managerController.isCrouch)
         {
             CrouchStop();
         }
 
 
-        if (charOnTheGround && Input.GetKey(KeyCode.LeftShift) && !isCrouch)
+        if (charOnTheGround && Input.GetKey(KeyCode.LeftShift) && !_managerController.isCrouch)
         {
             DashPressed();
-            _isDashPressed = true;
+            _managerController._isDashPressed = true;
         }
         else
         {
             RestoreDashTime();
-            _isDashPressed = false;
+            _managerController._isDashPressed = false;
         }
 
 
@@ -194,7 +185,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         if (!_managerController.direction)
         {
             // Rotate
-            if (_currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
+            if (_managerController._currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
                 //  transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
@@ -217,7 +208,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     {
         if (_managerController.direction)
         {
-            if (_currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
+            if (_managerController._currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
                 // transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
@@ -239,28 +230,31 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     private void MoveForward()
     {
         // continue move along direction vector
-        if (_currentActualSpeed < _currentNormalSpeed)
+        if (_managerController._currentActualSpeed < _managerController._currentNormalSpeed)
         {
-            if (_isDashPressed)
+            if (_managerController._isDashPressed)
             {
-                _currentActualSpeed += _managerController.DashAccelerationPercent * _remainDash * Time.deltaTime;
+                _managerController._currentActualSpeed +=
+                    _managerController.DashAccelerationPercent * _remainDash * Time.deltaTime;
             }
             else
             {
-                _currentActualSpeed +=
-                    _managerController.SpeedAccelerationPercent * _currentNormalSpeed * Time.deltaTime;
+                _managerController._currentActualSpeed +=
+                    _managerController.SpeedAccelerationPercent * _managerController._currentNormalSpeed *
+                    Time.deltaTime;
             }
         }
-        else if (_currentActualSpeed > _currentNormalSpeed)
+        else if (_managerController._currentActualSpeed > _managerController._currentNormalSpeed)
         {
-            _currentActualSpeed -= _managerController.SpeedAccelerationPercent * _currentNormalSpeed * Time.deltaTime;
+            _managerController._currentActualSpeed -= _managerController.SpeedAccelerationPercent *
+                                                      _managerController._currentNormalSpeed * Time.deltaTime;
         }
 
-        float percent = Math.Abs(_currentActualSpeed - _currentNormalSpeed) /
-                        Math.Max(_currentNormalSpeed, _currentActualSpeed);
+        float percent = Math.Abs(_managerController._currentActualSpeed - _managerController._currentNormalSpeed) /
+                        Math.Max(_managerController._currentNormalSpeed, _managerController._currentActualSpeed);
         if (percent < _managerController.ThresholdPercent)
         {
-            _currentActualSpeed = _currentNormalSpeed;
+            _managerController._currentActualSpeed = _managerController._currentNormalSpeed;
         }
 
 
@@ -284,7 +278,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
             lookPos.y = 0;
             rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
-            dirVector += lookPos.normalized * _currentActualSpeed;
+            dirVector += lookPos.normalized * _managerController._currentActualSpeed;
             return;
         }
         else if (CurrentWayPointId == CurvePoints.Count - 1 && !directionCurve)
@@ -299,7 +293,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
             lookPos.y = 0;
             rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
-            dirVector += lookPos.normalized * _currentActualSpeed;
+            dirVector += lookPos.normalized * _managerController._currentActualSpeed;
             return;
         }
 
@@ -325,17 +319,19 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
             UpdateIndexPoint();
         }
 
-        dirVector += lookPos.normalized * _currentActualSpeed;
+        dirVector += lookPos.normalized * _managerController._currentActualSpeed;
     }
 
 
     private void ApplyInertia()
     {
-        float inertiaForce = _currentActualSpeed / 2f;
+        float inertiaForce = _managerController._currentActualSpeed / 2f;
         dirVector += transform.forward * inertiaForce;
 
-        _currentActualSpeed =
-            Math.Max(0f, _currentActualSpeed - _currentNormalSpeed * _managerController.InertiaStopPercentCoef);
+        _managerController._currentActualSpeed =
+            Math.Max(0f,
+                _managerController._currentActualSpeed - _managerController._currentNormalSpeed *
+                _managerController.InertiaStopPercentCoef);
     }
 
 
@@ -352,11 +348,11 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         if (_currentDashTime < _managerController.DashLimitSec)
         {
             _currentDashTime += Time.deltaTime;
-            _currentNormalSpeed = _managerController.DashMaxSpeed;
+            _managerController._currentNormalSpeed = _managerController.DashMaxSpeed;
         }
         else
         {
-            _currentNormalSpeed = _managerController.SpeedOnGround;
+            _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
         }
     }
 
@@ -365,7 +361,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     /// </summary>
     private void RestoreDashTime()
     {
-        if (_currentActualSpeed <= _currentNormalSpeed)
+        if (_managerController._currentActualSpeed <= _managerController._currentNormalSpeed)
         {
             //we cover and restore
             _currentDashTime = Mathf.Max(0f, _currentDashTime - Time.deltaTime); //player rest             
@@ -379,18 +375,18 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         {
             //if character on the ground acceleration=0
             _jSpeed = 0;
-            _currentNormalSpeed = _managerController.SpeedOnGround;
+            _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
         }
 
 
         if (!charOnTheGround)
         {
-            _currentNormalSpeed = _managerController.SpeedInAir;
+            _managerController._currentNormalSpeed = _managerController.SpeedInAir;
         }
 
-        if (isCrouch)
+        if (_managerController.isCrouch)
         {
-            _currentNormalSpeed = _managerController.CrouchSpeed;
+            _managerController._currentNormalSpeed = _managerController.CrouchSpeed;
         }
     }
 
@@ -399,12 +395,12 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     /// </summary>
     private void CrouchPressed()
     {
-        if (!isCrouch && IsOnTheGround())
+        if (!_managerController.isCrouch && IsOnTheGround())
         {
             _tMesh.localScale = new Vector3(_initialLocalScale.x, _managerController.LocalScaleY, _initialLocalScale.z);
             _controller.height = _managerController.ControllerHeight;
-            _currentNormalSpeed = _managerController.CrouchSpeed;
-            isCrouch = true;
+            _managerController._currentNormalSpeed = _managerController.CrouchSpeed;
+            _managerController.isCrouch = true;
         }
     }
 
@@ -424,18 +420,18 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         // we can stand up
         _tMesh.localScale = _initialLocalScale;
         _controller.height = _characterHeight;
-        isCrouch = false;
-        _currentNormalSpeed = _managerController.SpeedOnGround;
+        _managerController.isCrouch = false;
+        _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
     }
 
     public void SetActualSpeed(float speed)
     {
-        _currentActualSpeed = speed;
+        _managerController._currentActualSpeed = speed;
     }
 
     public float GetActualSpeed()
     {
-        return _currentActualSpeed;
+        return _managerController._currentActualSpeed;
     }
 
     public void RecordTimePoint()
@@ -447,8 +443,8 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
                 _characterHeight = _characterHeight,
                 _remainDash = _remainDash,
                 _tMesh = _tMesh,
-                isCrouch = isCrouch,
-                _currentActualSpeed = _currentActualSpeed,
+                isCrouch = _managerController.isCrouch,
+                _currentActualSpeed = _managerController._currentActualSpeed,
                 _currentDashTime = _currentDashTime,
                 jumpPressTime = jumpPressTime,
                 isReadyToJump = isReadyToJump,
@@ -475,8 +471,8 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         _characterHeight = timePoint._characterHeight;
         _remainDash = timePoint._remainDash;
         _tMesh = timePoint._tMesh;
-        isCrouch = timePoint.isCrouch;
-        _currentActualSpeed = timePoint._currentActualSpeed;
+        _managerController.isCrouch = timePoint.isCrouch;
+        _managerController._currentActualSpeed = timePoint._currentActualSpeed;
         jumpPressTime = timePoint.jumpPressTime;
         isReadyToJump = timePoint.isReadyToJump;
         _currentDashTime = timePoint._currentDashTime;
@@ -508,6 +504,6 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     public bool ShouldRewind()
     {
         //manager handle this
-        throw  new NotImplementedException();
+        throw new NotImplementedException();
     }
 }
