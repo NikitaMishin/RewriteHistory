@@ -71,10 +71,10 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
         _timeController = FindObjectOfType<TimeController>();
-        if (Curve.close)
-        {
-            throw new Exception("USER COULDONT MOVE ON CLOSED PATH.PLEASE UNMARK CLOSE PROPERTY");
-        }
+       // if (Curve.close)
+       // {
+       //     throw new Exception("USER COULDONT MOVE ON CLOSED PATH.PLEASE UNMARK CLOSE PROPERTY");
+       // }
     }
 
 
