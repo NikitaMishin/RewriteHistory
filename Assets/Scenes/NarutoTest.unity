@@ -6531,6 +6531,9 @@ GameObject:
   - component: {fileID: 947517278}
   - component: {fileID: 947517282}
   - component: {fileID: 947517279}
+  - component: {fileID: 947517283}
+  - component: {fileID: 947517280}
+  - component: {fileID: 947517281}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6651,15 +6654,11 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947517270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f99c4a2c2085fe4f8ae3d9d7bb75fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 5
-  _layer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!114 &947517279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6676,6 +6675,28 @@ MonoBehaviour:
   MaxTimeReverse: 5
   IsUserShouldReverse: 0
   _currentTimeReverse: 0
+--- !u!114 &947517280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947517270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55dc3a1957afeb4aaf1e0e66d47702b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &947517281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947517270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f99c4a2c2085fe4f8ae3d9d7bb75fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &947517282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6704,6 +6725,23 @@ MonoBehaviour:
   SpeedAccelerationPercent: 0.23
   ThresholdPercent: 0.15
   _currentActualSpeed: 0
+--- !u!114 &947517283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947517270}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1bf5ab48854040769f42539f3e6fd66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionCurve: 1
+  Curve: {fileID: 0}
+  CurrentWayPointId: 0
+  RotationSpeed: 3
+  ReachDistance: 0.5
+  CurvePoints: []
 --- !u!1001 &948918373
 Prefab:
   m_ObjectHideFlags: 0
@@ -12443,8 +12481,8 @@ GameObject:
   - component: {fileID: 1771758142}
   - component: {fileID: 1771758141}
   - component: {fileID: 1771758140}
-  - component: {fileID: 1771758139}
   - component: {fileID: 1771758144}
+  - component: {fileID: 1771758139}
   m_Layer: 9
   m_Name: Cube (1)
   m_TagString: MovementObject
@@ -12461,11 +12499,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &1771758140
 BoxCollider:

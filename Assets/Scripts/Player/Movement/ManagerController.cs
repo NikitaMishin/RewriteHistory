@@ -56,17 +56,29 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private OrdinaryPlayerController _ordinaryPlayerController;
     private BezierCurvePlayerController _bezierCurvePlayerController;
     private StairController _stairController;
+    private MoveObjectController _pushObjectController;
 
 
     public LinkedList<ITimePoint> TimePoints; //storage where we save user move
 
 
-    private void Start()
+    void Start()
     {
         _timeController = FindObjectOfType<TimeController>();
         _ordinaryPlayerController = GetComponent<OrdinaryPlayerController>();
         _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
         _stairController = GetComponent<StairController>();
+        _pushObjectController = GetComponent<MoveObjectController>();
+        TimePoints = new LinkedList<ITimePoint>();
+    }
+
+    void Awake()
+    {
+        _timeController = FindObjectOfType<TimeController>();
+        _ordinaryPlayerController = GetComponent<OrdinaryPlayerController>();
+        _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
+        _stairController = GetComponent<StairController>();
+        _pushObjectController = GetComponent<MoveObjectController>();
         TimePoints = new LinkedList<ITimePoint>();
     }
 
@@ -102,6 +114,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
     /// <param name="signal"></param>
     public void SendSignal(Signals signal)
     {
+        DisableControllers();
+
         switch (signal)
         {
             case Signals.ActivatePlayerController:
@@ -115,8 +129,20 @@ public class ManagerController : MonoBehaviour, IRevertListener
             case Signals.ActivateStairsController:
                 _stairController.enabled = true;
                 break;
+            case Signals.ActivatePushObjectController:
+                _pushObjectController.SetActualSpeed(_currentActualSpeed);
+                _pushObjectController.enabled = true;
+                break;
             default: throw new NotImplementedException();
         }
+    }
+
+    private void DisableControllers()
+    {
+        _ordinaryPlayerController.enabled = false;
+        _bezierCurvePlayerController.enabled = false;
+        _stairController.enabled = false;
+        _pushObjectController.enabled = false;
     }
 
     public void SetActualSpeed(float speed)
@@ -138,6 +164,10 @@ public class ManagerController : MonoBehaviour, IRevertListener
         else if (_stairController.enabled)
         {
             _stairController.RecordTimePoint();
+        }
+        else if (_pushObjectController.enabled)
+        {
+            _pushObjectController.RecordTimePoint();
         }
     }
 

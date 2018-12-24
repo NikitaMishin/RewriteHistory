@@ -15,29 +15,29 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     protected CharacterController _controller;
     protected Vector3 dirVector = Vector3.zero; // direction vector
-    private float _currentNormalSpeed; // depends on isGrounded and Crouch status 
-    private float _currentActualSpeed; // actual speed 
+    protected float _currentNormalSpeed; // depends on isGrounded and Crouch status 
+    protected float _currentActualSpeed; // actual speed 
 
 
     //FOR DASH
-    private float _currentDashTime = 0f; // in what period we press dash
-    private float _remainDash; // delta between maxDash and NormalSpeed
-    private bool _isDashPressed = false;
+    protected float _currentDashTime = 0f; // in what period we press dash
+    protected float _remainDash; // delta between maxDash and NormalSpeed
+    protected bool _isDashPressed = false;
 
 
     // FOR CROUCH
-    private bool isCrouch = false;
-    private Transform _tMesh; // Player Transform
-    private float _characterHeight;
-    private Vector3 _initialLocalScale;
+    protected bool isCrouch = false;
+    protected Transform _tMesh; // Player Transform
+    protected float _characterHeight;
+    protected Vector3 _initialLocalScale;
 
 
     // FOR JUMP and gravity
-    private bool isReadyToJump = true;
-    private float jumpPressTime = -1; // when Jump button was pressed
-    private float _jSpeed = 0; // initial y axis speed;
+    protected bool isReadyToJump = true;
+    protected float jumpPressTime = -1; // when Jump button was pressed
+    protected float _jSpeed = 0; // initial y axis speed;
 
-    private TimeController _timeController;
+    protected TimeController _timeController;
 
 
     void Awake()

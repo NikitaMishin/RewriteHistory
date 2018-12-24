@@ -47,6 +47,7 @@ public class StairController : OrdinaryPlayerController
 
         _controller.Move(dirVector);
     }
+
     public new void RecordTimePoint()
     {
         _managerController.TimePoints.AddLast(new StairPlayerControllerTimePoint(transform.position,
