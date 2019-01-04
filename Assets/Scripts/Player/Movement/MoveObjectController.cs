@@ -13,8 +13,9 @@ public class MoveObjectController : OrdinaryPlayerController
      * Set controller to the player
      * Disable controller
      * Set InteractSignal to player
+     * Set Tag "MovementObject" to necessary object
      * 
-     * For moving press F
+     * For activate moving click f
      */
 
     private Collider _colliderInteract;
