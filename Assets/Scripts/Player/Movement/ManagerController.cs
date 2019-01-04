@@ -59,6 +59,9 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private OrdinaryPlayerController _ordinaryPlayerController;
     private BezierCurvePlayerController _bezierCurvePlayerController;
     private StairController _stairController;
+    private MoveObjectController _moveObjectController;
+
+    private Signals currentSignal = Signals.ActivatePlayerController;
 
 
     public LinkedList<ITimePoint> TimePoints; //storage where we save user move
@@ -71,6 +74,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
         _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
         _stairController = GetComponent<StairController>();
         TimePoints = new LinkedList<ITimePoint>();
+
+        _moveObjectController = GetComponent<MoveObjectController>();
     }
 
     private void FixedUpdate()
@@ -105,6 +110,10 @@ public class ManagerController : MonoBehaviour, IRevertListener
     /// <param name="signal"></param>
     public void SendSignal(Signals signal)
     {
+        DisableControllers();
+
+        currentSignal = signal;
+
         switch (signal)
         {
             case Signals.ActivatePlayerController:
@@ -118,8 +127,20 @@ public class ManagerController : MonoBehaviour, IRevertListener
             case Signals.ActivateStairsController:
                 _stairController.enabled = true;
                 break;
+            case Signals.ActivateMoveObjectController:
+                _moveObjectController.SetActualSpeed(_currentActualSpeed);
+                _moveObjectController.enabled = true;
+                break;
             default: throw new NotImplementedException();
         }
+    }
+
+    private void DisableControllers()
+    {
+        _ordinaryPlayerController.enabled = false;
+        _bezierCurvePlayerController.enabled = false;
+        _stairController.enabled = false;
+        _moveObjectController.enabled = false;
     }
 
     public void SetActualSpeed(float speed)
@@ -141,6 +162,10 @@ public class ManagerController : MonoBehaviour, IRevertListener
         else if (_stairController.enabled)
         {
             _stairController.RecordTimePoint();
+        }
+        else if (_moveObjectController.enabled)
+        {
+            _moveObjectController.RecordTimePoint();
         }
     }
 
@@ -171,6 +196,11 @@ public class ManagerController : MonoBehaviour, IRevertListener
         {
             _stairController.StartRewind();
         }
+    }
+
+    public Signals CurrentSignal
+    {
+        get { return currentSignal; }
     }
 
     public void DeleteOldRecord()

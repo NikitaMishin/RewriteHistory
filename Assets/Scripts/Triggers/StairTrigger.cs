@@ -5,8 +5,6 @@ using UnityEngine;
 public class StairTrigger : MonoBehaviour {   
 
     private GameObject player;
-    private OrdinaryPlayerController playerController;
-    private StairController stairController;
     private ManagerController _managerController;
     // Use this for initialization
 	void Start () {
@@ -16,8 +14,6 @@ public class StairTrigger : MonoBehaviour {
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerController = player.GetComponent<OrdinaryPlayerController>();
-        stairController = player.GetComponent<StairController>();
         _managerController = player.GetComponent<ManagerController>();
     }
 
@@ -28,16 +24,13 @@ public class StairTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        playerController.enabled = false;
-        _managerController.SendSignal(Signals.ActivateStairsController);
-        //stairController.SetManagerController(playerController.GetManagerController());
+        if (_managerController.CurrentSignal == Signals.ActivatePlayerController)
+            _managerController.SendSignal(Signals.ActivateStairsController);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        playerController.enabled = true;
-        _managerController.SendSignal(Signals.ActivatePlayerController);
-
-        //playerController.SetManagerController(stairController.GetManagerController());
+        if (_managerController.CurrentSignal == Signals.ActivateStairsController)
+            _managerController.SendSignal(Signals.ActivatePlayerController);
     }
 }
