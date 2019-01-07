@@ -3956,7 +3956,7 @@ GameObject:
   m_Layer: 0
   m_Name: kolona1 (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4223,7 +4223,7 @@ GameObject:
   m_Layer: 0
   m_Name: kolona1
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6703,7 +6703,7 @@ GameObject:
   m_Layer: 0
   m_Name: kolona1 (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -9818,7 +9818,6 @@ GameObject:
   - component: {fileID: 947517276}
   - component: {fileID: 947517278}
   - component: {fileID: 947517284}
-  - component: {fileID: 947517282}
   - component: {fileID: 947517279}
   - component: {fileID: 947517280}
   - component: {fileID: 947517283}
@@ -9993,37 +9992,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &947517282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947517270}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0cd4bfe525a47fe939e502597ea270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 1
-  _isDashPressed: 1
-  isCrouch: 0
-  _currentNormalSpeed: 5
-  DashLimitSec: 10
-  DashMaxSpeed: 5
-  DashAccelerationPercent: 5
-  Gravity: -9.81
-  FallSpeed: 1.5
-  SpeedOnGround: 6
-  CrouchSpeed: 3
-  LocalScaleY: 0
-  ControllerHeight: 0
-  JumpSpeed: 8
-  SpeedInAir: 8
-  OnWhichSpeedCanRotate: 0
-  InertiaStopPercentCoef: 1
-  SpeedAccelerationPercent: 0.1
-  ThresholdPercent: 0.1
-  _currentActualSpeed: 0
 --- !u!114 &947517283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10054,16 +10022,16 @@ MonoBehaviour:
   DashMaxSpeed: 12
   DashAccelerationPercent: 1
   Gravity: -9.81
-  FallSpeed: 1.5
+  FallSpeed: 1
   SpeedOnGround: 6
   CrouchSpeed: 3
   LocalScaleY: 0
   ControllerHeight: 0
-  JumpSpeed: 8
+  JumpSpeed: 15
   SpeedInAir: 4
-  OnWhichSpeedCanRotate: 0
-  InertiaStopPercentCoef: 0.33
-  SpeedAccelerationPercent: 0.23
+  OnWhichSpeedCanRotate: 0.2
+  InertiaStopPercentCoef: 0.23
+  SpeedAccelerationPercent: 0.33
   ThresholdPercent: 0.15
   _currentActualSpeed: 0
 --- !u!1001 &948918373
