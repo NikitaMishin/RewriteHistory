@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/NarutoTest.unity
     guid: 7dc83d76fab4f9748a6cc55c6b557e7f
+  - enabled: 1
+    path: Assets/Scenes/AlexeyScene.unity
+    guid: a80eb91daeba5e8418baa6eca741ee50
   m_configObjects: {}

@@ -55,6 +55,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     public float _currentActualSpeed = 0; // actual speed
 
+    public Animator animator;
+
     private TimeController _timeController;
     private OrdinaryPlayerController _ordinaryPlayerController;
     private BezierCurvePlayerController _bezierCurvePlayerController;
@@ -76,6 +78,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
         TimePoints = new LinkedList<ITimePoint>();
 
         _moveObjectController = GetComponent<MoveObjectController>();
+
+        animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()

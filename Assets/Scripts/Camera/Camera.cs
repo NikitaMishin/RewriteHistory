@@ -87,7 +87,7 @@ public class Camera : MonoBehaviour
         {
             camera = Vector3.Lerp(camera, Vector3.zero, Time.deltaTime * _cameraSpeedX);
         }
-
+        return 0;
         return camera.x;
     }
 
@@ -115,7 +115,7 @@ public class Camera : MonoBehaviour
         {
             camera = Vector3.Lerp(camera, Vector3.zero, Time.deltaTime * _cameraSpeedY);
         }
-
+        return 0;
         return camera.y;
     }
 }

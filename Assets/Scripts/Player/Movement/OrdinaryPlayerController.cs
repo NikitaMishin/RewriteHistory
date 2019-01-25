@@ -11,6 +11,10 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
      * add managerController to player
      * add characterController to player
      */
+
+    public float walkingAnimationSpeed = 5;
+
+
     protected ManagerController _managerController;
 
     protected CharacterController _controller;
@@ -52,11 +56,35 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _managerController.SetActualSpeed(_managerController._currentActualSpeed);
     }
 
+    private void AnimateWalking()
+    {
+        Debug.Log(_managerController._currentActualSpeed);
+
+        if (_managerController._currentActualSpeed < walkingAnimationSpeed)
+            _managerController.animator.SetBool("IsWalking", true);
+        else
+            _managerController.animator.SetBool("IsRunning", true);
+    }
+
     void Update()
     {
+        _managerController.animator.SetBool("IsWalking", false);
+        _managerController.animator.SetBool("IsRunning", false);
+
         if (_managerController.ShouldRewind()) return;
 
         bool charOnTheGround = IsOnTheGround();
+
+        if (charOnTheGround)
+        {
+            _managerController.animator.SetBool("Jump", false);
+            _managerController.animator.SetBool("IsFalling", false);
+        }
+        else
+        {
+
+            _managerController.animator.SetBool("IsFalling", true);
+        }
 
         dirVector = Vector3.zero;
 
@@ -142,9 +170,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 MoveForward();
+                _managerController.animator.SetBool("TurneRight", true);
             }
             else
             {
+                _managerController.animator.SetBool("TurneRight", false);
                 ApplyInertia();
             }
         }
@@ -163,9 +193,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction; //TODO what the fuck
                 MoveForward();
+                _managerController.animator.SetBool("TurneLeft", true);
             }
             else
             {
+                _managerController.animator.SetBool("TurneLeft", false);
                 ApplyInertia();
             }
         }
@@ -206,6 +238,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         }
 
         dirVector += transform.forward * _managerController._currentActualSpeed;
+
+
+        // Animator
+        if (IsOnTheGround())
+            AnimateWalking();
     }
 
 
@@ -224,6 +261,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     private void Jump()
     {
         _jSpeed += _managerController.JumpSpeed;
+        _managerController.animator.SetBool("Jump", true);
     }
 
     /// <summary>

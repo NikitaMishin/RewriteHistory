@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using ReverseTime;
-using UnityEditor.Rendering.PostProcessing;
 using UnityEngine;
 
 public class StairController : OrdinaryPlayerController
