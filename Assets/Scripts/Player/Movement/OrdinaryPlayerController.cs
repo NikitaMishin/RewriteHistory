@@ -68,8 +68,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     void Update()
     {
-        _managerController.animator.SetBool("IsWalking", false);
-        _managerController.animator.SetBool("IsRunning", false);
+        
 
         if (_managerController.ShouldRewind()) return;
 
@@ -144,7 +143,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
 
         _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
-
+        if (dirVector.x == 0)
+        {
+            _managerController.animator.SetBool("IsWalking", false);
+            _managerController.animator.SetBool("IsRunning", false);
+        }
         dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
 
         _controller.Move(dirVector);
