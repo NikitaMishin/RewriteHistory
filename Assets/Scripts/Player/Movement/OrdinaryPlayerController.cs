@@ -58,12 +58,22 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     private void AnimateWalking()
     {
-        Debug.Log(_managerController._currentActualSpeed);
-
-        if (_managerController._currentActualSpeed < walkingAnimationSpeed)
+        if (_managerController._currentActualSpeed == 0)
+        {
+            _managerController.animator.SetBool("IsRunning", false);
+            _managerController.animator.SetBool("IsWalking", false);
+        } else if (_managerController._currentActualSpeed < walkingAnimationSpeed)
+        {
+            Debug.Log("IsWalking");
+            _managerController.animator.SetBool("IsRunning", false);
             _managerController.animator.SetBool("IsWalking", true);
+        }
         else
+        {
+            Debug.Log("IsRunning");
+            _managerController.animator.SetBool("IsWalking", false);
             _managerController.animator.SetBool("IsRunning", true);
+        }
     }
 
     void Update()
@@ -121,6 +131,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             PressLeftMove();
         }
 
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            _managerController._currentActualSpeed = 0;
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             isReadyToJump = true;
@@ -143,11 +156,12 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
 
         _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
-        if (dirVector.x == 0)
-        {
-            _managerController.animator.SetBool("IsWalking", false);
-            _managerController.animator.SetBool("IsRunning", false);
-        }
+       
+      
+        // Animator
+        if (IsOnTheGround())
+            AnimateWalking();
+
         dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
 
         _controller.Move(dirVector);
@@ -243,9 +257,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         dirVector += transform.forward * _managerController._currentActualSpeed;
 
 
-        // Animator
-        if (IsOnTheGround())
-            AnimateWalking();
+        
     }
 
 
