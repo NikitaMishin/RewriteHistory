@@ -33,18 +33,27 @@ public class InteractSignal : MonoBehaviour
         {
 
             if (_isInteract)
-            {
-                _isInteract = false;
-                _moveObjectController.SetInteractCollider(null);
-                _managerController.SendSignal(Signals.ActivatePlayerController);
-            }
-            else if (Physics.Raycast(transform.position, transform.forward, out hit, 1f) && 
-                hit.collider.gameObject.tag.Equals("MovementObject"))
-            {
-                _isInteract = true;
-                _moveObjectController.SetInteractCollider(hit.collider);
-                _managerController.SendSignal(Signals.ActivateMoveObjectController);
-            }
+                InterruptInteract();
+            else if (
+                Physics.Raycast(transform.position, transform.forward, out hit, 1f) &&
+                hit.collider.gameObject.tag.Equals("MovementObject")
+                )
+                ActivateInteract(hit);
         }
     }
+
+    public void InterruptInteract()
+    {
+        _isInteract = false;
+        _moveObjectController.SetInteractCollider(null);
+        _managerController.SendSignal(Signals.ActivatePlayerController);
+    }
+
+    public void ActivateInteract(RaycastHit hit)
+    {
+        _isInteract = true;
+        _moveObjectController.SetInteractCollider(hit.collider);
+        _managerController.SendSignal(Signals.ActivateMoveObjectController);
+    }
+
 }

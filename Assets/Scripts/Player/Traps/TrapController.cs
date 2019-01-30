@@ -7,6 +7,8 @@ public class TrapController : MonoBehaviour {
     [SerializeField]
     private GameObject _respawn;
 
+    private InteractSignal _interactSignal;
+
 	// Use this for initialization
 	void Start () {
         
@@ -17,6 +19,11 @@ public class TrapController : MonoBehaviour {
 		
 	}
 
+    private void Awake()
+    {
+        _interactSignal = gameObject.GetComponent<InteractSignal>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Trap"))
@@ -25,8 +32,10 @@ public class TrapController : MonoBehaviour {
         }
     }
 
-    private void GoToRespawn()
+    public void GoToRespawn()
     {
+        _interactSignal.InterruptInteract();
+
         gameObject.transform.position = new Vector3(
             _respawn.transform.position.x,
             _respawn.transform.position.y + 2,

@@ -47,6 +47,9 @@ public class InclineTrigger : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
+        if (!other.gameObject.tag.Equals("Player"))
+            return;
+
         if (_root.transform.rotation.z == 0)
             return;
 
@@ -60,11 +63,17 @@ public class InclineTrigger : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
+        if (!other.gameObject.tag.Equals("Player"))
+            return;
+
         isExit = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.tag.Equals("Player"))
+            return;
+
         isExit = false;
         _managerController.forceVector = Vector3.zero;
     }
