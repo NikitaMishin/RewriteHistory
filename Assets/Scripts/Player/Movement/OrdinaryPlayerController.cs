@@ -162,7 +162,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         if (IsOnTheGround())
             AnimateWalking();
 
-        dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
+        dirVector = (dirVector + Vector3.up * _jSpeed + _managerController.forceVector) * Time.deltaTime;
 
         _controller.Move(dirVector);
         //UpdateCameraPosition();

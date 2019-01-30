@@ -65,6 +65,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     private Signals currentSignal = Signals.ActivatePlayerController;
 
+    public Vector3 forceVector = Vector3.zero; // player forces
+
 
     public LinkedList<ITimePoint> TimePoints; //storage where we save user move
 
