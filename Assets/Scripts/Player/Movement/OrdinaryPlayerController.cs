@@ -64,13 +64,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             _managerController.animator.SetBool("IsWalking", false);
         } else if (_managerController._currentActualSpeed < walkingAnimationSpeed)
         {
-            Debug.Log("IsWalking");
             _managerController.animator.SetBool("IsRunning", false);
             _managerController.animator.SetBool("IsWalking", true);
         }
         else
         {
-            Debug.Log("IsRunning");
             _managerController.animator.SetBool("IsWalking", false);
             _managerController.animator.SetBool("IsRunning", true);
         }
@@ -91,10 +89,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         }
         else
         {
-
             _managerController.animator.SetBool("IsFalling", true);
         }
-
+        
         dirVector = Vector3.zero;
 
         InitialSpeedSetup();
@@ -162,10 +159,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         if (IsOnTheGround())
             AnimateWalking();
 
-        dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
+        dirVector = (dirVector + Vector3.up * _jSpeed + _managerController.forceVector) * Time.deltaTime;
 
         _controller.Move(dirVector);
-        //UpdateCameraPosition();
     }
 
     public bool IsOnTheGround()
@@ -451,5 +447,10 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     {
         //manager handle this
         throw new NotImplementedException();
+    }
+
+    public float GetFallSpeed()
+    {
+        return _jSpeed;
     }
 }
