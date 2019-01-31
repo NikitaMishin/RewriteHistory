@@ -34,7 +34,7 @@ public class TrapController : MonoBehaviour {
 
     public void GoToRespawn()
     {
-        _interactSignal.InterruptInteract();
+       // _interactSignal.InterruptInteract();
 
         gameObject.transform.position = new Vector3(
             _respawn.transform.position.x,
