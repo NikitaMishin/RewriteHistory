@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/NarutoTest.unity
     guid: 7dc83d76fab4f9748a6cc55c6b557e7f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AlexeyScene.unity
     guid: a80eb91daeba5e8418baa6eca741ee50
+  - enabled: 1
+    path: Assets/Scenes/Naruto1minuteScene .unity
+    guid: ac2de84f2a853fc4a912a0187ff856ed
   m_configObjects: {}
