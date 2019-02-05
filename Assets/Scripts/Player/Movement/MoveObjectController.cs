@@ -22,6 +22,9 @@ public class MoveObjectController : OrdinaryPlayerController
 
     private Rigidbody _rigidbody;
     private Vector3 _offset;
+    private RaycastHit _hit;
+    private InteractSignal _interactSignal;
+
 
     // Use this for initialization
     void Awake()
@@ -34,45 +37,44 @@ public class MoveObjectController : OrdinaryPlayerController
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
         _timeController = FindObjectOfType<TimeController>();
+        _interactSignal = gameObject.GetComponent<InteractSignal>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_managerController.ShouldRewind()) return;
-        if (_colliderInteract != null)
+        if (_managerController.ShouldRewind() || _colliderInteract == null) return;
+
+        bool charOnTheGround = IsOnTheGround();
+
+        dirVector = Vector3.zero;
+
+        InitialSpeedSetup();
+
+
+        if (Input.GetKey(KeyCode.D))
         {
-            _colliderInteract.transform.position = new Vector3(0, 0, -100);
-
-            if (_managerController.ShouldRewind()) return;
-
-            bool charOnTheGround = IsOnTheGround();
-
-            dirVector = Vector3.zero;
-
-            InitialSpeedSetup();
-
-
-            if (Input.GetKey(KeyCode.D))
-            {
-                PressRightMove();
-            }
-
-            if (Input.GetKey(KeyCode.A))
-            {
-                PressLeftMove();
-            }
-
-
-            _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
-
-            dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
-
-            _controller.Move(dirVector);
-
-            _colliderInteract.transform.position = gameObject.transform.position + _offset;
+            PressRightMove();
+                
         }
 
+        if (Input.GetKey(KeyCode.A))
+        {
+            PressLeftMove();
+        }
+
+        
+        _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
+
+        dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
+
+        Vector3 vector = _rigidbody.velocity;
+        vector.x = dirVector.x / Time.deltaTime;
+        _rigidbody.velocity = vector;
+        _controller.Move(dirVector);
+
+        if (Mathf.Abs(_offset.x*2) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x))
+            _interactSignal.InterruptInteract();
     }
 
     public void SetInteractCollider(Collider collider)
@@ -86,4 +88,7 @@ public class MoveObjectController : OrdinaryPlayerController
             _rigidbody = _colliderInteract.gameObject.GetComponent<Rigidbody>();
         }
     }
+
+
+
 }

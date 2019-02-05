@@ -394,9 +394,12 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 jumpPressTime = jumpPressTime,
                 isReadyToJump = isReadyToJump,
                 Direction = _managerController.direction,
-                localScale = _tMesh.localScale
+                localScale = _tMesh.localScale,
+                jSpeed = _jSpeed
             }
         );
+
+        Debug.Log("Record " + _jSpeed);
     }
 
     public void StartRewind()
@@ -423,6 +426,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _currentDashTime = timePoint._currentDashTime;
         _managerController.direction = timePoint.Direction;
         _tMesh.localScale = timePoint.localScale;
+        _jSpeed = timePoint.jSpeed;
+        Debug.Log("Rewind " + _jSpeed);
 
 
         // delete Point

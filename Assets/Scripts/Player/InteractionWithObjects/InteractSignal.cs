@@ -14,6 +14,7 @@ public class InteractSignal : MonoBehaviour
     private MoveObjectController _moveObjectController;
     private bool _isInteract;
     private ManagerController _managerController;
+    private RaycastHit _hit;
 
     // Use this for initialization
     void Awake()
@@ -38,7 +39,10 @@ public class InteractSignal : MonoBehaviour
                 Physics.Raycast(transform.position, transform.forward, out hit, 1f) &&
                 hit.collider.gameObject.tag.Equals("MovementObject")
                 )
-                ActivateInteract(hit);
+            {
+                _hit = hit;
+                ActivateInteract();
+            }
         }
     }
 
@@ -46,13 +50,20 @@ public class InteractSignal : MonoBehaviour
     {
         _isInteract = false;
         _moveObjectController.SetInteractCollider(null);
+        Rigidbody rigidbody = _hit.transform.gameObject.GetComponent<Rigidbody>();
+        Vector3 vector = rigidbody.velocity;
+        vector.x = 0;
+        rigidbody.velocity = vector;
+        
+      //  _hit.collider.gameObject.transform.parent = null;
         _managerController.SendSignal(Signals.ActivatePlayerController);
     }
 
-    public void ActivateInteract(RaycastHit hit)
+    public void ActivateInteract()
     {
         _isInteract = true;
-        _moveObjectController.SetInteractCollider(hit.collider);
+        _moveObjectController.SetInteractCollider(_hit.collider);
+      //  _hit.collider.gameObject.transform.parent = gameObject.transform;
         _managerController.SendSignal(Signals.ActivateMoveObjectController);
     }
 

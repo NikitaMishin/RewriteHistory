@@ -27,5 +27,7 @@ namespace ReverseTime
         // FOR JUMP and gravity
         public bool isReadyToJump;
         public float jumpPressTime; // when Jump button was pressed
+
+        public float jSpeed;
     }
 }
