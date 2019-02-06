@@ -25,7 +25,7 @@ public class PlayerAttachToMovingPlatform : MonoBehaviour
         _platform = transform.parent;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {

@@ -16,6 +16,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
 
     protected ManagerController _managerController;
+    protected ManagerStates _managerStates;
 
     protected CharacterController _controller;
     protected Vector3 dirVector = Vector3.zero; // direction vector
@@ -49,6 +50,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
         _timeController = FindObjectOfType<TimeController>();
+        _managerStates = gameObject.GetComponent<ManagerStates>();
     }
 
     private void OnDisable()
@@ -395,11 +397,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 isReadyToJump = isReadyToJump,
                 Direction = _managerController.direction,
                 localScale = _tMesh.localScale,
-                jSpeed = _jSpeed
+                jSpeed = _jSpeed,
+                state = _managerStates.GetCurrentState()
             }
         );
-
-        Debug.Log("Record " + _jSpeed);
+        
     }
 
     public void StartRewind()
@@ -427,7 +429,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _managerController.direction = timePoint.Direction;
         _tMesh.localScale = timePoint.localScale;
         _jSpeed = timePoint.jSpeed;
-        Debug.Log("Rewind " + _jSpeed);
+
+        _managerStates.ChangeState(timePoint.state);
+
 
 
         // delete Point

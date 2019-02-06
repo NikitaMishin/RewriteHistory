@@ -12,9 +12,11 @@ public class InteractSignal : MonoBehaviour
 
     private OrdinaryPlayerController _ordinaryPlayerController;
     private MoveObjectController _moveObjectController;
+    private ManagerStates _managerStates;
     private bool _isInteract;
     private ManagerController _managerController;
     private RaycastHit _hit;
+    private bool _wasHit = false;
 
     // Use this for initialization
     void Awake()
@@ -22,6 +24,7 @@ public class InteractSignal : MonoBehaviour
         _ordinaryPlayerController = gameObject.GetComponent<OrdinaryPlayerController>();
         _moveObjectController = gameObject.GetComponent<MoveObjectController>();
         _managerController = gameObject.GetComponent<ManagerController>();
+        _managerStates = gameObject.GetComponent<ManagerStates>();
         _isInteract = false;
     }
 
@@ -34,14 +37,17 @@ public class InteractSignal : MonoBehaviour
         {
 
             if (_isInteract)
-                InterruptInteract();
+            {
+                _managerStates.ChangeState(State.Default);
+            }
             else if (
                 Physics.Raycast(transform.position, transform.forward, out hit, 1f) &&
                 hit.collider.gameObject.tag.Equals("MovementObject")
                 )
             {
+                _wasHit = true;
                 _hit = hit;
-                ActivateInteract();
+                _managerStates.ChangeState(State.MoveBox);
             }
         }
     }
@@ -50,12 +56,16 @@ public class InteractSignal : MonoBehaviour
     {
         _isInteract = false;
         _moveObjectController.SetInteractCollider(null);
-        Rigidbody rigidbody = _hit.transform.gameObject.GetComponent<Rigidbody>();
-        Vector3 vector = rigidbody.velocity;
-        vector.x = 0;
-        rigidbody.velocity = vector;
-        
-      //  _hit.collider.gameObject.transform.parent = null;
+
+        if (_wasHit)
+        {
+            Rigidbody rigidbody = _hit.transform.gameObject.GetComponent<Rigidbody>();
+            Vector3 vector = rigidbody.velocity;
+            vector.x = 0;
+            rigidbody.velocity = vector;
+        }
+
+        //  _hit.collider.gameObject.transform.parent = null;
         _managerController.SendSignal(Signals.ActivatePlayerController);
     }
 

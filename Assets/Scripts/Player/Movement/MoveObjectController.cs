@@ -38,6 +38,7 @@ public class MoveObjectController : OrdinaryPlayerController
         _initialLocalScale = _tMesh.localScale;
         _timeController = FindObjectOfType<TimeController>();
         _interactSignal = gameObject.GetComponent<InteractSignal>();
+        _managerStates = gameObject.GetComponent<ManagerStates>();
     }
 
     // Update is called once per frame

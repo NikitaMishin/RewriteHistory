@@ -29,5 +29,6 @@ namespace ReverseTime
         public float jumpPressTime; // when Jump button was pressed
 
         public float jSpeed;
+        public State state;
     }
 }

@@ -8,7 +8,8 @@ public class HeightController : MonoBehaviour {
     private float _deadSpeed = -30;
 
     private OrdinaryPlayerController _ordinaryPlayerController;
-    private TrapController _trapController;
+    private ManagerStates _managerStates;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,7 +18,7 @@ public class HeightController : MonoBehaviour {
     void Awake()
     {
         _ordinaryPlayerController = gameObject.GetComponent<OrdinaryPlayerController>();
-        _trapController = gameObject.GetComponent<TrapController>();
+        _managerStates = gameObject.GetComponent<ManagerStates>();
     }
 	
 	// Update is called once per frame
@@ -26,7 +27,7 @@ public class HeightController : MonoBehaviour {
         {
             if (_ordinaryPlayerController.GetFallSpeed() < _deadSpeed)
             {
-                _trapController.GoToRespawn();
+                _managerStates.ChangeState(State.Dead);
             }
         }
 	}
