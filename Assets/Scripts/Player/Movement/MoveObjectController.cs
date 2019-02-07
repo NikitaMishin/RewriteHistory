@@ -44,7 +44,10 @@ public class MoveObjectController : OrdinaryPlayerController
     // Update is called once per frame
     void Update()
     {
-        if (_managerController.ShouldRewind() || _colliderInteract == null) return;
+        if (_managerController.ShouldRewind() 
+            || _colliderInteract == null
+            || _managerStates.GetCurrentState() == State.Dead
+            ) return;
 
         bool charOnTheGround = IsOnTheGround();
 

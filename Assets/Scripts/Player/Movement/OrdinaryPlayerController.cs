@@ -79,9 +79,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     void Update()
     {
         
-
-        if (_managerController.ShouldRewind()) return;
-
+        if (_managerController.ShouldRewind() || _managerStates.GetCurrentState() == State.Dead)
+            return;
+        
         bool charOnTheGround = IsOnTheGround();
 
         if (charOnTheGround)
