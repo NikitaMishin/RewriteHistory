@@ -175,6 +175,31 @@ public class ManagerController : MonoBehaviour, IRevertListener
         }
     }
 
+    public bool IsOnTheGround()
+    {
+        bool isOnTheGround = false;
+
+        //determine from what script we record
+        if (_ordinaryPlayerController.enabled)
+        {
+            isOnTheGround =_ordinaryPlayerController.IsOnTheGround();
+        }
+        else if (_bezierCurvePlayerController.enabled)
+        {
+            isOnTheGround = _bezierCurvePlayerController.IsOnTheGround();
+        }
+        else if (_stairController.enabled)
+        {
+            isOnTheGround = _stairController.IsOnTheGround();
+        }
+        else if (_moveObjectController.enabled)
+        {
+            isOnTheGround = _moveObjectController.IsOnTheGround();
+        }
+
+        return isOnTheGround;
+    }
+
     public void StartRewind()
     {
         if (TimePoints.Count == 0)

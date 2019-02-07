@@ -12,6 +12,8 @@ public class InclineTrigger : MonoBehaviour {
     private float slippery = 2;
     [SerializeField]
     private float speedAfter = 4;
+    [SerializeField]
+    private float inertia = 0.0005f;
 
 	// Use this for initialization
 	void Start () {
@@ -27,21 +29,25 @@ public class InclineTrigger : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
 
+        Debug.Log(_managerController.forceVector);
         if (isExit)
         {
-            if (_managerController._currentActualSpeed != 0)
+            if (!_managerController.IsOnTheGround())
             {
-                _managerController.forceVector = Vector3.zero;
+                _managerController.forceVector = Vector3.Lerp(_managerController.forceVector, Vector3.zero, inertia);
             }
-
-            _managerController.forceVector = Vector3.Lerp(
+            else
+            {
+                _managerController.forceVector = Vector3.Lerp(
                 _managerController.forceVector,
                 Vector3.zero,
                 Time.deltaTime * speedAfter);
+            }
 
-            isExit = !(_managerController.forceVector == Vector3.zero);
+            
+
+            isExit = _managerController.forceVector != Vector3.zero;
         }
 	}
 
