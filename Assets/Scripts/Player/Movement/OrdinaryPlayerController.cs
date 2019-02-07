@@ -86,11 +86,12 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
         if (charOnTheGround)
         {
-            _managerController.animator.SetBool("Jump", false);
             _managerController.animator.SetBool("IsFalling", false);
+            _managerController.animator.SetBool("Jump", false);
         }
         else
         {
+           // 
             _managerController.animator.SetBool("IsFalling", true);
         }
         
@@ -150,6 +151,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         if (charOnTheGround && isReadyToJump)
         {
             Jump();
+            _managerController.animator.SetBool("Jump", true);
             isReadyToJump = false;
         }
 
@@ -185,11 +187,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 MoveForward();
-                _managerController.animator.SetBool("TurneRight", true);
+             //   _managerController.animator.SetBool("TurneRight", true);
             }
             else
             {
-                _managerController.animator.SetBool("TurneRight", false);
+            //    _managerController.animator.SetBool("TurneRight", false);
                 ApplyInertia();
             }
         }
@@ -208,7 +210,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction; //TODO what the fuck
                 MoveForward();
-                _managerController.animator.SetBool("TurneLeft", true);
+              //  _managerController.animator.SetBool("TurneLeft", true);
             }
             else
             {
@@ -274,7 +276,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     private void Jump()
     {
         _jSpeed += _managerController.JumpSpeed;
-        _managerController.animator.SetBool("Jump", true);
     }
 
     /// <summary>

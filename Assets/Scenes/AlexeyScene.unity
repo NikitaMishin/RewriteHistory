@@ -943,6 +943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slippery: 2
   speedAfter: 4
+  inertia: 0.0005
 --- !u!65 &267316489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1880,6 +1881,8 @@ GameObject:
   - component: {fileID: 614938517}
   - component: {fileID: 614938516}
   - component: {fileID: 614938527}
+  - component: {fileID: 614938529}
+  - component: {fileID: 614938528}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1971,7 +1974,7 @@ MonoBehaviour:
   CrouchSpeed: 3
   LocalScaleY: 0
   ControllerHeight: 0
-  JumpSpeed: 8
+  JumpSpeed: 8.5
   SpeedInAir: 8
   OnWhichSpeedCanRotate: 0
   InertiaStopPercentCoef: 0.33
@@ -2004,7 +2007,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 5
+  m_Height: 4.2
   m_Radius: 0.8
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -2054,7 +2057,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 614938515}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.95, y: -0.82, z: 1.6}
+  m_LocalPosition: {x: -2.95, y: -0.377, z: 1.6}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 69771473}
@@ -2073,6 +2076,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deadSpeed: -30
+--- !u!114 &614938528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614938515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9567bb13366e5c040908221908770812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayLenght: 0.35
+--- !u!114 &614938529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614938515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b1470d6e96da2489b0f42a2272f877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &618527224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,6 +2255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slippery: 2
   speedAfter: 4
+  inertia: 0.0005
 --- !u!65 &666684480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2714,6 +2741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slippery: 2
   speedAfter: 4
+  inertia: 0.0005
 --- !u!65 &748632434
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3903,6 +3931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slippery: 2
   speedAfter: 4
+  inertia: 0.0005
 --- !u!65 &1201484260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4051,6 +4080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slippery: 2
   speedAfter: 4
+  inertia: 0.0005
 --- !u!65 &1253026644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4572,6 +4602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slippery: 2
   speedAfter: 4
+  inertia: 0.0005
 --- !u!65 &1370322238
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5958,6 +5989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slippery: 2
   speedAfter: 4
+  inertia: 0.0005
 --- !u!65 &1810737902
 BoxCollider:
   m_ObjectHideFlags: 0
