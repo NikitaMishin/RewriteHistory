@@ -1974,7 +1974,7 @@ MonoBehaviour:
   CrouchSpeed: 3
   LocalScaleY: 0
   ControllerHeight: 0
-  JumpSpeed: 8.5
+  JumpSpeed: 9
   SpeedInAir: 8
   OnWhichSpeedCanRotate: 0
   InertiaStopPercentCoef: 0.33
@@ -4987,11 +4987,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4636013149985220, guid: e0ea95ec61510b6448bc3d6944730447, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.22
+      value: 7.85
       objectReference: {fileID: 0}
     - target: {fileID: 4636013149985220, guid: e0ea95ec61510b6448bc3d6944730447, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.67
+      value: 5.42
       objectReference: {fileID: 0}
     - target: {fileID: 4636013149985220, guid: e0ea95ec61510b6448bc3d6944730447, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5023,7 +5023,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4636013149985220, guid: e0ea95ec61510b6448bc3d6944730447, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5.5665627
+      value: 6.4182467
       objectReference: {fileID: 0}
     - target: {fileID: 4636013149985220, guid: e0ea95ec61510b6448bc3d6944730447, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z

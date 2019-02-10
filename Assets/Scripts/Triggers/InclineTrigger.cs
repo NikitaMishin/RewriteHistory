@@ -5,6 +5,7 @@ using UnityEngine;
 public class InclineTrigger : MonoBehaviour {
 
     private ManagerController _managerController;
+
     private Transform _root;
     private bool isExit = false;
 
@@ -29,8 +30,7 @@ public class InclineTrigger : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        Debug.Log(_managerController.forceVector);
+       
         if (isExit)
         {
             if (!_managerController.IsOnTheGround())
@@ -44,8 +44,6 @@ public class InclineTrigger : MonoBehaviour {
                 Vector3.zero,
                 Time.deltaTime * speedAfter);
             }
-
-            
 
             isExit = _managerController.forceVector != Vector3.zero;
         }
@@ -72,6 +70,7 @@ public class InclineTrigger : MonoBehaviour {
         if (!other.gameObject.tag.Equals("Player"))
             return;
 
+        _managerController.IsOnTheIncline = false;
         isExit = true;
     }
 
@@ -81,6 +80,7 @@ public class InclineTrigger : MonoBehaviour {
             return;
 
         isExit = false;
+        _managerController.IsOnTheIncline = true;
         _managerController.forceVector = Vector3.zero;
     }
 }

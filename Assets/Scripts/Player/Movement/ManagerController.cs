@@ -63,6 +63,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private StairController _stairController;
     private MoveObjectController _moveObjectController;
 
+    private bool _isOnTheIncline = false;
+
     private Signals currentSignal = Signals.ActivatePlayerController;
 
     public Vector3 forceVector = Vector3.zero; // player forces
@@ -232,6 +234,19 @@ public class ManagerController : MonoBehaviour, IRevertListener
     public Signals CurrentSignal
     {
         get { return currentSignal; }
+    }
+
+    public bool IsOnTheIncline
+    {
+        get
+        {
+            return _isOnTheIncline;
+        }
+
+        set
+        {
+            _isOnTheIncline = value;
+        }
     }
 
     public void DeleteOldRecord()

@@ -78,8 +78,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     void Update()
     {
-        
-
         if (_managerController.ShouldRewind()) return;
 
         bool charOnTheGround = IsOnTheGround();
@@ -91,7 +89,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         }
         else
         {
-           // 
             _managerController.animator.SetBool("IsFalling", true);
         }
         
@@ -148,7 +145,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             isReadyToJump = false;
         }
 
-        if (charOnTheGround && isReadyToJump)
+        if ((charOnTheGround || _managerController.IsOnTheIncline) && isReadyToJump)
         {
             Jump();
             _managerController.animator.SetBool("Jump", true);
