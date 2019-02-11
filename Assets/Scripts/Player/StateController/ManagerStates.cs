@@ -9,10 +9,25 @@ public class ManagerStates : MonoBehaviour {
     private TrapController _trapController;
     private InteractSignal _interactSignal;
     private CharacterController _characterController;
-    
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private bool hasRespawn = false;
+
+    public bool HasRespawn
+    {
+        get
+        {
+            return hasRespawn;
+        }
+
+        set
+        {
+            hasRespawn = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 
@@ -58,8 +73,25 @@ public class ManagerStates : MonoBehaviour {
     {
         _currentState = State.Dead;
         _interactSignal.InterruptInteract();
-        _characterController.enabled = false;
         
+
+        if (HasRespawn)
+            DeadRespawn();
+        else
+            SimpleDead();
+
+      
+    }
+
+    public void DeadRespawn()
+    {
+        _trapController.GoToRespawn();
+        Default();
+    }
+
+    public void SimpleDead()
+    {
+        _characterController.enabled = false;
         gameObject.AddComponent<Rigidbody>();
         gameObject.AddComponent<CapsuleCollider>();
         Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
@@ -69,8 +101,6 @@ public class ManagerStates : MonoBehaviour {
         capsuleCollider.radius = _characterController.radius;
         capsuleCollider.center = _characterController.center;
         rigidbody.AddForceAtPosition(gameObject.transform.forward * 3, capsuleCollider.bounds.max, ForceMode.Force);
-
-      //  _trapController.GoToRespawn();
     }
 
     public void Default()
