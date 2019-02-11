@@ -1606,6 +1606,12 @@ Prefab:
       propertyPath: m_Name
       value: RespawnRigidTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 114234185186898192, guid: ccec965f5fad27140ad8cb4b597141df,
+        type: 2}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1848909937483530, guid: 85c4466f672a4ef46b43e2cb5b2ecbaa,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccec965f5fad27140ad8cb4b597141df, type: 2}
   m_IsPrefabAsset: 0
@@ -2099,6 +2105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b1470d6e96da2489b0f42a2272f877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasRespawn: 0
 --- !u!1 &618527224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,7 +3293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c9058e1ee97cd4db98a81c2933e4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1848909937483530, guid: 5d39f46e3ec06434ebf462eb5942de9e, type: 2}
+  prefab: {fileID: 1848909937483530, guid: 85c4466f672a4ef46b43e2cb5b2ecbaa, type: 2}
   respawnSeconds: 2
   lifeSeconds: 3
 --- !u!1 &927149936
@@ -7098,7 +7105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c9058e1ee97cd4db98a81c2933e4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1848909937483530, guid: 5d39f46e3ec06434ebf462eb5942de9e, type: 2}
+  prefab: {fileID: 1848909937483530, guid: 85c4466f672a4ef46b43e2cb5b2ecbaa, type: 2}
   respawnSeconds: 2
   lifeSeconds: 5
 --- !u!1 &2145549104
