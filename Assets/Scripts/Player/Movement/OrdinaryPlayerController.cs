@@ -76,10 +76,23 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         }
     }
 
+    void DeadAnimation()
+    {
+        _managerController.animator.SetBool("IsWalking", false);
+        _managerController.animator.SetBool("IsRunning", false);
+        _managerController.animator.SetBool("Jump", false);
+        _managerController.animator.SetBool("IsFalling", false);
+    }
+
     void Update()
     {
+        if (_managerStates.GetCurrentState() == State.Dead)
+        {
+            DeadAnimation();
+            return;
+        }
         
-        if (_managerController.ShouldRewind() || _managerStates.GetCurrentState() == State.Dead)
+        if (_managerController.ShouldRewind())
             return;
         
         bool charOnTheGround = IsOnTheGround();

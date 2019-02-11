@@ -25,8 +25,17 @@ public class TimeController : MonoBehaviour
     private bool _shouldRemoveOldRecord = false; //is we need to delete old record  when reach MaxTimeReverse
     [SerializeField] private float _currentTimeReverse = 0f; //current window time
 
+    private ManagerStates _managerStates;
+
+    private void Awake()
+    {
+        _managerStates = gameObject.GetComponent<ManagerStates>();
+    }
+
     private void FixedUpdate()
     {
+        if (_managerStates.HasRespawn) return;
+
         if (Input.GetKey(KeyCode.R) && CouldUseReverse)
         {
             _currentTimeReverse = Math.Max(_currentTimeReverse - Time.deltaTime, 0f);
