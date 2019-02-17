@@ -60,9 +60,6 @@ public class InteractSignal : MonoBehaviour
         if (_wasHit)
         {
             Rigidbody rigidbody = _hit.transform.gameObject.GetComponent<Rigidbody>();
-            Vector3 vector = rigidbody.velocity;
-            vector.x = 0;
-            rigidbody.velocity = vector;
         }
 
         //  _hit.collider.gameObject.transform.parent = null;

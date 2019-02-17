@@ -16,12 +16,14 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 	private LinkedList<RigidBodyTimePoint> _timePoints;
 	private TimeController _timeController;
 	private Rigidbody _rb;
+    private Collider _collider;
 	
 	void Start ()
 	{
 		_timePoints =  new LinkedList<RigidBodyTimePoint>();
 		_timeController = FindObjectOfType<TimeController>();
 		_rb = GetComponent<Rigidbody>();
+        _collider = GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
@@ -33,6 +35,7 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 		}
 		else
 		{
+            _collider.enabled = true;
 			RecordTimePoint();
 		}
 
@@ -59,7 +62,10 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 			_rb.velocity = timePoint.Velocity;
 			_rb.angularVelocity = timePoint.AngularVelocity;
 			_timePoints.RemoveLast();
-		}
+            _collider.enabled = false;
+            _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
+
+        }
 	}
 
 	public void DeleteOldRecord()

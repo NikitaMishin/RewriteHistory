@@ -86,15 +86,16 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     void Update()
     {
+        if (_managerController.ShouldRewind())
+            return;
+
+        _controller.enabled = true;
 
         if (_managerStates.GetCurrentState() == State.Dead)
         {
             DeadAnimation();
             return;
         }
-        
-        if (_managerController.ShouldRewind())
-            return;
 
         bool charOnTheGround = IsOnTheGround();
 
@@ -424,6 +425,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         {
             return;
         }
+
+        _controller.enabled = false;
 
         OrdinaryPlayerControllerTimePoint timePoint =
             (OrdinaryPlayerControllerTimePoint) _managerController.TimePoints.Last.Value;

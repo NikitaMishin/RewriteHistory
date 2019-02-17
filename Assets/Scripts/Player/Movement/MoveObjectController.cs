@@ -25,6 +25,9 @@ public class MoveObjectController : OrdinaryPlayerController
     private RaycastHit _hit;
     private InteractSignal _interactSignal;
 
+    private bool _push = false;
+    private bool _right = false;
+
 
     // Use this for initialization
     void Awake()
@@ -44,12 +47,23 @@ public class MoveObjectController : OrdinaryPlayerController
     // Update is called once per frame
     void Update()
     {
-        if (_managerController.ShouldRewind() 
+        if (_managerController.ShouldRewind()
             || _colliderInteract == null
-            || _managerStates.GetCurrentState() == State.Dead
-            ) return;
+            )
+
+            return;
 
         bool charOnTheGround = IsOnTheGround();
+
+        if (Mathf.Abs(_offset.x * 1.2f) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x) 
+            || _rigidbody.velocity.y != 0
+            || _jSpeed < -2)
+        {
+            _managerStates.ChangeState(State.Default);
+            return;
+        }
+
+        Debug.Log("jSpeed: " + _jSpeed);
 
         dirVector = Vector3.zero;
 
@@ -59,26 +73,56 @@ public class MoveObjectController : OrdinaryPlayerController
         if (Input.GetKey(KeyCode.D))
         {
             PressRightMove();
-                
+
+            _right = true;
+
+            if (transform.position.x < _colliderInteract.transform.position.x)
+                _push = true;
+            else
+                _push = false;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             PressLeftMove();
+
+            _right = false;
+
+            if (transform.position.x < _colliderInteract.transform.position.x)
+                _push = false;
+            else
+                _push = true;
         }
 
-        
+        RaycastHit hit;
+
+        Vector3 startPosition = (_push ? (_right ? new Vector3(_colliderInteract.bounds.max.x, _colliderInteract.bounds.min.y, _colliderInteract.bounds.min.z)  
+            : _colliderInteract.bounds.min) : transform.position);
+        if (
+            Physics.Raycast(
+                startPosition, transform.forward, out hit, _push ? 0.1f : 0.3f)
+                && !hit.transform.gameObject.tag.Equals("MovementObgect")
+        )
+        {
+            Debug.Log(hit.transform.gameObject.tag);
+            return;
+        }
+       
+
         _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
 
         dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
 
         Vector3 vector = _rigidbody.velocity;
         vector.x = dirVector.x / Time.deltaTime;
-        _rigidbody.velocity = vector;
-        _controller.Move(dirVector);
+        dirVector.x = vector.x * Time.deltaTime;
 
-        if (Mathf.Abs(_offset.x*2) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x))
-            _interactSignal.InterruptInteract();
+        _colliderInteract.transform.position = _colliderInteract.transform.position + dirVector;
+        _controller.Move(dirVector);
+      
+       
+
+        
     }
 
     public void SetInteractCollider(Collider collider)
