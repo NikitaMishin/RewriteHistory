@@ -36,6 +36,11 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     protected float jumpPressTime = -1; // when Jump button was pressed
     protected float _jSpeed = 0; // initial y axis speed;
 
+    protected bool prevGround = false;
+    protected bool wasJumped = false;
+    protected float prevTime = 0;
+    
+
     protected TimeController _timeController;
 
 
@@ -101,6 +106,16 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
         bool charOnTheGround = IsOnTheGround();
 
+        if (prevGround && !charOnTheGround && Mathf.Abs(_jSpeed) < 1f && !wasJumped)
+        {
+            prevTime = Time.time;
+        }
+
+        if (charOnTheGround)
+            wasJumped = false;
+
+        prevGround = charOnTheGround;
+
         if (charOnTheGround)
         {
             _managerController.animator.SetBool("IsFalling", false);
@@ -164,8 +179,10 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             isReadyToJump = false;
         }
 
-        if ((charOnTheGround || _managerController.IsOnTheIncline) && isReadyToJump)
+        if ((charOnTheGround || Time.time - prevTime < 0.5f || _managerController.IsOnTheIncline) && isReadyToJump)
         {
+            wasJumped = true;
+            prevTime = 0;
             Jump();
             _managerController.animator.SetBool("Jump", true);
             isReadyToJump = false;
