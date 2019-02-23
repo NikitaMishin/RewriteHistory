@@ -97,6 +97,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             return;
         }
 
+
+
         bool charOnTheGround = IsOnTheGround();
 
         if (charOnTheGround)
@@ -185,6 +187,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     public bool IsOnTheGround()
     {
         // maybe add custom detection
+        if (_controller.isGrounded && _jSpeed < -2)
+            _jSpeed = 0;
         return _controller.isGrounded;
     }
 
@@ -447,7 +451,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _tMesh.localScale = timePoint.localScale;
         _jSpeed = timePoint.jSpeed;
 
-        _managerStates.ChangeState(timePoint.state);
+        _managerStates.ChangeState(State.Default);
 
 
 

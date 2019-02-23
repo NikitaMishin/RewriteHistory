@@ -55,15 +55,15 @@ public class MoveObjectController : OrdinaryPlayerController
 
         bool charOnTheGround = IsOnTheGround();
 
-        if (Mathf.Abs(_offset.x * 1.2f) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x) 
-            || _rigidbody.velocity.y != 0
-            || _jSpeed < -2)
+        if (Mathf.Abs(_offset.x * 1.2f) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x)
+            || _rigidbody.velocity.y < -2f
+            || _jSpeed < -2f
+          )
         {
             _managerStates.ChangeState(State.Default);
             return;
         }
-
-        Debug.Log("jSpeed: " + _jSpeed);
+        
 
         dirVector = Vector3.zero;
 
@@ -101,7 +101,7 @@ public class MoveObjectController : OrdinaryPlayerController
         if (
             Physics.Raycast(
                 startPosition, transform.forward, out hit, _push ? 0.1f : 0.3f)
-                && !hit.transform.gameObject.tag.Equals("MovementObgect")
+                && !hit.transform.gameObject.Equals(_colliderInteract.gameObject)
         )
         {
             Debug.Log(hit.transform.gameObject.tag);
