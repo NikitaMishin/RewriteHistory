@@ -12,6 +12,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
      * add characterController to player
      */
 
+    [SerializeField]
+    private float jumpTimeWithoutGround = 0.2f;
+
     public float walkingAnimationSpeed = 5;
 
 
