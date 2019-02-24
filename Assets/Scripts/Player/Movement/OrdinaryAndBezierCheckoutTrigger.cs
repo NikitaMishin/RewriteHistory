@@ -22,7 +22,7 @@ public class OrdinaryAndBezierCheckoutTrigger : MonoBehaviour
     public BezierCurve BezierPath; //path that player will follow when  triggered 
     public bool StartFromEndOfCurve = false; //from where we continue move when reachCurve
     public OrdinaryAndBezierCheckoutTrigger connectedTrigger;
-    public Vector3 DirectionOfMovementWhenLeaveCurve;
+    // public Vector3 DirectionOfMovementWhenLeaveCurve;
 
 
     private List<Vector3> _curvePoints;
@@ -71,7 +71,7 @@ public class OrdinaryAndBezierCheckoutTrigger : MonoBehaviour
             _isOnCurve = false;
             bezierPlayerController.enabled = false;
             connectedTrigger.SetIsOnCurve(false);
-            player.transform.rotation = Quaternion.Euler(DirectionOfMovementWhenLeaveCurve);
+           // player.transform.rotation = Quaternion.Euler(DirectionOfMovementWhenLeaveCurve);
             manager.SendSignal(Signals.ActivatePlayerController);
             return;
         }

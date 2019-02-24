@@ -254,7 +254,6 @@ public class ManagerController : MonoBehaviour, IRevertListener
         if (TimePoints.Count > 0)
         {
             TimePoints.RemoveFirst();
-            Debug.Log(TimePoints.Count);
         }
     }
 
