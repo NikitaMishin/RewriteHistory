@@ -15,6 +15,10 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
      * space complexity = fixedUpdatePerSec * TimeWindow * (7 float+int + bool)
 	 * 1523kbyte for 300seconds  with 50fixedUpdate per sec and float=8byte,int4
    */
+
+    [SerializeField]
+    private StartTrigger trigger;
+
     private LinkedList<BezierCurveObjectTimePoint> _timePoints;
 
     public BezierCurve Path;
@@ -63,6 +67,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     {
         if (ShouldRewind()) return;
 
+        if (trigger != null && !trigger.WasStepped()) return;
 
         float distance = Vector3.Distance(PathPoints[CurrentWayPointId], transform.position);
         transform.position =
