@@ -89,7 +89,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _managerController.animator.SetBool("IsWalking", false);
         _managerController.animator.SetBool("IsRunning", false);
         _managerController.animator.SetBool("Jump", false);
-        _managerController.animator.SetBool("IsFalling", false);
+       // _managerController.animator.SetBool("IsFalling", false);
     }
 
     void Update()
@@ -115,18 +115,35 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         }
 
         if (charOnTheGround)
+        {
             wasJumped = false;
+            
+        }
+
+        if (_jSpeed < -3)
+        {
+            if (!_managerController.animator.GetBool("IsFalling"))
+                _managerController.animator.SetBool("IsFalling", true);
+            
+        }
+        else
+        {
+            _managerController.animator.SetBool("IsFalling", false);
+
+        }
+
+        Debug.Log(_jSpeed);
 
         prevGround = charOnTheGround;
 
         if (charOnTheGround)
         {
-            _managerController.animator.SetBool("IsFalling", false);
+           // _managerController.animator.SetBool("IsFalling", false);
             _managerController.animator.SetBool("Jump", false);
         }
         else
         {
-            _managerController.animator.SetBool("IsFalling", true);
+           // _managerController.animator.SetBool("IsFalling", true);
         }
         
         dirVector = Vector3.zero;
@@ -371,12 +388,19 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     /// </summary>
     private void CrouchPressed()
     {
+       // AnimateWalking();
+        Debug.Log(_managerController.animator.GetBool("IsWalking`"));
         if (!_managerController.isCrouch && IsOnTheGround())
         {
             _tMesh.localScale = new Vector3(_initialLocalScale.x, _managerController.LocalScaleY, _initialLocalScale.z);
             _controller.height = _managerController.ControllerHeight;
             _managerController._currentNormalSpeed = _managerController.CrouchSpeed;
+            //    _managerController._currentActualSpeed = _managerController.CrouchSpeed > _managerController._currentActualSpeed
+            //        ? _managerController._currentActualSpeed : _managerController.CrouchSpeed;
+            _managerController._currentActualSpeed = 0;
             _managerController.isCrouch = true;
+            _controller.center = new Vector3(0, _controller.center.y - (_characterHeight - _managerController.ControllerHeight) / 2, 0);
+            _managerController.animator.SetBool("IsCrouching", true);
         }
     }
 
@@ -386,18 +410,21 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     /// </summary>
     private void CrouchStop()
     {
+      //  return;
         Ray ray = new Ray();
         RaycastHit hit;
-        ray.origin = transform.position;
+        ray.origin = _controller.bounds.max;
         ray.direction = Vector3.up;
 
-        if (Physics.Raycast(ray, out hit, 1)) return;
+        if (Physics.Raycast(ray, out hit, 0.3f)) return;
 
         // we can stand up
         _tMesh.localScale = _initialLocalScale;
         _controller.height = _characterHeight;
         _managerController.isCrouch = false;
         _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
+        _controller.center = new Vector3(0, _controller.center.y + (_characterHeight - _managerController.ControllerHeight) / 2, 0);
+        _managerController.animator.SetBool("IsCrouching", false);
     }
 
     public void SetActualSpeed(float speed)
