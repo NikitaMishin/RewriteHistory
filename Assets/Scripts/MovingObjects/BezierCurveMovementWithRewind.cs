@@ -16,8 +16,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 	 * 1523kbyte for 300seconds  with 50fixedUpdate per sec and float=8byte,int4
    */
 
-    [SerializeField]
-    private StartTrigger trigger;
+    [SerializeField] private StartTrigger trigger;
 
     private LinkedList<BezierCurveObjectTimePoint> _timePoints;
 
@@ -26,6 +25,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     public float Speed = 0.5f;
     public float RotationSpeed = 5f;
     public bool Direction = true;
+    public bool isShouldStopAtTheEnd = false;
+    public GameObject objectWithActivatedTrigger = null;
 
     public float reachDistance = 1.0f; //to smooth
 
@@ -40,6 +41,15 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         PathPoints.AddRange(Path.GetAllPointsAlongCurve());
         _timeController = FindObjectOfType<TimeController>();
         _timePoints = new LinkedList<BezierCurveObjectTimePoint>();
+        if ( trigger == null && objectWithActivatedTrigger != null)
+        { //trigger == null in case if we set manually this
+            trigger = objectWithActivatedTrigger.GetComponent<StartTrigger>();
+        }
+
+        if (!Direction)
+        {
+            CurrentWayPointId = PathPoints.Count - 1;
+        }
     }
 
     private void FixedUpdate()
@@ -61,6 +71,11 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         }
     }
 
+    public bool IsReachedEndOfCurve()
+    {
+        return ((CurrentWayPointId == PathPoints.Count - 1) && Direction) || ((CurrentWayPointId == 0) && !Direction);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -68,6 +83,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         if (ShouldRewind()) return;
 
         if (trigger != null && !trigger.WasStepped()) return;
+
+        if (isShouldStopAtTheEnd && IsReachedEndOfCurve()) return;
 
         float distance = Vector3.Distance(PathPoints[CurrentWayPointId], transform.position);
         transform.position =

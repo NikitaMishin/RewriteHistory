@@ -8,7 +8,7 @@ public class StartTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        _wasStepped = true;
+        _wasStepped = !_wasStepped;
     }
 
     public bool WasStepped()
