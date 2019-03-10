@@ -476,7 +476,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             return;
         }
 
-        _controller.enabled = false;
+     //   _controller.enabled = false;
 
         OrdinaryPlayerControllerTimePoint timePoint =
             (OrdinaryPlayerControllerTimePoint) _managerController.TimePoints.Last.Value;
