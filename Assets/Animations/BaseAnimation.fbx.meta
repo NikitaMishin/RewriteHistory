@@ -994,7 +994,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1127,7 +1127,7 @@ ModelImporter:
       name: Armature|Armature|Armature|Armature|Armature|Armature|Jump_place_ALL|Jum
       takeName: Armature|Armature|Armature|Armature|Armature|Armature|Jump_place_ALL|Jum
       firstFrame: 17
-      lastFrame: 30
+      lastFrame: 26
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

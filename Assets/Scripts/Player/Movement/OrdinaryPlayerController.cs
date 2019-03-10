@@ -199,7 +199,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             isReadyToJump = false;
         }
 
-        if ((charOnTheGround || Time.time - prevTime < 0.5f || _managerController.IsOnTheIncline) && isReadyToJump)
+        if ((charOnTheGround || Time.time - prevTime < 0.5f || _managerController.IsOnTheIncline) && isReadyToJump && !_managerController.isCrouch)
         {
             wasJumped = true;
             prevTime = 0;
@@ -389,7 +389,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     private void CrouchPressed()
     {
        // AnimateWalking();
-        Debug.Log(_managerController.animator.GetBool("IsWalking`"));
         if (!_managerController.isCrouch && IsOnTheGround())
         {
             _tMesh.localScale = new Vector3(_initialLocalScale.x, _managerController.LocalScaleY, _initialLocalScale.z);

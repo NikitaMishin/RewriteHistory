@@ -175,7 +175,7 @@ Prefab:
     - target: {fileID: 114739917447620302, guid: 42acd2112d37ca34e97892e8984046b8,
         type: 2}
       propertyPath: walkingAnimationSpeed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42acd2112d37ca34e97892e8984046b8, type: 2}
