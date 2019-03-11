@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -1229,6 +1229,11 @@ Transform:
   m_Father: {fileID: 1581395195}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &337378067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1804255539557078, guid: f9324d1c5c75d4345b82234c8958cbff,
+    type: 2}
+  m_PrefabInternal: {fileID: 1154207800}
 --- !u!1001 &348895523
 Prefab:
   m_ObjectHideFlags: 0
@@ -1895,7 +1900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &614938516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,6 +1913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3442c961776466646967a0a9781c92cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpTimeWithoutGround: 0.2
   walkingAnimationSpeed: 5
 --- !u!114 &614938517
 MonoBehaviour:
@@ -2032,6 +2038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef39fc9f11880a4b9875f52c0462f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpTimeWithoutGround: 0.2
   walkingAnimationSpeed: 5
   _stairSpeed: 10
 --- !u!114 &614938524
@@ -2046,6 +2053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d499e2a4aa184e49aada26641c70484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpTimeWithoutGround: 0.2
   walkingAnimationSpeed: 5
 --- !u!33 &614938525
 MeshFilter:
@@ -3672,6 +3680,48 @@ Transform:
   m_Father: {fileID: 1735963265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1154207800
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.377
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199911507526336, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f9324d1c5c75d4345b82234c8958cbff, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1178762353
 GameObject:
   m_ObjectHideFlags: 0
@@ -5760,7 +5810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8aa89a553d2da45acc11db1bb5c7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 614938515}
+  target: {fileID: 337378067}
   _cameraSpeedX: 3
   _cameraSpeedY: 3
   _playerSpeedX: 10
