@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using ReverseTime;
 using UnityEngine;
 
-public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
+public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertListener
 {
     /*
      *HOW TO
@@ -25,35 +25,35 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     public float RotationSpeed = 3f;
     public float ReachDistance = 0.5f;
 
-    private ManagerController _managerController;
+ //   private ManagerController _managerController;
 
     // could be used from other scripts like rotate on triggers
 
     //PRIVATE VARS
 
     public List<Vector3> CurvePoints;
-    private CharacterController _controller;
-    private Vector3 dirVector = Vector3.zero; // direction vector
+ //   private CharacterController _controller;
+ //   private Vector3 dirVector = Vector3.zero; // direction vector
 
 
     //FOR DASH
-    private float _currentDashTime = 0f; // in what period we press dash
-    private float _remainDash; // delta between maxDash and NormalSpeed
+ //   private float _currentDashTime = 0f; // in what period we press dash
+ //   private float _remainDash; // delta between maxDash and NormalSpeed
 
 
     // FOR CROUCH
-    private Transform _tMesh; // Player Transform
-    private float _characterHeight;
-    private Vector3 _initialLocalScale;
+   // private Transform _tMesh; // Player Transform
+ //   private float _characterHeight;
+  //  private Vector3 _initialLocalScale;
 
 
     // FOR JUMP and gravity
-    private bool isReadyToJump = true;
-    private float jumpPressTime = -1; // when Jump button was pressed
-    private float _jSpeed = 0; // initial y axis speed;
+ //   private bool isReadyToJump = true;
+//    private float jumpPressTime = -1; // when Jump button was pressed
+ //   private float _jSpeed = 0; // initial y axis speed;
 
 
-    private TimeController _timeController;
+ //   private TimeController _timeController;
 
     void Awake()
     {
@@ -66,6 +66,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
         _timeController = FindObjectOfType<TimeController>();
+        _managerStates = gameObject.GetComponent<ManagerStates>();
     }
 
 
@@ -107,11 +108,41 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     void Update()
     {
         if (_managerController.ShouldRewind()) return;
+
+        if (_managerStates.GetCurrentState() == State.Dead)
+        {
+            DeadAnimation();
+            return;
+        }
+
         bool charOnTheGround = IsOnTheGround();
 
         dirVector = Vector3.zero;
 
         InitialSpeedSetup();
+
+        if (_jSpeed < -3)
+        {
+            if (!_managerController.animator.GetBool("IsFalling"))
+                _managerController.animator.SetBool("IsFalling", true);
+
+        }
+        else
+        {
+            _managerController.animator.SetBool("IsFalling", false);
+
+        }
+
+        if (charOnTheGround)
+        {
+            // _managerController.animator.SetBool("IsFalling", false);
+            _managerController.animator.SetBool("Jump", false);
+        }
+
+        dirVector = Vector3.zero;
+
+        InitialSpeedSetup();
+
 
         if (Input.GetKey(KeyCode.S))
         {
@@ -145,6 +176,9 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
             PressLeftMove();
         }
 
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            _managerController._currentActualSpeed = 0;
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             isReadyToJump = true;
@@ -163,10 +197,15 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         {
             Jump();
             isReadyToJump = false;
+            _managerController.animator.SetBool("Jump", true);
         }
 
 
         _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
+
+        // Animator
+      //  if (IsOnTheGround())
+            AnimateWalking();
 
         dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
 
@@ -174,12 +213,12 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         //UpdateCameraPosition();
     }
 
-    public bool IsOnTheGround()
+  /*  public bool IsOnTheGround()
     {
         // maybe add custom detection
         return _controller.isGrounded;
     }
-
+    */
     private void PressRightMove()
     {
         if (!_managerController.direction)
@@ -335,15 +374,15 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     }
 
 
-    private void Jump()
+  /*  private void Jump()
     {
         _jSpeed += _managerController.JumpSpeed;
-    }
+    }*/
 
     /// <summary>
     /// Update _currentDashTime,_currentNormalSpeed according to DashLimitSec when user press Dash button
     /// </summary>
-    private void DashPressed()
+ /*   private void DashPressed()
     {
         if (_currentDashTime < _managerController.DashLimitSec)
         {
@@ -366,7 +405,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
             //we cover and restore
             _currentDashTime = Mathf.Max(0f, _currentDashTime - Time.deltaTime); //player rest             
         }
-    }
+    }*/
 
     private void InitialSpeedSetup()
     {
@@ -393,7 +432,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
     /// <summary>
     /// Update controller properties and _current Normal speed based on isCrouchStatus when button pressed
     /// </summary>
-    private void CrouchPressed()
+  /*  private void CrouchPressed()
     {
         if (!_managerController.isCrouch && IsOnTheGround())
         {
@@ -402,13 +441,13 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
             _managerController._currentNormalSpeed = _managerController.CrouchSpeed;
             _managerController.isCrouch = true;
         }
-    }
+    }*/
 
     /// <summary>
     /// Update controller properties and _currentNormal speed based on isCrouchStatus when button released and
     /// we actually can stand up
     /// </summary>
-    private void CrouchStop()
+  /*  private void CrouchStop()
     {
         Ray ray = new Ray();
         RaycastHit hit;
@@ -422,7 +461,7 @@ public class BezierCurvePlayerController : MonoBehaviour, IRevertListener
         _controller.height = _characterHeight;
         _managerController.isCrouch = false;
         _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
-    }
+    }*/
 
     public void SetActualSpeed(float speed)
     {

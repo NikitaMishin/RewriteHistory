@@ -13,7 +13,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
      */
 
     [SerializeField]
-    private float jumpTimeWithoutGround = 0.2f;
+    protected float jumpTimeWithoutGround = 0.2f;
 
     public float walkingAnimationSpeed = 5;
 
@@ -66,13 +66,14 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _managerController.SetActualSpeed(_managerController._currentActualSpeed);
     }
 
-    private void AnimateWalking()
+    protected void AnimateWalking()
     {
         if (_managerController._currentActualSpeed == 0)
         {
             _managerController.animator.SetBool("IsRunning", false);
             _managerController.animator.SetBool("IsWalking", false);
-        } else if (_managerController._currentActualSpeed < walkingAnimationSpeed)
+        }
+        else if (_managerController._currentActualSpeed < walkingAnimationSpeed && !_managerController._isDashPressed)
         {
             _managerController.animator.SetBool("IsRunning", false);
             _managerController.animator.SetBool("IsWalking", true);
@@ -84,7 +85,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         }
     }
 
-    void DeadAnimation()
+    protected void DeadAnimation()
     {
         _managerController.animator.SetBool("IsWalking", false);
         _managerController.animator.SetBool("IsRunning", false);
@@ -131,8 +132,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             _managerController.animator.SetBool("IsFalling", false);
 
         }
-
-        Debug.Log(_jSpeed);
 
         prevGround = charOnTheGround;
 
@@ -213,7 +212,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
        
       
         // Animator
-        if (IsOnTheGround())
+    //    if (IsOnTheGround())
             AnimateWalking();
 
         dirVector = (dirVector + Vector3.up * _jSpeed + _managerController.forceVector) * Time.deltaTime;
@@ -328,7 +327,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     }
 
 
-    private void Jump()
+    protected void Jump()
     {
         _jSpeed += _managerController.JumpSpeed;
     }
@@ -336,7 +335,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     /// <summary>
     /// Update _currentDashTime,_currentNormalSpeed according to DashLimitSec when user press Dash button
     /// </summary>
-    private void DashPressed()
+    protected void DashPressed()
     {
         if (_currentDashTime < _managerController.DashLimitSec)
         {
@@ -386,7 +385,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     /// <summary>
     /// Update controller properties and _current Normal speed based on isCrouchStatus when button pressed
     /// </summary>
-    private void CrouchPressed()
+    protected void CrouchPressed()
     {
        // AnimateWalking();
         if (!_managerController.isCrouch && IsOnTheGround())
@@ -407,7 +406,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     /// Update controller properties and _currentNormal speed based on isCrouchStatus when button released and
     /// we actually can stand up
     /// </summary>
-    private void CrouchStop()
+    protected void CrouchStop()
     {
       //  return;
         Ray ray = new Ray();
