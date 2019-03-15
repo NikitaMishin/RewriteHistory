@@ -68,7 +68,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     protected void AnimateWalking()
     {
-        if (_managerController._currentActualSpeed == 0)
+        if (_managerController._currentActualSpeed == 0 || _managerController.onlySlide)
         {
             _managerController.animator.SetBool("IsRunning", false);
             _managerController.animator.SetBool("IsWalking", false);
@@ -240,16 +240,18 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             {
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
-                MoveForward();
+
+                if (!_managerController.onlySlide)
+                    MoveForward();
              //   _managerController.animator.SetBool("TurneRight", true);
             }
-            else
+            else 
             {
             //    _managerController.animator.SetBool("TurneRight", false);
                 ApplyInertia();
             }
         }
-        else
+        else if (!_managerController.onlySlide)
         {
             MoveForward();
         }
@@ -263,8 +265,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             {
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction; //TODO what the fuck
-                MoveForward();
-              //  _managerController.animator.SetBool("TurneLeft", true);
+          
+                if (!_managerController.onlySlide)
+                    MoveForward();
             }
             else
             {
@@ -272,7 +275,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 ApplyInertia();
             }
         }
-        else
+        else if (!_managerController.onlySlide)
         {
             MoveForward();
         }

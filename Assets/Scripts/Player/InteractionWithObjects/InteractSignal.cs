@@ -63,7 +63,7 @@ public class InteractSignal : MonoBehaviour
         }
 
         //  _hit.collider.gameObject.transform.parent = null;
-        _managerController.SendSignal(Signals.ActivatePlayerController);
+       // _managerController.SendSignal(Signals.ActivatePlayerController);
     }
 
     public void ActivateInteract()

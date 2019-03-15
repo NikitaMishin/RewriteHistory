@@ -9,6 +9,7 @@ public class ManagerStates : MonoBehaviour {
     private TrapController _trapController;
     private InteractSignal _interactSignal;
     private CharacterController _characterController;
+    private BezierCurvePlayerController _bezierCurvePlayerController;
 
     [SerializeField]
     private bool hasRespawn = false;
@@ -34,6 +35,7 @@ public class ManagerStates : MonoBehaviour {
     private void Awake()
     {
         _currentState = State.Default;
+        _bezierCurvePlayerController = gameObject.GetComponent<BezierCurvePlayerController>();
         _managerController = gameObject.GetComponent<ManagerController>();
         _trapController = gameObject.GetComponent<TrapController>();
         _interactSignal = gameObject.GetComponent<InteractSignal>();
@@ -91,25 +93,31 @@ public class ManagerStates : MonoBehaviour {
 
     public void SimpleDead()
     {
-        _characterController.enabled = false;
-        gameObject.AddComponent<Rigidbody>();
-        gameObject.AddComponent<CapsuleCollider>();
-        Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
-        CapsuleCollider capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
+        _managerController.animator.SetBool("IsDead", true); 
+        
+     //  _characterController.enabled = false;
+     //   gameObject.AddComponent<Rigidbody>();
+      //  gameObject.AddComponent<CapsuleCollider>();
+      //  Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+        //CapsuleCollider capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
 
-        capsuleCollider.height = _characterController.height;
-        capsuleCollider.radius = _characterController.radius;
-        capsuleCollider.center = _characterController.center;
-        rigidbody.AddForceAtPosition(gameObject.transform.forward * 3, capsuleCollider.bounds.max, ForceMode.Force);
+//        capsuleCollider.height = _characterController.height;
+  //      capsuleCollider.radius = _characterController.radius;
+    //    capsuleCollider.center = _characterController.center;
+        //rigidbody.AddForceAtPosition(gameObject.transform.forward * 3, capsuleCollider.bounds.max, ForceMode.Force);*/
     }
 
     public void Default()
     {
-        _currentState = State.Default;
-        _characterController.enabled = true;
+        _managerController.animator.SetBool("IsDead", false);
 
-        DeleteRigidbody();
-        DeleteCollider();
+
+        _currentState = State.Default;
+    //    _characterController.enabled = false;
+        
+
+    //    DeleteRigidbody();
+    //    DeleteCollider();
         _interactSignal.InterruptInteract();
     }
 

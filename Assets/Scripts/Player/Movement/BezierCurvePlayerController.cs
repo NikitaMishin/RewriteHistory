@@ -230,14 +230,15 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
                 UpdateIndexPoint();
-                MoveForward();
+                if (!_managerController.onlySlide)
+                    MoveForward();
             }
             else
             {
                 ApplyInertia();
             }
         }
-        else
+        else if (!_managerController.onlySlide)
         {
             MoveForward();
         }
@@ -253,14 +254,16 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
                 UpdateIndexPoint();
-                MoveForward();
+
+                if (!_managerController.onlySlide)
+                    MoveForward();
             }
             else
             {
                 ApplyInertia();
             }
         }
-        else
+        else if (!_managerController.onlySlide)
         {
             MoveForward();
         }
@@ -522,7 +525,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
         directionCurve = timePoint.directionCurve;
         CurrentWayPointId = timePoint.CurrentWayPointId;
 
-
+        _managerStates.ChangeState(State.Default);
         // delete Point
 
         _managerController.TimePoints.RemoveLast();

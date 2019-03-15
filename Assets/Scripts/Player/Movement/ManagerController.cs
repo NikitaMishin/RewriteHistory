@@ -55,6 +55,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     public float _currentActualSpeed = 0; // actual speed
 
+    public bool onlySlide = false;
+
     public Animator animator;
 
     private TimeController _timeController;

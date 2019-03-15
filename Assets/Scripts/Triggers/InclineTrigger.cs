@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class InclineTrigger : MonoBehaviour {
 
-    private ManagerController _managerController;
-
-    private Transform _root;
-    private bool isExit = false;
-
     [SerializeField]
     private float slippery = 2;
     [SerializeField]
     private float speedAfter = 4;
     [SerializeField]
     private float inertia = 0.0005f;
+    [SerializeField]
+    private bool onlySlide = false;
+
+    private ManagerController _managerController;
+
+    private Transform _root;
+    private bool isExit = false;
 
 	// Use this for initialization
 	void Start () {
@@ -57,6 +59,10 @@ public class InclineTrigger : MonoBehaviour {
         if (_root.transform.rotation.z == 0)
             return;
 
+        _managerController.onlySlide = onlySlide;
+
+        Debug.Log(Time.time + ": " + _managerController.onlySlide);
+
         _managerController.forceVector = Vector3.right * slippery;
 
         if (_root.transform.rotation.z > 0)
@@ -70,6 +76,7 @@ public class InclineTrigger : MonoBehaviour {
         if (!other.gameObject.tag.Equals("Player"))
             return;
 
+        _managerController.onlySlide = false;
         _managerController.IsOnTheIncline = false;
         isExit = true;
     }
@@ -79,6 +86,7 @@ public class InclineTrigger : MonoBehaviour {
         if (!other.gameObject.tag.Equals("Player"))
             return;
 
+        _managerController.onlySlide = onlySlide;
         isExit = false;
         _managerController.IsOnTheIncline = true;
         _managerController.forceVector = Vector3.zero;
