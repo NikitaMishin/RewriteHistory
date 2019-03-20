@@ -37,7 +37,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     // FOR JUMP
     protected bool isReadyToJump = true;
     protected float jumpPressTime = -1; // when Jump button was pressed
-    protected float _jSpeed = 0; // initial y axis speed;
 
     protected bool prevGround = false;
     protected bool wasJumped = false;
@@ -110,7 +109,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
         bool charOnTheGround = IsOnTheGround();
 
-        if (prevGround && !charOnTheGround && Mathf.Abs(_jSpeed) < 1f && !wasJumped)
+        if (prevGround && !charOnTheGround && Mathf.Abs(_managerController.jSpeed) < 1f && !wasJumped)
         {
             prevTime = Time.time;
         }
@@ -121,7 +120,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             
         }
 
-        if (_jSpeed < -3)
+        if (_managerController.jSpeed < -3)
         {
             if (!_managerController.animator.GetBool("IsFalling"))
                 _managerController.animator.SetBool("IsFalling", true);
@@ -208,14 +207,14 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         }
 
 
-        _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
+        _managerController.jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
        
       
         // Animator
     //    if (IsOnTheGround())
             AnimateWalking();
 
-        dirVector = (dirVector + Vector3.up * _jSpeed + _managerController.forceVector) * Time.deltaTime;
+        dirVector = (dirVector + Vector3.up * _managerController.jSpeed + _managerController.forceVector) * Time.deltaTime;
 
         _controller.Move(dirVector);
     }
@@ -223,8 +222,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     public bool IsOnTheGround()
     {
         // maybe add custom detection
-        if (_controller.isGrounded && _jSpeed < -2)
-            _jSpeed = 0;
+        if (_controller.isGrounded && _managerController.jSpeed < -2)
+            _managerController.jSpeed = 0;
         return _controller.isGrounded;
     }
 
@@ -306,15 +305,13 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
         float percent = Math.Abs(_managerController._currentActualSpeed - _managerController._currentNormalSpeed) /
                         Math.Max(_managerController._currentNormalSpeed, _managerController._currentActualSpeed);
+
         if (percent < _managerController.ThresholdPercent)
         {
             _managerController._currentActualSpeed = _managerController._currentNormalSpeed;
         }
 
         dirVector += transform.forward * _managerController._currentActualSpeed;
-
-
-        
     }
 
 
@@ -332,7 +329,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     protected void Jump()
     {
-        _jSpeed += _managerController.JumpSpeed;
+        _managerController.jSpeed += _managerController.JumpSpeed;
     }
 
     /// <summary>
@@ -369,7 +366,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         if (charOnTheGround)
         {
             //if character on the ground acceleration=0
-            _jSpeed = 0;
+            _managerController.jSpeed = 0;
             _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
         }
 
@@ -464,7 +461,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
                 isReadyToJump = isReadyToJump,
                 Direction = _managerController.direction,
                 localScale = _tMesh.localScale,
-                jSpeed = _jSpeed,
+                jSpeed = _managerController.jSpeed,
                 state = _managerStates.GetCurrentState()
             }
         );
@@ -497,7 +494,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _currentDashTime = timePoint._currentDashTime;
         _managerController.direction = timePoint.Direction;
         _tMesh.localScale = timePoint.localScale;
-        _jSpeed = timePoint.jSpeed;
+        _managerController.jSpeed = timePoint.jSpeed;
 
         _managerStates.ChangeState(State.Default);
 
@@ -529,6 +526,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
 
     public float GetFallSpeed()
     {
-        return _jSpeed;
+        return _managerController.jSpeed;
     }
 }

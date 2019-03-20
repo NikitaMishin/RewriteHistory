@@ -57,7 +57,7 @@ public class MoveObjectController : OrdinaryPlayerController
 
         if (Mathf.Abs(_offset.x * 1.2f) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x)
             || _rigidbody.velocity.y < -2f
-            || _jSpeed < -2f
+            || _managerController.jSpeed < -2f
           )
         {
             _managerStates.ChangeState(State.Default);
@@ -109,9 +109,9 @@ public class MoveObjectController : OrdinaryPlayerController
         }
        
 
-        _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
+        _managerController.jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
 
-        dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
+        dirVector = (dirVector + Vector3.up * _managerController.jSpeed + _managerController.forceVector) * Time.deltaTime;
 
         Vector3 vector = _rigidbody.velocity;
         vector.x = dirVector.x / Time.deltaTime;

@@ -71,6 +71,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     public Vector3 forceVector = Vector3.zero; // player forces
 
+    public float jSpeed = 0;
 
     public LinkedList<ITimePoint> TimePoints; //storage where we save user move
 

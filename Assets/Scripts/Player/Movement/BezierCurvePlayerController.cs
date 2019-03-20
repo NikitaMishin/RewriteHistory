@@ -121,7 +121,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
 
         InitialSpeedSetup();
 
-        if (_jSpeed < -3)
+        if (_managerController.jSpeed < -3)
         {
             if (!_managerController.animator.GetBool("IsFalling"))
                 _managerController.animator.SetBool("IsFalling", true);
@@ -201,13 +201,13 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
         }
 
 
-        _jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
+        _managerController.jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
 
         // Animator
       //  if (IsOnTheGround())
             AnimateWalking();
 
-        dirVector = (dirVector + Vector3.up * _jSpeed) * Time.deltaTime;
+        dirVector = (dirVector + Vector3.up * _managerController.jSpeed + _managerController.forceVector) * Time.deltaTime;
 
         _controller.Move(dirVector);
         //UpdateCameraPosition();
@@ -416,7 +416,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
         if (charOnTheGround)
         {
             //if character on the ground acceleration=0
-            _jSpeed = 0;
+            _managerController.jSpeed = 0;
             _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
         }
 
