@@ -1354,6 +1354,7 @@ GameObject:
   - component: {fileID: 114724911643572024}
   - component: {fileID: 114555205325236140}
   - component: {fileID: 114906959710548592}
+  - component: {fileID: 114480361065565496}
   m_Layer: 0
   m_Name: Player With Animation
   m_TagString: Player
@@ -3070,6 +3071,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpTimeWithoutGround: 0.2
   walkingAnimationSpeed: 2
+--- !u!114 &114480361065565496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1929911677796450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e2be2e5fcb51b44bf34abf230a72ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _managerController: {fileID: 114905931869451070}
 --- !u!114 &114522910315614668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3154,8 +3167,10 @@ MonoBehaviour:
   SpeedAccelerationPercent: 0.3
   ThresholdPercent: 0.3
   _currentActualSpeed: 0
+  onlySlide: 0
   animator: {fileID: 95300679035046104}
   forceVector: {x: 0, y: 0, z: 0}
+  jSpeed: 0
 --- !u!114 &114906959710548592
 MonoBehaviour:
   m_ObjectHideFlags: 1
