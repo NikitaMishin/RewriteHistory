@@ -6,13 +6,18 @@ public class StartTrigger : MonoBehaviour {
 
     private bool _wasStepped = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        _wasStepped = !_wasStepped;
+        _wasStepped = true;
     }
 
     public bool WasStepped()
     {
         return _wasStepped;
+    }
+
+    public void SetWasStepped(bool value)
+    {
+        _wasStepped = value;
     }
 }

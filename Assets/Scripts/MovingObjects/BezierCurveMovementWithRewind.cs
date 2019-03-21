@@ -138,7 +138,14 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     public void RecordTimePoint()
     {
         _timePoints.AddLast(
-            new BezierCurveObjectTimePoint(transform.position, transform.rotation, Direction, CurrentWayPointId));
+            new BezierCurveObjectTimePoint(
+                transform.position,
+                transform.rotation,
+                Direction,
+                CurrentWayPointId,
+                trigger == null ? false : trigger.WasStepped()
+                )
+            );
     }
 
     /// <summary>
@@ -158,6 +165,10 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         transform.rotation = tmp.rotation;
         CurrentWayPointId = tmp.curWaypointIndex;
         Direction = tmp.curveDir;
+
+        if (trigger != null)
+            trigger.SetWasStepped(tmp.wasStepped);
+
         //remove record
         _timePoints.RemoveLast();
     }
