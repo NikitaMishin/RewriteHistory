@@ -56,7 +56,7 @@ public class InclineTrigger : MonoBehaviour {
         if (!other.gameObject.tag.Equals("Player"))
             return;
 
-        if (_root.transform.rotation.z == 0)
+        if (Mathf.Abs(_root.transform.rotation.z) < 0.1f)
             return;
 
         _managerController.onlySlide = onlySlide;
@@ -67,6 +67,7 @@ public class InclineTrigger : MonoBehaviour {
 
         if (_root.transform.rotation.z > 0)
             _managerController.forceVector *= -1;
+
 
         _managerController.forceVector += Vector3.up * -slippery;
     }
