@@ -10,6 +10,7 @@ public class TimelineActivator : MonoBehaviour {
     {
         if (!other.CompareTag("Player")) return;
 
+        director.RebuildGraph();
         director.Play();
     }
 }
