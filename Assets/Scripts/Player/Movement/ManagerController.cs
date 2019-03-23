@@ -112,6 +112,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
         {
             DeleteOldRecord();
         }
+
+      //  IsOnTheGround();
     }
 
     /// <summary>
@@ -201,6 +203,9 @@ public class ManagerController : MonoBehaviour, IRevertListener
         {
             isOnTheGround = _moveObjectController.IsOnTheGround();
         }
+
+    //    if (isOnTheGround)
+     //       jSpeed = 0;
 
         return isOnTheGround;
     }

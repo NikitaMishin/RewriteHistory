@@ -11,6 +11,8 @@ public class FallenAfterJumpBlock : MonoBehaviour {
     private Rigidbody _rigidbody;
     private int _currentCount = 0;
 
+    private GameObject _prevGameObject;
+
     private void Start()
     {
         _meshRenderer = gameObject.GetComponent<MeshRenderer>();
@@ -19,13 +21,16 @@ public class FallenAfterJumpBlock : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.tag.Equals("Player"))
-            return;
-
-        if (!_managerController.IsOnTheGround() && _managerController.jSpeed < 0)
+        Debug.Log(Time.time + " : " + _managerController.jSpeed);
+        if (other.gameObject.tag.Equals("Player") &&!_managerController.IsOnTheGround() && _managerController.jSpeed < -0.1f)
         {
             _currentCount = _currentCount == countForBreak ? countForBreak : _currentCount + 1;
             Debug.Log("Was Jumped");
+        }
+        else if (other.gameObject.tag.Equals("FallenObject"))
+        {
+            _currentCount = _currentCount == countForBreak ? countForBreak : _currentCount + 1;
+            _prevGameObject = other.gameObject;
         }
     }
 

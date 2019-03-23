@@ -35,6 +35,11 @@ public class FallenAfterJumpController : MonoBehaviour {
         {
             SetGravity(true);
             _wasBroken = true;
+        } 
+        else
+        {
+            SetGravity(false);
+            _wasBroken = false;
         }
 	}
 
@@ -44,5 +49,15 @@ public class FallenAfterJumpController : MonoBehaviour {
         {
             fallenAfterJumpBlocks[i].SetGravity(value);
         }
+    }
+
+    public void SetWasBroken(bool value)
+    {
+        _wasBroken = value;
+    }
+
+    public bool WasBroken()
+    {
+        return _wasBroken;
     }
 }
