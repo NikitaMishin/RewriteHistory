@@ -5,7 +5,8 @@ using UnityEngine;
 public class FallenAfterJumpBlock : MonoBehaviour {
 
     [SerializeField] private int countForBreak = 3;
-    [SerializeField] private ManagerController _managerController;
+
+    private ManagerController _managerController;
 
     private MeshRenderer _meshRenderer;
     private Rigidbody _rigidbody;
@@ -16,6 +17,7 @@ public class FallenAfterJumpBlock : MonoBehaviour {
     private void Start()
     {
         _meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        _managerController = GameObject.FindGameObjectWithTag("Player").GetComponent<ManagerController>();
         _rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
