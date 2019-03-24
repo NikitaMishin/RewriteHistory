@@ -21,7 +21,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 
     void Start()
     {
-        _animationController = gameObject.transform.parent.gameObject.GetComponentInChildren<HiddenDoor>();
+        _animationController = gameObject.GetComponentInChildren<FallenColumn>();
         _timePoints = new LinkedList<AnimationTimePoint>();
         _timeController = FindObjectOfType<TimeController>();
     }
@@ -47,7 +47,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 
     public void RecordTimePoint()
     {
-        _timePoints.AddLast(new AnimationTimePoint(_animationController.GetTime()));
+        _timePoints.AddLast(new AnimationTimePoint(_animationController.GetTime(), _animationController.GetSpeed()));
     }
 
     public void StartRewind()
@@ -56,6 +56,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
         {
             var timePoint = _timePoints.Last.Value;
             _animationController.SetTime(timePoint.currentTime);
+            _animationController.SetSpeed(timePoint.speed);
             _timePoints.RemoveLast();
         }
     }

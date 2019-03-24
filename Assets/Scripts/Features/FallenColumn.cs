@@ -2,62 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallenColumn : MonoBehaviour {
+public class FallenColumn : MonoBehaviour, IAnimation {
 
-    [SerializeField] private Rigidbody rigidbody;
-    [SerializeField] private Collider collider;
-    [SerializeField] private float force = 10f;
-    [SerializeField] private float maxAngle = 45;
     [SerializeField] private ManagerController _managerController;
-
-    private Vector3 _forward = Vector3.zero;
-
-    private GameObject _root;
+    [SerializeField] private float timeAfterFallNext = 0.2f;
 
     private bool _wasStepped = false;
+    private float _stoppedTime = 0;
+    private Animation _animation;
 
-    // Use this for initialization
-    void Start()
+    private float _lastTime = 0;
+    private bool _timeToRun = false;
+
+    private void Start()
     {
-        _root = gameObject.transform.parent.gameObject;
+        _animation = gameObject.transform.parent.gameObject.GetComponent<Animation>();
     }
 
     private void Update()
     {
-      //  if (_wasStepped && Mathf.Abs(_root.transform.rotation.eulerAngles.z) < maxAngle)
-        //    _root.transform.rotation = Quaternion.Euler(_root.transform.rotation.eulerAngles + new Vector3(0, 0, force * -1 * Time.deltaTime));
+        if (Time.time - _lastTime > timeAfterFallNext && _timeToRun)
+        {
+            _animation["FallenColumn"].speed = 1;
+            _timeToRun = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag.Equals("Player"))
+        if (other.gameObject.tag.Equals("Player") && (!_wasStepped || _animation["FallenColumn"].speed != 0))
         {
-            if (_forward.Equals(Vector3.zero))
-                _forward = other.gameObject.transform.forward;
-
             _wasStepped = true;
+            _animation.Play();
+            _animation["FallenColumn"].speed = 1;
+        }
+    }
 
-
-            if (!_forward.Equals(other.gameObject.transform.forward))
-                return;
-
-            rigidbody.AddForceAtPosition(
-                other.gameObject.transform.forward * force * Time.deltaTime,
-                new Vector3(
-                    collider.bounds.max.x,
-                    collider.bounds.max.y,
-                    collider.bounds.center.z
-                ),
-                ForceMode.Impulse
-            );
-
-            _managerController.forceVector = rigidbody.velocity;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.gameObject.tag.Equals("Player"))
+        {
+            //_stoppedTime = _animation["FallenColumn"].time;
+          //  _animation["FallenColumn"].speed = 0;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _managerController.forceVector = Vector3.zero;
+        /*if (!other.gameObject.tag.Equals("Player"))
+        {
+            _lastTime = Time.time;
+            _timeToRun = true;
+        }*/
     }
 
     public bool WasStepped()
@@ -68,5 +64,42 @@ public class FallenColumn : MonoBehaviour {
     public void SetWasStepped(bool value)
     {
         _wasStepped = value;
+    }
+
+    public void SetTime(float time)
+    {
+        if (time == 0)
+        {
+            _animation.Stop();
+            _wasStepped = false;
+        }
+
+        if ((int)(time + 0.1f) == 1)
+        {
+            _animation.Play("FallenColumn");
+        }
+
+        if (time != 0)
+        {
+            _animation["FallenColumn"].time = time;
+        }
+    }
+
+    public float GetTime()
+    {
+        if (_wasStepped && _animation["FallenColumn"].time == 0)
+            return _animation["FallenColumn"].length - 0.1f;
+
+        return _animation["FallenColumn"].time;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        _animation["FallenColumn"].speed = speed;
+    }
+
+    public float GetSpeed()
+    {
+        return _animation["FallenColumn"].speed;
     }
 }
