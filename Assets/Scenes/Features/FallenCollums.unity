@@ -944,6 +944,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1929911677796450, guid: 19caf6d4678a154489a91c5bf566cb49,
     type: 2}
   m_PrefabInternal: {fileID: 1322631047}
+--- !u!114 &938353464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938353463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf12f27b5374b9d4e9da65f8ce790d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _friction: 0.5
+  slopeLimit: 10
+  maxTimeWithoutGround: 0.1
+  maxForce: 4
 --- !u!114 &938353472 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114905931869451070, guid: 19caf6d4678a154489a91c5bf566cb49,
