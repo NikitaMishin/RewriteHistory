@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ManagerStates : MonoBehaviour {
 
-    private State _currentState;
     private ManagerController _managerController;
     private TrapController _trapController;
     private InteractSignal _interactSignal;
@@ -12,6 +11,7 @@ public class ManagerStates : MonoBehaviour {
     private BezierCurvePlayerController _bezierCurvePlayerController;
 
     [SerializeField]
+    private State _currentState;
     private bool hasRespawn = false;
 
     public bool HasRespawn
