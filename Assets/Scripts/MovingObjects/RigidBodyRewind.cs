@@ -49,7 +49,7 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 
 	public void RecordTimePoint()
 	{
-		_timePoints.AddLast( new RigidBodyTimePoint(transform.position, transform.rotation,_rb.velocity,_rb.angularVelocity));
+		_timePoints.AddLast( new RigidBodyTimePoint(transform.position, transform.rotation,_rb.velocity,_rb.angularVelocity, _rb.useGravity));
 	}
 
 	public void StartRewind()
@@ -60,11 +60,11 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 			transform.position = timePoint.Position;
 			transform.rotation = timePoint.Rotation;
 			_rb.velocity = timePoint.Velocity;
-			_rb.angularVelocity = timePoint.AngularVelocity;
+            _rb.useGravity = timePoint.useGravity;
+            _rb.angularVelocity = timePoint.AngularVelocity;
 			_timePoints.RemoveLast();
             _collider.enabled = false;
             _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
-
         }
 	}
 
