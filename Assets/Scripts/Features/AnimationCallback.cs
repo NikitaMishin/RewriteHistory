@@ -8,12 +8,12 @@ public class AnimationCallback : MonoBehaviour {
 
     public void OnEndOpen()
     {
-        hiddenDoor.OnEndOpen();
+     //   hiddenDoor.OnEndOpen();
     }
 
     public void OnEndClose()
     {
-        hiddenDoor.OnEndClose();
+    //    hiddenDoor.OnEndClose();
     }
 
 }

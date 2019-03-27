@@ -118,12 +118,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1391896317858028, guid: 17a8a21648bbbdf4eb1b3a15aef478e9,
     type: 2}
   m_PrefabInternal: {fileID: 1312429279}
---- !u!114 &769047395 stripped
+--- !u!114 &769047395
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114092703351883598, guid: 17a8a21648bbbdf4eb1b3a15aef478e9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1312429279}
-  m_Script: {fileID: 11500000, guid: c7595a3db75ceed4387ad67f495cf276, type: 3}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769047394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7729936eaa2c3c3479dd06f62f94b552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &769047400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +341,7 @@ Prefab:
         type: 2}
       propertyPath: animationRewindController
       value: 
-      objectReference: {fileID: 769047395}
+      objectReference: {fileID: 0}
     - target: {fileID: 114543457380246114, guid: 17a8a21648bbbdf4eb1b3a15aef478e9,
         type: 2}
       propertyPath: timeToClose
@@ -352,7 +357,19 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114543457380246114, guid: 17a8a21648bbbdf4eb1b3a15aef478e9,
+        type: 2}
+      propertyPath: simpleRewind
+      value: 
+      objectReference: {fileID: 769047395}
+    - target: {fileID: 114543457380246114, guid: 17a8a21648bbbdf4eb1b3a15aef478e9,
+        type: 2}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 769047394}
+    m_RemovedComponents:
+    - {fileID: 111794052086038186, guid: 17a8a21648bbbdf4eb1b3a15aef478e9, type: 2}
+    - {fileID: 114092703351883598, guid: 17a8a21648bbbdf4eb1b3a15aef478e9, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 17a8a21648bbbdf4eb1b3a15aef478e9, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1424600039

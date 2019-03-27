@@ -2,148 +2,73 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HiddenDoor : MonoBehaviour, IAnimation {
+public class HiddenDoor : MonoBehaviour {
 
     [SerializeField] private float timeToClose = 2f;
     [SerializeField] private bool needToCLose = true;
-    [SerializeField] private AnimationRewindController animationRewindController;
+    [SerializeField] private SimpleRewind simpleRewind;
+    [SerializeField] private GameObject door;
+    [SerializeField] private float speed = 10f;
 
     private float _lastTime = 0;
-    private float _prevTime = 1f;
 
-    private Animation _animation;
-    private bool _wasOpen = false;
-    private bool _wasOpened = false;
-    private bool _triggerEnd = true;
-    private int _animCount = 0;
+    private bool _isActing = false;
+    private bool _isOpening = true;
 
-    private string _lastAnimation;
-    private readonly string OPEN = "OpenDoor";
-    private readonly string CLOSE = "OpenDoorBack";
+    private Vector3 _startAngle;
+    private Vector3 _endAngle;
 
     private void Start()
     {
-        _lastAnimation = OPEN;
-        _animation = gameObject.transform.parent.gameObject.GetComponentInChildren<Animation>();   
+        _startAngle = new Vector3(0, 0, 0);
+        _endAngle = new Vector3(0, 0, 90);
     }
 
     private void Update()
     {
-        if (!needToCLose || animationRewindController != null
-            && animationRewindController.enabled
-            && animationRewindController.ShouldRewind())
+        if (!needToCLose || simpleRewind != null
+            && simpleRewind.enabled
+            && simpleRewind.ShouldRewind())
                 return;
 
-        if (Time.time - _lastTime > timeToClose && _triggerEnd && _wasOpened)
+        if (!_isActing)
+            return;
+
+        if (_isOpening)
         {
-            float time = _animation[_lastAnimation].time;
-            _lastAnimation = CLOSE;
-            _animCount++;
-            _animation.Play(_lastAnimation);
-         //   _animation[_lastAnimation].time = 1f - time == 1 ? 0 : 1f - time;
-            _triggerEnd = false;
-            
+            door.transform.rotation = Quaternion.Euler(Vector3.Lerp(door.transform.rotation.eulerAngles, _endAngle, Time.deltaTime * speed));
         }
+        else if (Time.time - _lastTime > timeToClose)
+        {
+            door.transform.rotation = Quaternion.Euler(Vector3.Lerp(door.transform.rotation.eulerAngles, _startAngle, Time.deltaTime * speed));
+        }
+
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (animationRewindController != null
-            && animationRewindController.enabled
-            && animationRewindController.ShouldRewind())
+        if (simpleRewind != null
+            && simpleRewind.enabled
+            && simpleRewind.ShouldRewind())
             return;
 
-        if (!_wasOpened && other.gameObject.tag.Equals("Player") && _triggerEnd)
+        if (other.gameObject.tag.Equals("Player"))
         {
-            float time = _animation[_lastAnimation].time;
-            _lastAnimation = OPEN;
-
-            _animCount++;
-            _animation.Play(_lastAnimation);
-       //     _animation[_lastAnimation].time = 1f - time == 1 ? 0 : 1f - time;
-            _triggerEnd = false;
+            _isActing = true;
+            _isOpening = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (animationRewindController != null 
-            && animationRewindController.enabled
-            && animationRewindController.ShouldRewind())
+        if (simpleRewind != null 
+            && simpleRewind.enabled
+            && simpleRewind.ShouldRewind())
             return;
 
-        _triggerEnd = true;
+        _isOpening = false;
+
         _lastTime = Time.time;
-    }
-
-    public void OnEndOpen()
-    {
-        _wasOpen = true;
-        _wasOpened = true;
-    }
-
-    public void OnEndClose()
-    {
-        _wasOpened = false;
-        _triggerEnd = true;
-    }
-
-    public void SetTime(float time)
-    {
-        if (time == 0 && _animCount > 0)
-        {
-            _animation.Stop();
-            _animCount--;
-            Reset();
-            return;
-            
-        }
-        else if (time - _prevTime > 0.3f && _animCount > 0)
-        {
-            _animation.Stop();
-            _animCount--;
-
-            if (_animCount > 0)
-                _lastAnimation = _lastAnimation.Equals(OPEN) ? CLOSE : OPEN;
-            else
-                Reset();
-        }
-        else if ((int)(time + 0.1f) == _animation[_lastAnimation].length)
-        {
-            _animation.Play(_lastAnimation);
-        }
-
-        if (time != 0 && _animCount > 0)
-        {
-            _animation[_lastAnimation].time = time;
-            _prevTime = time;
-        }
-    }
-
-    public float GetTime()
-    {
-        if (_wasOpen && _animation[_lastAnimation].time == 0)
-            return _animation[_lastAnimation].length - 0.1f;
-
-
-        return _animation[_lastAnimation].time;
-    }
-
-    public void SetSpeed(float speed)
-    {
-        _animation[_lastAnimation].speed = speed;
-    }
-
-    public float GetSpeed()
-    {
-        return _animation[_lastAnimation].speed;
-    }
-
-    private void Reset()
-    {
-        _lastAnimation = OPEN;
-        _triggerEnd = false;
-        _wasOpen = false;
-        _prevTime = 1;
     }
 }

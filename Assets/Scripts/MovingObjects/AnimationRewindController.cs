@@ -17,8 +17,6 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
     private IAnimation _animationController;
 
     [SerializeField]
-    private HiddenDoor hiddenDoor;
-    [SerializeField]
     private FallenColumn fallenColumn;
 
     private LinkedList<AnimationTimePoint> _timePoints;
@@ -26,8 +24,6 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 
     void Start()
     {
-        if (hiddenDoor != null)
-            _animationController = hiddenDoor;
         if (fallenColumn != null)
             _animationController = fallenColumn;
 
