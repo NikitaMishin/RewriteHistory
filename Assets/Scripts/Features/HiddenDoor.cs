@@ -17,23 +17,28 @@ public class HiddenDoor : MonoBehaviour, IAnimation {
     private int _animCount = 0;
 
     private string _lastAnimation;
+    private string _prevAnimation;
 
     private readonly string OPEN = "OpenDoor";
     private readonly string CLOSE = "OpenDoorBack";
 
     private void Start()
     {
+        _prevAnimation = OPEN;
         _lastAnimation = OPEN;
         _animation = gameObject.transform.parent.gameObject.GetComponentInChildren<Animation>();   
     }
 
     private void Update()
     {
-        if (!needToCLose || animationRewindController.ShouldRewind())
-            return;
+        if (!needToCLose || animationRewindController != null
+            && animationRewindController.enabled
+            && animationRewindController.ShouldRewind())
+                return;
 
-        if (Time.time - _lastTime > timeToClose && _triggerEnd && _wasOpen)
+        if (Time.time - _lastTime > timeToClose && _triggerEnd && _wasOpen && _animCount > 0)
         {
+            _prevAnimation = OPEN;
             _lastAnimation = CLOSE;
             _animCount++;
             _animation.Play(_lastAnimation);
@@ -44,20 +49,31 @@ public class HiddenDoor : MonoBehaviour, IAnimation {
 
     private void OnTriggerStay(Collider other)
     {
-        if (animationRewindController.ShouldRewind())
+        if (animationRewindController != null
+            && animationRewindController.enabled
+            && animationRewindController.ShouldRewind())
             return;
 
         if (!_wasOpen && other.gameObject.tag.Equals("Player"))
         {
             _lastAnimation = OPEN;
+
+            if (_animCount > 0)
+                _prevAnimation = CLOSE;
+            else
+                _prevAnimation = OPEN;
+
             _animCount++;
+            _wasOpen = true;
             _animation.Play(_lastAnimation);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (animationRewindController.ShouldRewind())
+        if (animationRewindController != null 
+            && animationRewindController.enabled
+            && animationRewindController.ShouldRewind())
             return;
 
         _triggerEnd = true;
@@ -85,7 +101,11 @@ public class HiddenDoor : MonoBehaviour, IAnimation {
             if (_animCount > 0)
                 _lastAnimation = _lastAnimation.Equals(OPEN) ? CLOSE : OPEN;
             else
+            {
                 _lastAnimation = OPEN;
+                _triggerEnd = false;
+                _wasOpen = false;
+            }
         }
 
         if ((int)(time + 0.1f) == 1)
@@ -101,6 +121,12 @@ public class HiddenDoor : MonoBehaviour, IAnimation {
 
     public float GetTime()
     {
+        if (_prevAnimation != _lastAnimation)
+        {
+            _prevAnimation = _lastAnimation;
+            return 0;
+        }
+
         if (_wasOpen && _animation[_lastAnimation].time == 0)
             return _animation[_lastAnimation].length - 0.1f;
 
@@ -110,11 +136,11 @@ public class HiddenDoor : MonoBehaviour, IAnimation {
 
     public void SetSpeed(float speed)
     {
-        throw new System.NotImplementedException();
+        _animation[_lastAnimation].speed = speed;
     }
 
     public float GetSpeed()
     {
-        throw new System.NotImplementedException();
+        return _animation[_lastAnimation].speed;
     }
 }

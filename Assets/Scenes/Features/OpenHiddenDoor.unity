@@ -342,6 +342,16 @@ Prefab:
       propertyPath: timeToClose
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114092703351883598, guid: 17a8a21648bbbdf4eb1b3a15aef478e9,
+        type: 2}
+      propertyPath: hiddenDoor
+      value: 
+      objectReference: {fileID: 913666991}
+    - target: {fileID: 114092703351883598, guid: 17a8a21648bbbdf4eb1b3a15aef478e9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a8a21648bbbdf4eb1b3a15aef478e9, type: 2}
   m_IsPrefabAsset: 0

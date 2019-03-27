@@ -16,12 +16,21 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
     // Use this for initialization
     private IAnimation _animationController;
 
+    [SerializeField]
+    private HiddenDoor hiddenDoor;
+    [SerializeField]
+    private FallenColumn fallenColumn;
+
     private LinkedList<AnimationTimePoint> _timePoints;
     private TimeController _timeController;
 
     void Start()
     {
-        _animationController = gameObject.GetComponentInChildren<FallenColumn>();
+        if (hiddenDoor != null)
+            _animationController = hiddenDoor;
+        if (fallenColumn != null)
+            _animationController = fallenColumn;
+
         _timePoints = new LinkedList<AnimationTimePoint>();
         _timeController = FindObjectOfType<TimeController>();
     }

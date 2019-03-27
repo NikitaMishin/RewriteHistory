@@ -17,6 +17,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
    */
 
     [SerializeField] private StartTrigger trigger;
+    [SerializeField] private bool withExitTrigger;
 
     private LinkedList<BezierCurveObjectTimePoint> _timePoints;
 
@@ -81,14 +82,13 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     void Update()
     {
         if (ShouldRewind()) return;
-
         if (trigger != null && !trigger.WasStepped()) return;
-
-        if (isShouldStopAtTheEnd && IsReachedEndOfCurve()) return;
+        if (isShouldStopAtTheEnd && IsReachedEndOfCurve() && !withExitTrigger) return;
 
         float distance = Vector3.Distance(PathPoints[CurrentWayPointId], transform.position);
         transform.position =
             Vector3.MoveTowards(transform.position, PathPoints[CurrentWayPointId], Time.deltaTime * Speed);
+
 
         var lookPos = PathPoints[CurrentWayPointId] - transform.position;
         var rotation = Quaternion.LookRotation(lookPos);
@@ -107,12 +107,48 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     /// </summary>
     private void UpdateIndexPoint()
     {
-        //closed path with positive direction and last point
+        if (withExitTrigger)
+            UpdatePointWithExitTrigger();
+        else
+            UpdatePointWithoutExitTrigger();
+        
+    }
+
+    private void UpdatePointWithExitTrigger()
+    {
+        if (!Direction && CurrentWayPointId == 0 && !Path.close)
+        {
+            trigger.SetWasStepped(false);
+            trigger.SetWasClosed(false);
+            CurrentWayPointId = 0;
+            Direction = !Direction;
+        }
+        else if (!trigger.WasClosed() && Direction && CurrentWayPointId < PathPoints.Count - 1)
+        {
+            CurrentWayPointId++;
+        }
+        else if (trigger.WasClosed() && Direction && !Path.close && CurrentWayPointId > 0)
+        {
+            CurrentWayPointId--;
+            Direction = !Direction;
+        }
+        else if (trigger.WasClosed() && !Direction && CurrentWayPointId > 0)
+        {
+            CurrentWayPointId--;
+        }
+        else if (!trigger.WasClosed() && !Direction)
+        {
+            Direction = !Direction;
+        }
+    }
+
+    private void UpdatePointWithoutExitTrigger()
+    {
         if (Direction && CurrentWayPointId >= PathPoints.Count - 1 && Path.close)
         {
             CurrentWayPointId = 0;
         }
-        else if (Direction && CurrentWayPointId >= PathPoints.Count - 1 && !Path.close)
+        else if (CurrentWayPointId >= PathPoints.Count - 1 && !Path.close)
         {
             CurrentWayPointId--;
             Direction = !Direction;
@@ -131,6 +167,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
             CurrentWayPointId--;
         }
     }
+    
+
 
     /// <summary>
     /// Record current position with transformation

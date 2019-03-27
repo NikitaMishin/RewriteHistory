@@ -16,6 +16,8 @@ public class FallTrigger : MonoBehaviour {
     private float _startTime;
     private float _currentGravity;
 
+    private bool _isFallen;
+
     // Use this for initialization
     void Start () {
 		
@@ -30,23 +32,24 @@ public class FallTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (_defaultY != _parent.transform.position.y)
+        if (_isFallen)
         {
             _currentGravity += _fallSpeed * Time.deltaTime;
             _parent.transform.position = _parent.transform.position + Vector3.up * Time.deltaTime * _currentGravity;
         }
-        else
-            _currentGravity = _fallSpeed;
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        _startTime = Time.time;
+    //    if (other.gameObject.tag.Equals("Player"))
+        if (!_isFallen)
+            _startTime = Time.time;
+    
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (Time.time - _startTime > _secondsBeforeFall)
-            _parent.transform.position = _parent.transform.position + Vector3.up * _fallSpeed * Time.deltaTime;
+            _isFallen = true;
     }
 }
