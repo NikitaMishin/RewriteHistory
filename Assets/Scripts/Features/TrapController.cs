@@ -25,7 +25,7 @@ public class TrapController : MonoBehaviour {
         _managerStates = gameObject.GetComponent<ManagerStates>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag.Equals("Trap"))
         {

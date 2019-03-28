@@ -27,6 +27,8 @@ public class TimeController : MonoBehaviour
 
     private ManagerStates _managerStates;
 
+    private bool start = false;
+
     private void Awake()
     {
         _managerStates = gameObject.GetComponent<ManagerStates>();
@@ -36,20 +38,28 @@ public class TimeController : MonoBehaviour
     {
         if (_managerStates.HasRespawn) return;
 
-        if (Input.GetKey(KeyCode.R) && CouldUseReverse)
+     /*   if (Input.GetKey(KeyCode.R) && CouldUseReverse)
         {
             _currentTimeReverse = Math.Max(_currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
             IsUserShouldReverse = false;
-        }
-        else if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
+        }*/
+        if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
         {
             _currentTimeReverse = Math.Max(_currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
-            IsUserShouldReverse = true;
+
+            if (!start)
+                _managerStates.canRewind = _managerStates.GetCurrentState().Equals(State.Dead);
+
+            start = true;
+
+            IsUserShouldReverse = _managerStates.canRewind;
         }
         else
         {
+            start = false;
+            _managerStates.canRewind = false;
             IsReversing = false;
             IsUserShouldReverse = false;
             _currentTimeReverse = Math.Min(MaxTimeReverse, _currentTimeReverse + Time.deltaTime);

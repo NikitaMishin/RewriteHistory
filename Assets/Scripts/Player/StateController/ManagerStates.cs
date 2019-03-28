@@ -14,6 +14,8 @@ public class ManagerStates : MonoBehaviour {
     private State _currentState;
     private bool hasRespawn = false;
 
+    public bool canRewind = false;
+
     public bool HasRespawn
     {
         get
@@ -27,12 +29,7 @@ public class ManagerStates : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-
-    private void Awake()
+    private void Start()
     {
         _currentState = State.Default;
         _bezierCurvePlayerController = gameObject.GetComponent<BezierCurvePlayerController>();
@@ -40,6 +37,7 @@ public class ManagerStates : MonoBehaviour {
         _trapController = gameObject.GetComponent<TrapController>();
         _interactSignal = gameObject.GetComponent<InteractSignal>();
         _characterController = gameObject.GetComponent<CharacterController>();
+        _managerController.Init();
     }
 
     // Update is called once per frame
@@ -75,8 +73,7 @@ public class ManagerStates : MonoBehaviour {
     {
         _currentState = State.Dead;
         _interactSignal.InterruptInteract();
-        
-
+        canRewind = true;
         if (HasRespawn)
             DeadRespawn();
         else
@@ -125,6 +122,7 @@ public class ManagerStates : MonoBehaviour {
     {
         _currentState = State.MoveBox;
         _characterController.enabled = true;
+
 
         DeleteRigidbody();
         DeleteCollider();

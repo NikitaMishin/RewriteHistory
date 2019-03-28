@@ -59,7 +59,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     public Animator animator;
 
-    private TimeController _timeController;
+    public TimeController _timeController;
     private OrdinaryPlayerController _ordinaryPlayerController;
     private BezierCurvePlayerController _bezierCurvePlayerController;
     private StairController _stairController;
@@ -74,10 +74,20 @@ public class ManagerController : MonoBehaviour, IRevertListener
     public float jSpeed = 0;
 
     public LinkedList<ITimePoint> TimePoints; //storage where we save user move
-
+    private bool _wasInit = false;
 
     private void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
+        if (_wasInit)
+            return;
+
+        _wasInit = true;
+
         _timeController = FindObjectOfType<TimeController>();
         _ordinaryPlayerController = GetComponent<OrdinaryPlayerController>();
         _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();

@@ -8,7 +8,7 @@ public class RespawnRigidTraps : MonoBehaviour {
     private GameObject prefab;
 
     [SerializeField]
-    private int respawnSeconds;
+    private float respawnSeconds;
 
     [SerializeField]
     private int lifeSeconds = 10;
