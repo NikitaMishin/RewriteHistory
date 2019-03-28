@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{531171e7-1b77-434f-b7d3-c2e99e6adaa8}">
+        <property name="assetPath">
+            <value>Pillar_Man_-_Awaken.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>201</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{d13640af-0fcb-488d-83ad-4f39f6fe0242}</destination>
+        </relationship>
+    </object>
+</objects>
