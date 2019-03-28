@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{c2fab5bf-14d1-4f78-b84a-556339a01e31}">
+        <property name="assetPath">
+            <value>300533_SOUNDDOGS__fo.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>11.0249996</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>36.675918367346938</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{d13640af-0fcb-488d-83ad-4f39f6fe0242}</destination>
+        </relationship>
+    </object>
+</objects>

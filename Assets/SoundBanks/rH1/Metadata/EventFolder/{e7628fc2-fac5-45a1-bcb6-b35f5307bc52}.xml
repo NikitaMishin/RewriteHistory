@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="EventFolder" id="{e7628fc2-fac5-45a1-bcb6-b35f5307bc52}">
+        <property name="name">
+            <value>rewriteHistory</value>
+        </property>
+        <relationship name="folder">
+            <destination>{f1edf6eb-d276-467a-8efc-20a6d5be4805}</destination>
+        </relationship>
+    </object>
+</objects>

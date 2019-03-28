@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using ReverseTime;
 using UnityEngine;
-
 public class ManagerController : MonoBehaviour, IRevertListener
 {
     /*
@@ -11,6 +10,9 @@ public class ManagerController : MonoBehaviour, IRevertListener
      * set constant as u wish
      * 
      */
+    
+    //
+
     // DIRECTION
     public bool direction = true; // for moving along axis (need for rotating) true for positive false for negative
 
@@ -83,7 +85,6 @@ public class ManagerController : MonoBehaviour, IRevertListener
         _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
         _stairController = GetComponent<StairController>();
         TimePoints = new LinkedList<ITimePoint>();
-
         _moveObjectController = GetComponent<MoveObjectController>();
 
         animator = gameObject.GetComponentInChildren<Animator>();
@@ -112,8 +113,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
         {
             DeleteOldRecord();
         }
-
-      //  IsOnTheGround();
+        
+        //  IsOnTheGround();
     }
 
     /// <summary>
@@ -279,4 +280,5 @@ public class ManagerController : MonoBehaviour, IRevertListener
     {
         return _timeController.IsReversing && !_timeController.IsUserShouldReverse;
     }
+    
 }
