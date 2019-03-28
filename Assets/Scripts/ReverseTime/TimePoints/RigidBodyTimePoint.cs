@@ -8,15 +8,13 @@ namespace ReverseTime
         public Quaternion Rotation;
         public Vector3 Velocity;
         public Vector3 AngularVelocity;
-        public bool useGravity;
 
-        public RigidBodyTimePoint(Vector3 pos, Quaternion rot, Vector3 velocity,Vector3 angularVelocity, bool gravity)
+        public RigidBodyTimePoint(Vector3 pos, Quaternion rot, Vector3 velocity,Vector3 angularVelocity)
         {
             Position = pos;
             Rotation = rot;
             Velocity = velocity;
             AngularVelocity = angularVelocity;
-            useGravity = gravity;
         }
     }
 }
