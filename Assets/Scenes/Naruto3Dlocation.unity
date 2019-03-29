@@ -6439,6 +6439,8 @@ GameObject:
   - component: {fileID: 420820375}
   - component: {fileID: 420820373}
   - component: {fileID: 420820377}
+  - component: {fileID: 420820374}
+  - component: {fileID: 420820378}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -6465,6 +6467,22 @@ MonoBehaviour:
   _maxCameraOffsetX: 3
   _maxCameraOffsetY: 3
   _errorBackX: 0.2
+--- !u!114 &420820374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420820372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a226ef1952417419a388f8ed2f9d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 505204603}
+  inputsound: event:/footSteps1
+  playerismoving: 1
+  currentSpeed: 1
+  regulator_of_steps_speed: 2
 --- !u!20 &420820375
 Camera:
   m_ObjectHideFlags: 0
@@ -6554,6 +6572,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &420820378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420820372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 3
 --- !u!1 &423405827
 GameObject:
   m_ObjectHideFlags: 0
@@ -8483,8 +8513,6 @@ GameObject:
   - component: {fileID: 505204607}
   - component: {fileID: 505204606}
   - component: {fileID: 505204605}
-  - component: {fileID: 505204618}
-  - component: {fileID: 505204619}
   m_Layer: 0
   m_Name: Player With Animation
   m_TagString: Player
@@ -8710,33 +8738,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 505204603}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &505204618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 505204603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436e0bac7b1849240a036ad8d4562063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  a: {fileID: 505204603}
-  inputsound: event:/footSteps1
-  currentSpeed: 0
-  regulator_of_steps_speed: 10
---- !u!114 &505204619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 505204603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: 8
 --- !u!1 &507067015
 GameObject:
   m_ObjectHideFlags: 0
@@ -9871,7 +9872,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 560150867}
-  m_LocalRotation: {x: -0.0027927188, y: -0.996105, z: 0.0549976, w: 0.06886436}
+  m_LocalRotation: {x: -0.0027927184, y: -0.996105, z: 0.054997582, w: 0.0688644}
   m_LocalPosition: {x: -2.6900024, y: -10.130006, z: 18.539997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20342,7 +20343,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1253733231}
-  m_LocalRotation: {x: -0.11870573, y: 0.8049476, z: -0.12772167, w: -0.5671468}
+  m_LocalRotation: {x: -0.11870573, y: 0.8049477, z: -0.12772168, w: -0.5671468}
   m_LocalPosition: {x: 301.43, y: 11.86, z: -92.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
