@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: bcf2a909a7602af47b50183fd779f32f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Anubis
+    100002: Anubis.001
+    100004: Anubis.002
+    100006: Anubis.003
+    100008: Anubis.004
+    100010: //RootNode
+    100012: Bast
+    100014: Cube
+    100016: Cube.001
+    100018: Cube.002
+    100020: Empty
+    100022: Falcon
+    100024: Horus
+    100026: Human
+    100028: Jackal
+    100030: MUMMY
+    100032: Plane
+    100034: Plane.001
+    100036: Plane.002
+    100038: Sun
+    400000: Anubis
+    400002: Anubis.001
+    400004: Anubis.002
+    400006: Anubis.003
+    400008: Anubis.004
+    400010: //RootNode
+    400012: Bast
+    400014: Cube
+    400016: Cube.001
+    400018: Cube.002
+    400020: Empty
+    400022: Falcon
+    400024: Horus
+    400026: Human
+    400028: Jackal
+    400030: MUMMY
+    400032: Plane
+    400034: Plane.001
+    400036: Plane.002
+    400038: Sun
+    2100000: ANB201
+    2100002: MUMMY01
+    2100004: BAST01
+    2100006: BASE03
+    2100008: FALCON01
+    2100010: BASE04
+    2100012: ANB101
+    2100014: BASE01
+    2100016: RAM01
+    2100018: HORUS01
+    2100020: CROWN
+    2100022: ANKH2
+    2100024: BASE02
+    2100026: SPEAR
+    2100028: HUMAN01
+    2100030: Material.009
+    2100032: Material.002
+    2100034: Material.007
+    2100036: Material.006
+    2100038: Material.008
+    2100040: Material.004
+    2100042: Material.005
+    2100044: Material.003
+    2100046: Material.001
+    2100048: Material
+    2100050: No Name
+    2300000: Anubis
+    2300002: Anubis.001
+    2300004: Anubis.002
+    2300006: Anubis.003
+    2300008: Anubis.004
+    2300010: Bast
+    2300012: Cube
+    2300014: Cube.001
+    2300016: Cube.002
+    2300018: Falcon
+    2300020: Horus
+    2300022: Human
+    2300024: Jackal
+    2300026: MUMMY
+    2300028: Plane
+    2300030: Plane.001
+    2300032: Plane.002
+    2300034: //RootNode
+    3300000: Anubis
+    3300002: Anubis.001
+    3300004: Anubis.002
+    3300006: Anubis.003
+    3300008: Anubis.004
+    3300010: Bast
+    3300012: Cube
+    3300014: Cube.001
+    3300016: Cube.002
+    3300018: Falcon
+    3300020: Horus
+    3300022: Human
+    3300024: Jackal
+    3300026: MUMMY
+    3300028: Plane
+    3300030: Plane.001
+    3300032: Plane.002
+    3300034: //RootNode
+    4300000: Anubis.004
+    4300002: MUMMY
+    4300004: Bast
+    4300006: Falcon
+    4300008: Jackal
+    4300010: Horus
+    4300012: Anubis
+    4300014: Anubis.003
+    4300016: Anubis.002
+    4300018: Anubis.001
+    4300020: Human
+    4300022: Cube.002
+    4300024: Cube.001
+    4300026: Cube
+    4300028: Plane.002
+    4300030: Plane.001
+    4300032: Plane
+    10800000: Sun
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

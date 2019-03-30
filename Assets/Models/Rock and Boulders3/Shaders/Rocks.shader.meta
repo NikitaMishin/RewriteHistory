@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 78c71c934e6c6484cb024c122aba0863
+timeCreated: 1498480863
+licenseType: Store
+ShaderImporter:
+  defaultTextures:
+  - _RockNormal: {fileID: 2800000, guid: 74778243b203fae4995e7fbcce34e13b, type: 3}
+  - _CoverNormal: {fileID: 2800000, guid: 3f20ef20876ad3a4695f8a262a25b3f8, type: 3}
+  - _MicrodetailNormal: {fileID: 2800000, guid: 0aa941ff34c44ab4ca8ff4d116159e89,
+      type: 3}
+  - _Microdetail: {fileID: 2800000, guid: d5778b011a311a94aa1c5a12e45ba931, type: 3}
+  - _RockAlbedo: {fileID: 2800000, guid: 583279f3a7f927946a03557ec36a9a19, type: 3}
+  - _CoverAlbedo: {fileID: 2800000, guid: fcd3c3e943f353e43a57fd55ba906969, type: 3}
+  - _RockMetallicGloss: {fileID: 2800000, guid: 730bca794a7d95a408112fd3465bce14,
+      type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
