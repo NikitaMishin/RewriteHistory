@@ -30,9 +30,9 @@ public class AnimationController : MonoBehaviour {
     private void AnimateReversing()
     {
         if (_timeControllerObject.IsReversing)
-            _managerController.animator.SetBool("IsReversing", true);
+            _managerController.animator.speed = 0;
         else
-            _managerController.animator.SetBool("IsReversing", false);
+            _managerController.animator.speed = 1;
     }
 
     private void AnimateDead()
@@ -43,8 +43,6 @@ public class AnimationController : MonoBehaviour {
 
     private void AnimateFalling()
     {
-
-        Debug.Log(_timeControllerObject.IsReversing);
         if (_managerController.jSpeed < -3)
         {
             if (!_managerController.animator.GetBool("IsFalling"))
@@ -89,7 +87,7 @@ public class AnimationController : MonoBehaviour {
 
     private void AnimateMovement()
     {
-        if (!_managerController.onlySlide && !_timeControllerObject.IsReversing)
+        if (!_managerController.onlySlide)
             _managerController.animator.SetFloat("MovementSpeed", _managerController._currentActualSpeed);
         else
             _managerController.animator.SetFloat("MovementSpeed", 0);
