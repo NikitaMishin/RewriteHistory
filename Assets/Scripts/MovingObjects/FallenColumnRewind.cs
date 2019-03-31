@@ -13,7 +13,7 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
 	 * 1523kbyte for 300seconds  with 50fixedUpdate per sec and float=8byte
 	 */
     // Use this for initialization
-    [SerializeField] private FallenColumn fallenColumn;
+    [SerializeField] private AnimationRewind fallenColumn;
 
 	private LinkedList<RigidBodyFallenColumnTimePoint> _timePoints;
     private TimeControllerPlayer _timeController;

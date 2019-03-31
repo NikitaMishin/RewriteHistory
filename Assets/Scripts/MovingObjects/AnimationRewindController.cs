@@ -14,19 +14,15 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 	 * 1523kbyte for 300seconds  with 50fixedUpdate per sec and float=8byte
 	 */
     // Use this for initialization
-    private IAnimation _animationController;
 
     [SerializeField]
-    private FallenColumn fallenColumn;
+    private AnimationRewind animationRewind;
 
     private LinkedList<AnimationTimePoint> _timePoints;
     private TimeControllerPlayer _timeController;
 
     void Start()
     {
-        if (fallenColumn != null)
-            _animationController = fallenColumn;
-
         _timePoints = new LinkedList<AnimationTimePoint>();
         _timeController = FindObjectOfType<TimeControllerPlayer>();
     }
@@ -52,7 +48,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 
     public void RecordTimePoint()
     {
-        _timePoints.AddLast(new AnimationTimePoint(_animationController.GetTime(), _animationController.GetSpeed()));
+        _timePoints.AddLast(new AnimationTimePoint(animationRewind.GetTime(), animationRewind.GetSpeed()));
     }
 
     public void StartRewind()
@@ -60,8 +56,8 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
         if (_timePoints.Count > 0)
         {
             var timePoint = _timePoints.Last.Value;
-            _animationController.SetTime(timePoint.currentTime);
-            _animationController.SetSpeed(timePoint.speed);
+            animationRewind.SetTime(timePoint.currentTime);
+            animationRewind.SetSpeed(timePoint.speed);
             _timePoints.RemoveLast();
         }
     }
