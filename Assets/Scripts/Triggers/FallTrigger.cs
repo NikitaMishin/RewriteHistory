@@ -18,11 +18,17 @@ public class FallTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.tag.Equals("Player") && !other.gameObject.tag.Equals("FallenObject"))
+            return;
+
         _startTime = Time.time;
     }
 
     private void OnTriggerStay(Collider other)
     {
+        if (!other.gameObject.tag.Equals("Player") && !other.gameObject.tag.Equals("FallenObject"))
+            return;
+
         if (Time.time - _startTime > _secondsBeforeFall)
             _rigidBody.useGravity = true;
     }
