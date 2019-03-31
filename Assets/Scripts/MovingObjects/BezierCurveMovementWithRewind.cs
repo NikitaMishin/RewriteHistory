@@ -90,8 +90,9 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     void Update()
     {
         if (ShouldRewind()) return;
-        if (trigger != null && !wasStepped && !wasClosed) return;
+        if (trigger != null && !trigger.WasStepped()) return;
         if (isShouldStopAtTheEnd && IsReachedEndOfCurve() && !withExitTrigger) return;
+        if (trigger != null && withExitTrigger && !wasClosed && !wasStepped) return;
 
         float distance = Vector3.Distance(PathPoints[CurrentWayPointId], transform.position);
         transform.position =

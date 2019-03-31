@@ -235,10 +235,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTimeReverse: 0
   speed: 4
+  IsUserShouldReverse: 0
   CouldUseReverse: 1
   IsReversing: 0
   MaxTimeReverse: 1
-  IsUserShouldReverse: 0
 --- !u!4 &481542782
 Transform:
   m_ObjectHideFlags: 0
@@ -351,6 +351,11 @@ Prefab:
     - target: {fileID: 1015660660460664, guid: ecf7eaedf8a8d4843ad1393a2102495e, type: 2}
       propertyPath: m_Name
       value: StartTrigger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114485439538542058, guid: ecf7eaedf8a8d4843ad1393a2102495e,
+        type: 2}
+      propertyPath: hasFewTriggers
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecf7eaedf8a8d4843ad1393a2102495e, type: 2}
@@ -481,6 +486,11 @@ Prefab:
       propertyPath: bezierCurveMovement
       value: 
       objectReference: {fileID: 244207803}
+    - target: {fileID: 114485439538542058, guid: ecf7eaedf8a8d4843ad1393a2102495e,
+        type: 2}
+      propertyPath: hasFewTriggers
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecf7eaedf8a8d4843ad1393a2102495e, type: 2}
   m_IsPrefabAsset: 0

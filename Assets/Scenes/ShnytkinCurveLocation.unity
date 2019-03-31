@@ -16531,6 +16531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &348171742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17181,6 +17182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &364077906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20610,6 +20612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &420050500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39395,7 +39398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &795085580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39408,6 +39411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &795085581
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50055,6 +50059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &1006789992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53586,6 +53591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!4 &1105539567
 Transform:
   m_ObjectHideFlags: 0
@@ -54457,7 +54463,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1121915317}
-  m_LocalRotation: {x: -0.06691145, y: -0.69731426, z: -0.06565965, w: 0.71060854}
+  m_LocalRotation: {x: -0.066911444, y: -0.69731426, z: -0.06565965, w: 0.71060854}
   m_LocalPosition: {x: -184.20288, y: 55.5, z: -47.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -61450,7 +61456,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245433243}
-  m_LocalRotation: {x: 0.029384248, y: -0.09426057, z: 0.0027833867, w: 0.99511}
+  m_LocalRotation: {x: 0.029384268, y: -0.09426055, z: 0.002783388, w: 0.99511}
   m_LocalPosition: {x: -486.61536, y: 109.00714, z: -58.02978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -62744,7 +62750,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1261671838}
-  m_LocalRotation: {x: 0.029384248, y: -0.09426057, z: 0.0027833867, w: 0.99511}
+  m_LocalRotation: {x: 0.029384268, y: -0.09426055, z: 0.002783388, w: 0.99511}
   m_LocalPosition: {x: -97.19403, y: 3.2999992, z: 16.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -67968,7 +67974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1353326923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68035,6 +68041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!4 &1353326927
 Transform:
   m_ObjectHideFlags: 0
@@ -89280,6 +89287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &1812051576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91651,6 +91659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &1856189594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94375,6 +94384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!65 &1902382389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -97069,7 +97079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1963549532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -97136,6 +97146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bezierCurveMovement: {fileID: 0}
+  hasFewTriggers: 0
 --- !u!4 &1963549536
 Transform:
   m_ObjectHideFlags: 0

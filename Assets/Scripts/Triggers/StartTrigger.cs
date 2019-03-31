@@ -6,6 +6,8 @@ public class StartTrigger : MonoBehaviour {
 
     [SerializeField]
     private BezierCurveMovementWithRewind bezierCurveMovement;
+    [SerializeField]
+    private bool hasFewTriggers = false;
 
     private bool _wasStepped = false;
     private bool _wasCLosed = false;
@@ -14,15 +16,22 @@ public class StartTrigger : MonoBehaviour {
     {
         _wasStepped = true;
         _wasCLosed = false;
-        bezierCurveMovement.wasStepped = true;
-        bezierCurveMovement.wasClosed = false;
+
+        if (hasFewTriggers)
+        {
+            bezierCurveMovement.wasStepped = true;
+            bezierCurveMovement.wasClosed = false;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         _wasCLosed = true;
-        bezierCurveMovement.wasStepped = false;
-        bezierCurveMovement.wasClosed = true;
+
+        if (hasFewTriggers)
+        {
+            bezierCurveMovement.wasClosed = true;
+        }
     }
 
     public bool WasStepped()
