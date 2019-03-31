@@ -91,7 +91,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
         _wasInit = true;
 
-        _timeController = FindObjectOfType<TimeControllerPlayer>();
+        _timeController = gameObject.GetComponent<TimeControllerPlayer>();
         _ordinaryPlayerController = GetComponent<OrdinaryPlayerController>();
         _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
         _stairController = GetComponent<StairController>();
