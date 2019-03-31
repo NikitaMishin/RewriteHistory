@@ -24,6 +24,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
     public float DashLimitSec = 5f; // interval when user can dash;ус
     public float DashMaxSpeed = 12f; // maximum speed on dash 
     public float DashAccelerationPercent = 1f; //  how fast we reach limit when dash pressed
+    public bool canDash = true;
 
     //GRAVITY
     public float Gravity = -9.81f;
@@ -61,7 +62,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     public Animator animator;
 
-    public TimeController _timeController;
+    public TimeControllerPlayer _timeController;
     private OrdinaryPlayerController _ordinaryPlayerController;
     private BezierCurvePlayerController _bezierCurvePlayerController;
     private StairController _stairController;
@@ -90,7 +91,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
         _wasInit = true;
 
-        _timeController = FindObjectOfType<TimeController>();
+        _timeController = FindObjectOfType<TimeControllerPlayer>();
         _ordinaryPlayerController = GetComponent<OrdinaryPlayerController>();
         _bezierCurvePlayerController = GetComponent<BezierCurvePlayerController>();
         _stairController = GetComponent<StairController>();

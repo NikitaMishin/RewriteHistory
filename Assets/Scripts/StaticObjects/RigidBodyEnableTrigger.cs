@@ -94,7 +94,7 @@ public class RigidBodyEnableTrigger : MonoBehaviour
 
     private bool IsRewinded(GameObject game)
     {
-        return game.GetComponent<TimeController>().IsReversing;
+        return game.GetComponent<TimeControllerPlayer>().IsReversing;
     }
 
     private void PerformAssignTo(GameObject game)

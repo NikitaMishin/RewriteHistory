@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObjectController : OrdinaryPlayerController
+public class MoveObjectController : OrdinaryPlayerController, IController
 {
 
     /*
@@ -39,7 +39,7 @@ public class MoveObjectController : OrdinaryPlayerController
         _remainDash = Mathf.Max(_managerController.DashMaxSpeed - _managerController._currentNormalSpeed, 0);
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
-        _timeController = FindObjectOfType<TimeController>();
+        _timeController = FindObjectOfType<TimeControllerPlayer>();
         _interactSignal = gameObject.GetComponent<InteractSignal>();
         _managerStates = gameObject.GetComponent<ManagerStates>();
     }
@@ -47,15 +47,13 @@ public class MoveObjectController : OrdinaryPlayerController
     // Update is called once per frame
     void Update()
     {
-        if (_managerController.ShouldRewind()
-            || _colliderInteract == null
-            )
-
+        if (_managerController.ShouldRewind())
             return;
 
-        bool charOnTheGround = IsOnTheGround();
+        charOnTheGround = IsOnTheGround();
 
-        if (Mathf.Abs(_offset.x * 1.2f) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x)
+        if (_colliderInteract == null
+            || Mathf.Abs(_offset.x * 1.2f) < Mathf.Abs(_colliderInteract.transform.position.x - gameObject.transform.position.x)
             || _rigidbody.velocity.y < -2f
             || _managerController.jSpeed < -2f
           )
@@ -63,66 +61,6 @@ public class MoveObjectController : OrdinaryPlayerController
             _managerStates.ChangeState(State.Default);
             return;
         }
-        
-
-        dirVector = Vector3.zero;
-
-        InitialSpeedSetup();
-
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            PressRightMove();
-
-            _right = true;
-
-            if (transform.position.x < _colliderInteract.transform.position.x)
-                _push = true;
-            else
-                _push = false;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            PressLeftMove();
-
-            _right = false;
-
-            if (transform.position.x < _colliderInteract.transform.position.x)
-                _push = false;
-            else
-                _push = true;
-        }
-
-        RaycastHit hit;
-
-        Vector3 startPosition = (_push ? (_right ? new Vector3(_colliderInteract.bounds.max.x, _colliderInteract.bounds.min.y, _colliderInteract.bounds.min.z)  
-            : _colliderInteract.bounds.min) : transform.position);
-        if (
-            Physics.Raycast(
-                startPosition, transform.forward, out hit, _push ? 0.1f : 0.3f)
-                && !hit.transform.gameObject.Equals(_colliderInteract.gameObject)
-        )
-        {
-            Debug.Log(hit.transform.gameObject.tag);
-            return;
-        }
-       
-
-        _managerController.jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
-
-        dirVector = (dirVector + Vector3.up * _managerController.jSpeed + _managerController.forceVector) * Time.deltaTime;
-
-        Vector3 vector = _rigidbody.velocity;
-        vector.x = dirVector.x / Time.deltaTime;
-        dirVector.x = vector.x * Time.deltaTime;
-
-        _colliderInteract.transform.position = _colliderInteract.transform.position + dirVector;
-        _controller.Move(dirVector);
-      
-       
-
-        
     }
 
     public void SetInteractCollider(Collider collider)
@@ -135,6 +73,97 @@ public class MoveObjectController : OrdinaryPlayerController
             _offset = _colliderInteract.transform.position - gameObject.transform.position;
             _rigidbody = _colliderInteract.gameObject.GetComponent<Rigidbody>();
         }
+    }
+
+    void IController.Jump()
+    {
+
+    }
+
+    public void CrouchStart()
+    {
+
+    }
+
+    void IController.CrouchStop()
+    {
+
+    }
+
+    public void Dash()
+    {
+
+    }
+
+    public void RestartDash()
+    {
+
+    }
+
+    public void RightMove()
+    {
+        if (_colliderInteract == null)
+            return;
+
+        PressRightMove();
+
+        _right = true;
+
+        if (transform.position.x < _colliderInteract.transform.position.x)
+            _push = true;
+        else
+            _push = false;
+    }
+
+    public void LeftMove()
+    {
+        if (_colliderInteract == null)
+            return;
+
+        PressLeftMove();
+
+        _right = false;
+
+        if (transform.position.x < _colliderInteract.transform.position.x)
+            _push = false;
+        else
+            _push = true;
+    }
+
+    public void StopJump()
+    {
+
+    }
+
+    public void Move()
+    {
+        if (_colliderInteract == null)
+            return;
+
+        RaycastHit hit;
+
+        Vector3 startPosition = (_push ? (_right ? new Vector3(_colliderInteract.bounds.max.x, _colliderInteract.bounds.min.y, _colliderInteract.bounds.min.z)
+            : _colliderInteract.bounds.min) : transform.position);
+        if (
+            Physics.Raycast(
+                startPosition, transform.forward, out hit, _push ? 0.1f : 0.3f)
+                && !hit.transform.gameObject.Equals(_colliderInteract.gameObject)
+        )
+        {
+            Debug.Log(hit.transform.gameObject.tag);
+            return;
+        }
+
+        _managerController.jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
+
+        dirVector = (dirVector + Vector3.up * _managerController.jSpeed + _managerController.forceVector) * Time.deltaTime;
+
+        Vector3 vector = _rigidbody.velocity;
+        vector.x = dirVector.x / Time.deltaTime;
+        dirVector.x = vector.x * Time.deltaTime;
+
+        _colliderInteract.transform.position = _colliderInteract.transform.position + dirVector;
+        _controller.Move(dirVector);
     }
 
 

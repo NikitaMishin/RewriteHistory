@@ -18,7 +18,7 @@ public class FallenAfterJumpRewind : MonoBehaviour, IRevertListener
     private FallenAfterJumpController _fallenAfterJumpController;
 
     private LinkedList<FallenAfterJumpPoint> _timePoints;
-    private TimeController _timeController;
+    private TimeControllerPlayer _timeController;
     private Rigidbody _rb;
     private Collider _collider;
 
@@ -28,7 +28,7 @@ public class FallenAfterJumpRewind : MonoBehaviour, IRevertListener
         _fallenAfterJumpController = gameObject.transform.parent.gameObject.GetComponent<FallenAfterJumpController>();
 
         _timePoints = new LinkedList<FallenAfterJumpPoint>();
-        _timeController = FindObjectOfType<TimeController>();
+        _timeController = FindObjectOfType<TimeControllerPlayer>();
         _rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
     }

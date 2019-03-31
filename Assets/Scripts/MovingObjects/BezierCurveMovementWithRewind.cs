@@ -18,6 +18,9 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 
     [SerializeField] private StartTrigger trigger;
     [SerializeField] private bool withExitTrigger;
+    [SerializeField] private float timeAfterExit = 2f;
+
+    private bool _wasExecuteBack = false;
 
     private LinkedList<BezierCurveObjectTimePoint> _timePoints;
 
@@ -28,19 +31,24 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     public bool Direction = true;
     public bool isShouldStopAtTheEnd = false;
     public GameObject objectWithActivatedTrigger = null;
+    public bool wasStepped = false;
+    public bool wasClosed = false;
 
     public float reachDistance = 1.0f; //to smooth
 
     private List<Vector3> PathPoints;
 
-    private TimeController _timeController;
+    private TimeControllerPlayer _timeController;
 
     // Use this for initialization
     void Start()
     {
         PathPoints = new List<Vector3>(Path.resolution * Path.pointCount);
         PathPoints.AddRange(Path.GetAllPointsAlongCurve());
-        _timeController = FindObjectOfType<TimeController>();
+
+      
+        _timeController = FindObjectOfType<TimeControllerObject>();
+
         _timePoints = new LinkedList<BezierCurveObjectTimePoint>();
         if ( trigger == null && objectWithActivatedTrigger != null)
         { //trigger == null in case if we set manually this
@@ -82,7 +90,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     void Update()
     {
         if (ShouldRewind()) return;
-        if (trigger != null && !trigger.WasStepped()) return;
+        if (trigger != null && !wasStepped && !wasClosed) return;
         if (isShouldStopAtTheEnd && IsReachedEndOfCurve() && !withExitTrigger) return;
 
         float distance = Vector3.Distance(PathPoints[CurrentWayPointId], transform.position);
@@ -108,35 +116,45 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     private void UpdateIndexPoint()
     {
         if (withExitTrigger)
-            UpdatePointWithExitTrigger();
+            UpdatePointWithExitTriggerNext();
         else
             UpdatePointWithoutExitTrigger();
         
     }
 
-    private void UpdatePointWithExitTrigger()
+    private void UpdatePointWithExitTriggerNext()
     {
         if (!Direction && CurrentWayPointId == 0 && !Path.close)
         {
-            trigger.SetWasStepped(false);
-            trigger.SetWasClosed(false);
+            wasStepped = false;
+            wasClosed = false;
             CurrentWayPointId = 0;
             Direction = !Direction;
+            _wasExecuteBack = false;
         }
-        else if (!trigger.WasClosed() && Direction && CurrentWayPointId < PathPoints.Count - 1)
+        else if (!wasClosed && Direction && CurrentWayPointId < PathPoints.Count - 1)
         {
             CurrentWayPointId++;
+            _wasExecuteBack = false;
         }
-        else if (trigger.WasClosed() && Direction && !Path.close && CurrentWayPointId > 0)
+        else if (wasClosed)
+        {
+            Invoke("UpdatePointWithExiteBack", timeAfterExit);
+        }
+    }
+
+    private void UpdatePointWithExiteBack()
+    {
+        if (wasClosed && Direction && !Path.close && CurrentWayPointId > 0)
         {
             CurrentWayPointId--;
             Direction = !Direction;
         }
-        else if (trigger.WasClosed() && !Direction && CurrentWayPointId > 0)
+        else if (wasClosed && !Direction && CurrentWayPointId > 0)
         {
             CurrentWayPointId--;
         }
-        else if (!trigger.WasClosed() && !Direction)
+        else if (!wasClosed && !Direction)
         {
             Direction = !Direction;
         }
@@ -181,7 +199,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
                 transform.rotation,
                 Direction,
                 CurrentWayPointId,
-                trigger == null ? false : trigger.WasStepped()
+                trigger == null ? false : wasStepped
                 )
             );
     }
@@ -205,7 +223,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         Direction = tmp.curveDir;
 
         if (trigger != null)
-            trigger.SetWasStepped(tmp.wasStepped);
+            wasStepped = tmp.wasStepped;
 
         //remove record
         _timePoints.RemoveLast();

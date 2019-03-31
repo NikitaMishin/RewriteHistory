@@ -3,7 +3,7 @@ using ReverseTime;
 using UnityEngine;
 
 
-public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
+public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IController
 {
     /*
      * For moving in 2axis
@@ -41,9 +41,10 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     protected bool prevGround = false;
     protected bool wasJumped = false;
     protected float prevTime = 0;
-    
 
-    protected TimeController _timeController;
+    protected bool charOnTheGround;
+   
+    protected TimeControllerPlayer _timeController;
 
 
     void Awake()
@@ -56,7 +57,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _remainDash = Mathf.Max(_managerController.DashMaxSpeed - _managerController._currentNormalSpeed, 0);
         _characterHeight = _controller.height;
         _initialLocalScale = _tMesh.localScale;
-        _timeController = FindObjectOfType<TimeController>();
+        _timeController = FindObjectOfType<TimeControllerPlayer>();
         _managerStates = gameObject.GetComponent<ManagerStates>();
     }
 
@@ -65,49 +66,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _managerController.SetActualSpeed(_managerController._currentActualSpeed);
     }
 
-    protected void AnimateWalking()
-    {
-        if (_managerController._currentActualSpeed == 0 || _managerController.onlySlide)
-        {
-            _managerController.animator.SetBool("IsRunning", false);
-            _managerController.animator.SetBool("IsWalking", false);
-        }
-        else if (_managerController._currentActualSpeed < walkingAnimationSpeed && !_managerController._isDashPressed)
-        {
-            _managerController.animator.SetBool("IsRunning", false);
-            _managerController.animator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            _managerController.animator.SetBool("IsWalking", false);
-            _managerController.animator.SetBool("IsRunning", true);
-        }
-    }
-
-    protected void DeadAnimation()
-    {
-        _managerController.animator.SetBool("IsWalking", false);
-        _managerController.animator.SetBool("IsRunning", false);
-        _managerController.animator.SetBool("Jump", false);
-       // _managerController.animator.SetBool("IsFalling", false);
-    }
-
     void Update()
     {
-        if (_managerController.ShouldRewind())
-            return;
-
-        _controller.enabled = true;
-
-        if (_managerStates.GetCurrentState() == State.Dead)
-        {
-            DeadAnimation();
-            return;
-        }
-
-
-
-        bool charOnTheGround = IsOnTheGround();
+        charOnTheGround = IsOnTheGround();
 
         if (prevGround && !charOnTheGround && Mathf.Abs(_managerController.jSpeed) < 1f && !wasJumped)
         {
@@ -117,106 +78,9 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         if (charOnTheGround)
         {
             wasJumped = false;
-            
-        }
-
-        if (_managerController.jSpeed < -3)
-        {
-            if (!_managerController.animator.GetBool("IsFalling"))
-                _managerController.animator.SetBool("IsFalling", true);
-            
-        }
-        else
-        {
-            _managerController.animator.SetBool("IsFalling", false);
-
         }
 
         prevGround = charOnTheGround;
-
-        if (charOnTheGround)
-        {
-           // _managerController.animator.SetBool("IsFalling", false);
-            _managerController.animator.SetBool("Jump", false);
-        }
-        else
-        {
-           // _managerController.animator.SetBool("IsFalling", true);
-        }
-        
-        dirVector = Vector3.zero;
-
-        InitialSpeedSetup();
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            CrouchPressed();
-        }
-        else if (_managerController.isCrouch)
-        {
-            CrouchStop();
-        }
-
-
-        if (charOnTheGround && Input.GetKey(KeyCode.LeftShift) && !_managerController.isCrouch)
-        {
-            DashPressed();
-            _managerController._isDashPressed = true;
-        }
-        else
-        {
-            RestoreDashTime();
-            _managerController._isDashPressed = false;
-        }
-
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            PressRightMove();
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            PressLeftMove();
-        }
-
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-            _managerController._currentActualSpeed = 0;
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            isReadyToJump = true;
-            jumpPressTime = Time.time;
-        }
-        else if (Input.GetKeyUp(KeyCode.W))
-        {
-            isReadyToJump = false;
-        }
-        else if (Time.time - jumpPressTime > 0.3)
-        {
-            isReadyToJump = false;
-        }
-
-        if ((charOnTheGround || Time.time - prevTime < 0.5f || _managerController.IsOnTheIncline) && isReadyToJump && !_managerController.isCrouch)
-        {
-            wasJumped = true;
-            prevTime = 0;
-            Jump();
-            _managerController.animator.SetBool("Jump", true);
-            isReadyToJump = false;
-        }
-
-
-        _managerController.jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
-       
-      
-        // Animator
-    //    if (IsOnTheGround())
-            AnimateWalking();
-
-        dirVector = (dirVector + Vector3.up * _managerController.jSpeed + _managerController.forceVector) * Time.deltaTime;
-
-        _controller.Move(dirVector);
     }
 
     public bool IsOnTheGround()
@@ -239,18 +103,14 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             {
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
-
-                if (!_managerController.onlySlide)
-                    MoveForward();
-             //   _managerController.animator.SetBool("TurneRight", true);
+                MoveForward();
             }
             else 
             {
-            //    _managerController.animator.SetBool("TurneRight", false);
                 ApplyInertia();
             }
         }
-        else if (!_managerController.onlySlide)
+        else
         {
             MoveForward();
         }
@@ -263,18 +123,14 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             if (_managerController._currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
-                _managerController.direction = !_managerController.direction; //TODO what the fuck
-          
-                if (!_managerController.onlySlide)
-                    MoveForward();
+                _managerController.direction = !_managerController.direction;
             }
             else
             {
-                _managerController.animator.SetBool("TurneLeft", false);
                 ApplyInertia();
-            }
+            }  
         }
-        else if (!_managerController.onlySlide)
+        else
         {
             MoveForward();
         }
@@ -315,7 +171,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     }
 
 
-    private void ApplyInertia()
+    protected void ApplyInertia()
     {
         float inertiaForce = _managerController._currentActualSpeed / 2f;
         dirVector += transform.forward * inertiaForce;
@@ -398,7 +254,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
             _managerController._currentActualSpeed = 0;
             _managerController.isCrouch = true;
             _controller.center = new Vector3(0, _controller.center.y - (_characterHeight - _managerController.ControllerHeight) / 2, 0);
-            _managerController.animator.SetBool("IsCrouching", true);
         }
     }
 
@@ -422,7 +277,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
         _managerController.isCrouch = false;
         _managerController._currentNormalSpeed = _managerController.SpeedOnGround;
         _controller.center = new Vector3(0, _controller.center.y + (_characterHeight - _managerController.ControllerHeight) / 2, 0);
-        _managerController.animator.SetBool("IsCrouching", false);
     }
 
     public void SetActualSpeed(float speed)
@@ -527,5 +381,89 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener
     public float GetFallSpeed()
     {
         return _managerController.jSpeed;
+    }
+
+    void IController.Jump()
+    {
+        isReadyToJump = true;
+        jumpPressTime = Time.time;
+
+        if ((charOnTheGround || Time.time - prevTime < 0.5f || _managerController.IsOnTheIncline) && isReadyToJump && !_managerController.isCrouch)
+        {
+            wasJumped = true;
+            prevTime = 0;
+            Jump();
+            isReadyToJump = false;
+        }
+
+    }
+
+    public void CrouchStart()
+    {
+        CrouchPressed();
+    }
+
+    void IController.CrouchStop()
+    {
+        if (_managerController.isCrouch)
+        {
+            CrouchStop();
+        }
+    }
+
+    public void Dash()
+    {
+        if (charOnTheGround && !_managerController.isCrouch && _managerController.canDash)
+        {
+            DashPressed();
+            _managerController._isDashPressed = true;
+        }
+        else
+        {
+            RestoreDashTime();
+            _managerController._isDashPressed = false;
+        }
+    }
+
+    public void RestartDash()
+    {
+        RestoreDashTime();
+        _managerController._isDashPressed = false;
+    }
+
+    public void RightMove()
+    {
+        PressRightMove();
+    }
+
+    public void LeftMove()
+    {
+        PressLeftMove();
+    }
+
+    public void StopJump()
+    {
+        if (Time.time - jumpPressTime > 0.3)
+        {
+            isReadyToJump = false;
+        }
+    }
+
+    public void StopActualSpeed()
+    {
+        _managerController._currentActualSpeed = 0;
+    }
+
+    public void Move()
+    {
+        _managerController.jSpeed += _managerController.Gravity * Time.deltaTime * _managerController.FallSpeed;
+        dirVector = (dirVector + Vector3.up * _managerController.jSpeed + _managerController.forceVector) * Time.deltaTime;
+        _controller.Move(dirVector);
+    }
+
+    public void RestartDir()
+    {
+        dirVector = Vector3.zero;
+        InitialSpeedSetup();
     }
 }

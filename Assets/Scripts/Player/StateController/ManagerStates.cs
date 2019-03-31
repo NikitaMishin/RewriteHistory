@@ -110,11 +110,6 @@ public class ManagerStates : MonoBehaviour {
 
 
         _currentState = State.Default;
-    //    _characterController.enabled = false;
-        
-
-    //    DeleteRigidbody();
-    //    DeleteCollider();
         _interactSignal.InterruptInteract();
     }
 

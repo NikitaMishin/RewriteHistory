@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ReverseTime;
 
 public class FallenColumnRewind : MonoBehaviour, IRevertListener {
 
@@ -17,14 +16,14 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
     [SerializeField] private FallenColumn fallenColumn;
 
 	private LinkedList<RigidBodyFallenColumnTimePoint> _timePoints;
-    private TimeController _timeController;
+    private TimeControllerPlayer _timeController;
     private Rigidbody _rb;
     private Collider _collider;
 
     void Start()
     {
         _timePoints = new LinkedList<RigidBodyFallenColumnTimePoint>();
-        _timeController = FindObjectOfType<TimeController>();
+        _timeController = FindObjectOfType<TimeControllerPlayer>();
         _rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
     }

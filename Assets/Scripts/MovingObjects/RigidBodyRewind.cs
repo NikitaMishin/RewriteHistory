@@ -14,14 +14,14 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 	 */
 	// Use this for initialization
 	private LinkedList<RigidBodyTimePoint> _timePoints;
-	private TimeController _timeController;
+	private TimeControllerPlayer _timeController;
 	private Rigidbody _rb;
     private Collider _collider;
 	
 	void Start ()
 	{
 		_timePoints =  new LinkedList<RigidBodyTimePoint>();
-		_timeController = FindObjectOfType<TimeController>();
+		_timeController = FindObjectOfType<TimeControllerPlayer>();
 		_rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
 	}
@@ -43,8 +43,6 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 		{
 			DeleteOldRecord();
 		}
-		
-		
 	}
 
 	public void RecordTimePoint()

@@ -3226,6 +3226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1812051575}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 2048237805}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -3233,6 +3234,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &48672972
 BoxCollider:
@@ -6555,6 +6558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 471361727}
   CurrentWayPointId: 0
   Speed: 20
@@ -6562,6 +6566,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1963549531}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &123342703
 BoxCollider:
@@ -7063,6 +7069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 348171741}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1319489372}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -7070,6 +7077,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 348171740}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &127545967
 BoxCollider:
@@ -8461,6 +8470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1963549535}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1737701286}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -8468,6 +8478,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1963549531}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &150015170
 BoxCollider:
@@ -9269,6 +9281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 895874775}
   CurrentWayPointId: 0
   Speed: 20
@@ -9276,6 +9289,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &163705065
 BoxCollider:
@@ -10148,6 +10163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1902382388}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1535900811}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -10155,6 +10171,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &184160070
 BoxCollider:
@@ -10210,6 +10228,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184160067}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &184323389
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 9.204409
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.5077443
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.5539789
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865997751986038, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8cdcf977ca811bb4298e623c8ce35193, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &184664871
 GameObject:
   m_ObjectHideFlags: 0
@@ -11461,6 +11521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1812051575}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1676699043}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -11468,6 +11529,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &216322884
 BoxCollider:
@@ -16467,6 +16530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &348171742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17116,6 +17180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &364077906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19668,7 +19733,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406735712}
-  m_LocalRotation: {x: -0.03771588, y: -0.6971513, z: -0.03677508, w: 0.71498615}
+  m_LocalRotation: {x: -0.037715875, y: -0.6971513, z: -0.036775075, w: 0.7149862}
   m_LocalPosition: {x: -165.06497, y: 3.571639, z: -55.02978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20544,6 +20609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &420050500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21787,7 +21853,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447236994}
-  m_LocalRotation: {x: -0.010570542, y: -0.9826171, z: -0.05913105, w: 0.1756572}
+  m_LocalRotation: {x: -0.010570544, y: -0.9826171, z: -0.059131045, w: 0.1756572}
   m_LocalPosition: {x: -22.76694, y: 3.3936212, z: -7.3401337}
   m_LocalScale: {x: 0.50977194, y: 0.43590227, z: 0.26928928}
   m_Children:
@@ -22442,6 +22508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1105539566}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1841600504}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -22449,6 +22516,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1105539562}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &463241520
 BoxCollider:
@@ -24906,6 +24975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1902382388}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1126561934}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -24913,6 +24983,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &520175204
 BoxCollider:
@@ -27351,6 +27423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1105539566}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1395338463}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -27358,6 +27431,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1105539562}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &581724963
 BoxCollider:
@@ -30201,6 +30276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 795085580}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 478633530}
   CurrentWayPointId: 0
   Speed: 20
@@ -30208,6 +30284,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!1 &647981641
 GameObject:
@@ -32741,6 +32819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1902382388}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 624962404}
   CurrentWayPointId: 0
   Speed: 20
@@ -32748,6 +32827,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &695961838
 BoxCollider:
@@ -33068,7 +33149,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 697996486}
-  m_LocalRotation: {x: -0.027015932, y: -0.6918684, z: -0.025922496, w: 0.72105217}
+  m_LocalRotation: {x: -0.027015934, y: -0.6918685, z: -0.025922496, w: 0.7210521}
   m_LocalPosition: {x: -92.9, y: 10.3, z: -66.03668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -34834,6 +34915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1646611140}
   CurrentWayPointId: 0
   Speed: 20
@@ -34841,6 +34923,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 348171740}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!1 &741433447
 GameObject:
@@ -34887,6 +34971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1812051575}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1302666652}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -34894,6 +34979,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &741433450
 BoxCollider:
@@ -38072,7 +38159,7 @@ Transform:
   - {fileID: 1994405748}
   - {fileID: 1477258973}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767005733
 GameObject:
@@ -38718,7 +38805,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 786900113}
-  m_LocalRotation: {x: -0.014354687, y: -0.96502495, z: -0.054087363, w: 0.25611585}
+  m_LocalRotation: {x: -0.014354685, y: -0.96502495, z: -0.054087367, w: 0.2561158}
   m_LocalPosition: {x: 8.0345125, y: 3.3936214, z: -8.990127}
   m_LocalScale: {x: 0.50977194, y: 0.43590227, z: 0.26928928}
   m_Children:
@@ -39308,7 +39395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &795085580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39320,6 +39407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &795085581
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40838,6 +40926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 29380155}
   CurrentWayPointId: 0
   Speed: 20
@@ -40845,6 +40934,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1105539562}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &826440762
 BoxCollider:
@@ -42683,6 +42774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1963549535}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 752045240}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -42690,6 +42782,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1963549531}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &852321839
 BoxCollider:
@@ -44590,7 +44684,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 892811291}
-  m_LocalRotation: {x: -0.019079007, y: -0.8970611, z: -0.03891762, w: 0.43977603}
+  m_LocalRotation: {x: -0.019079011, y: -0.8970611, z: -0.038917623, w: 0.43977597}
   m_LocalPosition: {x: 16.162603, y: 0.016371109, z: -7.017792}
   m_LocalScale: {x: 0.5097717, y: 0.4359023, z: 0.26928914}
   m_Children:
@@ -48807,6 +48901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1353326926}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 548849373}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -48814,6 +48909,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1353326922}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &983292396
 BoxCollider:
@@ -49957,6 +50054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &1006789992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53487,6 +53585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!4 &1105539567
 Transform:
   m_ObjectHideFlags: 0
@@ -54358,7 +54457,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1121915317}
-  m_LocalRotation: {x: -0.066911444, y: -0.6973143, z: -0.06565965, w: 0.71060854}
+  m_LocalRotation: {x: -0.06691145, y: -0.69731426, z: -0.06565965, w: 0.71060854}
   m_LocalPosition: {x: -184.20288, y: 55.5, z: -47.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -54465,6 +54564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1105539566}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1934200203}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -54472,6 +54572,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1105539562}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1124605655
 BoxCollider:
@@ -57131,7 +57233,7 @@ Transform:
   - {fileID: 1261671842}
   - {fileID: 804333488}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182308092
 GameObject:
@@ -61348,7 +61450,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245433243}
-  m_LocalRotation: {x: 0.029384246, y: -0.094260536, z: 0.002783385, w: 0.99511}
+  m_LocalRotation: {x: 0.029384248, y: -0.09426057, z: 0.0027833867, w: 0.99511}
   m_LocalPosition: {x: -486.61536, y: 109.00714, z: -58.02978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -61836,6 +61938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1812051575}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1664690808}
   CurrentWayPointId: 0
   Speed: 20
@@ -61843,6 +61946,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1253275271
 BoxCollider:
@@ -62639,7 +62744,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1261671838}
-  m_LocalRotation: {x: 0.029384246, y: -0.094260536, z: 0.002783385, w: 0.99511}
+  m_LocalRotation: {x: 0.029384248, y: -0.09426057, z: 0.0027833867, w: 0.99511}
   m_LocalPosition: {x: -97.19403, y: 3.2999992, z: 16.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -63946,6 +64051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1353326926}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1496227423}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -63953,6 +64059,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1353326922}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1279021337
 BoxCollider:
@@ -64282,6 +64390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1856189593}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1232974088}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -64289,6 +64398,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1284658813
 BoxCollider:
@@ -65321,6 +65432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1963549535}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 11994978}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -65328,6 +65440,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1963549531}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1307272404
 BoxCollider:
@@ -66962,6 +67076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1856189593}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 658872914}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -66969,6 +67084,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1343184802
 BoxCollider:
@@ -67851,7 +67968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1353326923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -67917,6 +68034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!4 &1353326927
 Transform:
   m_ObjectHideFlags: 0
@@ -69858,6 +69976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1902382388}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1218861936}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -69865,6 +69984,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1402400128
 BoxCollider:
@@ -70734,6 +70855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1755198520}
   CurrentWayPointId: 0
   Speed: 20
@@ -70741,6 +70863,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1353326922}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1415080299
 BoxCollider:
@@ -74227,6 +74351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 795085580}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 173673148}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -74234,6 +74359,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1485124557
 BoxCollider:
@@ -74900,6 +75027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 348171741}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 875000582}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -74907,6 +75035,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 348171740}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1504174022
 BoxCollider:
@@ -81368,6 +81498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 364077905}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1946621798}
   CurrentWayPointId: 0
   Speed: 20
@@ -81375,6 +81506,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1634944235
 BoxCollider:
@@ -81907,6 +82040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 348171741}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1885011948}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -81914,6 +82048,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 348171740}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1642402419
 BoxCollider:
@@ -85585,6 +85721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 420050499}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 887955503}
   CurrentWayPointId: 0
   Speed: 20
@@ -85592,6 +85729,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1711596434
 BoxCollider:
@@ -85777,6 +85916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1353326926}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1575807812}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -85784,6 +85924,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1353326922}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1713904379
 BoxCollider:
@@ -86480,7 +86622,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4375391665958190, guid: 769df4468827ffb40a9b3365df8a5cd8, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4375391665958190, guid: 769df4468827ffb40a9b3365df8a5cd8, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -89137,6 +89279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &1812051576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90678,7 +90821,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842428537
 GameObject:
@@ -91507,6 +91650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &1856189594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94230,6 +94374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!65 &1902382389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94867,6 +95012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 364077905}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 301765615}
   CurrentWayPointId: 0
   Speed: 12.9
@@ -94874,6 +95020,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1911429922
 BoxCollider:
@@ -96748,6 +96896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 795085580}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 2065190950}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -96755,6 +96904,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1957371938
 BoxCollider:
@@ -96918,7 +97069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1963549532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -96984,6 +97135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855ef1c8496d13144923d5f4b231fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bezierCurveMovement: {fileID: 0}
 --- !u!4 &1963549536
 Transform:
   m_ObjectHideFlags: 0
@@ -98818,6 +98970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 1856189593}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1378344100}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -98825,6 +98978,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &1994607779
 BoxCollider:
@@ -99934,6 +100089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 364077905}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1801870628}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -99941,6 +100097,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &2018943874
 BoxCollider:
@@ -102531,6 +102689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 364077905}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 1396953973}
   CurrentWayPointId: 0
   Speed: 15.2
@@ -102538,6 +102697,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &2073741904
 BoxCollider:
@@ -105670,6 +105831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 795085580}
   withExitTrigger: 0
+  timeAfterExit: 2
   Path: {fileID: 47245042}
   CurrentWayPointId: 0
   Speed: 16.91
@@ -105677,6 +105839,8 @@ MonoBehaviour:
   Direction: 1
   isShouldStopAtTheEnd: 1
   objectWithActivatedTrigger: {fileID: 1006789990}
+  wasStepped: 0
+  wasClosed: 0
   reachDistance: 1
 --- !u!65 &2130506303
 BoxCollider:

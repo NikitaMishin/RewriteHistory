@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StartTrigger : MonoBehaviour {
 
+    [SerializeField]
+    private BezierCurveMovementWithRewind bezierCurveMovement;
+
     private bool _wasStepped = false;
     private bool _wasCLosed = false;
 
@@ -11,11 +14,15 @@ public class StartTrigger : MonoBehaviour {
     {
         _wasStepped = true;
         _wasCLosed = false;
+        bezierCurveMovement.wasStepped = true;
+        bezierCurveMovement.wasClosed = false;
     }
 
     private void OnTriggerExit(Collider other)
     {
         _wasCLosed = true;
+        bezierCurveMovement.wasStepped = false;
+        bezierCurveMovement.wasClosed = true;
     }
 
     public bool WasStepped()

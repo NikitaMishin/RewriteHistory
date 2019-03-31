@@ -60,8 +60,7 @@ public class InclineTrigger : MonoBehaviour {
             return;
 
         _managerController.onlySlide = onlySlide;
-
-        Debug.Log(Time.time + ": " + _managerController.onlySlide);
+        
 
         _managerController.forceVector = Vector3.right * slippery;
 

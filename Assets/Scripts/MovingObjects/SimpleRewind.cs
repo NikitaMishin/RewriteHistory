@@ -15,12 +15,12 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 	 */
 	// Use this for initialization
 	private LinkedList<SimpleTimePoint> _timePoints;
-	private TimeController _timeController;
+	private TimeControllerPlayer _timeController;
 	
 	void Start ()
 	{
 		_timePoints =  new LinkedList<SimpleTimePoint>();
-		_timeController = FindObjectOfType<TimeController>();
+		_timeController = FindObjectOfType<TimeControllerPlayer>();
 	}
 	
 	// Update is called once per frame

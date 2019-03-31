@@ -20,7 +20,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
     private FallenColumn fallenColumn;
 
     private LinkedList<AnimationTimePoint> _timePoints;
-    private TimeController _timeController;
+    private TimeControllerPlayer _timeController;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
             _animationController = fallenColumn;
 
         _timePoints = new LinkedList<AnimationTimePoint>();
-        _timeController = FindObjectOfType<TimeController>();
+        _timeController = FindObjectOfType<TimeControllerPlayer>();
     }
 
     // Update is called once per frame

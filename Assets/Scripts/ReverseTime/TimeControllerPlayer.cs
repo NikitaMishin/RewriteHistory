@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using ReverseTime;
 using UnityEngine;
 
-public class TimeController : MonoBehaviour
+public class TimeControllerPlayer : MonoBehaviour
 {
     /*
      * USAGE: add for only one object
@@ -15,19 +15,18 @@ public class TimeController : MonoBehaviour
      * R - reverse only other objects without player
      * Q - reverse with other objects with player
      */
+    [SerializeField] protected float currentTimeReverse = 0f; //current window time
+    [SerializeField] protected float speed = 1f;
+    public bool IsUserShouldReverse = false; // weather user should also rewind
 
     public bool CouldUseReverse = true; // on some areas we can't use power
     public bool IsReversing = false; // all scripts listen to this field
     public float MaxTimeReverse = 5.0f; // max window for time rewind
-    public bool IsUserShouldReverse = false; // weather user should also rewind
 
-
-    private bool _shouldRemoveOldRecord = false; //is we need to delete old record  when reach MaxTimeReverse
-    [SerializeField] private float _currentTimeReverse = 0f; //current window time
-
-    private ManagerStates _managerStates;
+    protected bool shouldRemoveOldRecord = false; //is we need to delete old record  when reach MaxTimeReverse
 
     private bool start = false;
+    private ManagerStates _managerStates;
 
     private void Awake()
     {
@@ -36,17 +35,9 @@ public class TimeController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_managerStates.HasRespawn) return;
-
-     /*   if (Input.GetKey(KeyCode.R) && CouldUseReverse)
-        {
-            _currentTimeReverse = Math.Max(_currentTimeReverse - Time.deltaTime, 0f);
-            IsReversing = true;
-            IsUserShouldReverse = false;
-        }*/
         if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
         {
-            _currentTimeReverse = Math.Max(_currentTimeReverse - Time.deltaTime, 0f);
+            currentTimeReverse = Math.Max(currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
 
             if (!start)
@@ -62,14 +53,14 @@ public class TimeController : MonoBehaviour
             _managerStates.canRewind = false;
             IsReversing = false;
             IsUserShouldReverse = false;
-            _currentTimeReverse = Math.Min(MaxTimeReverse, _currentTimeReverse + Time.deltaTime);
+            currentTimeReverse = Math.Min(MaxTimeReverse, currentTimeReverse + Time.deltaTime);
         }
 
-        _shouldRemoveOldRecord = _currentTimeReverse >= MaxTimeReverse;
+        shouldRemoveOldRecord = currentTimeReverse >= MaxTimeReverse;
     }
 
     public bool ShouldRemoveOldRecord()
     {
-        return _shouldRemoveOldRecord;
+        return shouldRemoveOldRecord;
     }
 }

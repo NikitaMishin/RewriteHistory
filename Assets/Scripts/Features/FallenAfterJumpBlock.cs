@@ -23,11 +23,9 @@ public class FallenAfterJumpBlock : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(Time.time + " : " + _managerController.jSpeed);
         if (other.gameObject.tag.Equals("Player") &&!_managerController.IsOnTheGround() && _managerController.jSpeed < -0.1f)
         {
             _currentCount = _currentCount == countForBreak ? countForBreak : _currentCount + 1;
-            Debug.Log("Was Jumped");
         }
         else if (other.gameObject.tag.Equals("FallenObject"))
         {
