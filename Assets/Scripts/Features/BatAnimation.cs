@@ -17,14 +17,14 @@ public class BatAnimation : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (bezierCurveMovementWithRewind.wasStepped && !_wasEnabled)
+		if (gameObject.transform.position.y > 0.3f && !_wasEnabled)
         {
             _wasEnabled = true;
             for (int i = 0; i < _betAnimators.Length; i++)
             {
                 _betAnimators[i].enabled = true;
             }
-        } else if (!bezierCurveMovementWithRewind.wasStepped && _wasEnabled)
+        } else if (gameObject.transform.position.y < 0.3 && _wasEnabled)
         {
             _wasEnabled = false;
             for (int i = 0; i < _betAnimators.Length; i++)

@@ -11,7 +11,7 @@ namespace ReverseTime
     {
         
         public Vector3 position;
-        public Quaternion rotation ;
+        public Quaternion rotation;
         
         public SimpleTimePoint(Vector3 pos,Quaternion rot)
         {
