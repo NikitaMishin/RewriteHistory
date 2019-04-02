@@ -53,4 +53,9 @@ public class StartTrigger : MonoBehaviour {
     {
         _wasCLosed = value;
     }
+
+    public bool HasFewTriggers()
+    {
+        return hasFewTriggers;
+    }
 }

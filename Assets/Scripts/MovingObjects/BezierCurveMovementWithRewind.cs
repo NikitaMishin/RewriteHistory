@@ -200,7 +200,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
                 transform.rotation,
                 Direction,
                 CurrentWayPointId,
-                trigger == null ? false : wasStepped
+                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped
                 )
             );
     }
@@ -224,7 +224,10 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         Direction = tmp.curveDir;
 
         if (trigger != null)
+        {
             wasStepped = tmp.wasStepped;
+            trigger.SetWasStepped(tmp.wasStepped);
+        }
 
         //remove record
         _timePoints.RemoveLast();
