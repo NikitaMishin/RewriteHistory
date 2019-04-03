@@ -244,7 +244,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
                 _currentActualSpeed = _managerController._currentActualSpeed,
                 _currentDashTime = _currentDashTime,
                 jumpPressTime = jumpPressTime,
-                isReadyToJump = isReadyToJump,
+                isReadyToJump = _managerController.isReadyToJump,
                 Direction = _managerController.direction,
                 localScale = _tMesh.localScale,
                 directionCurve = directionCurve,
@@ -271,7 +271,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
         _managerController.isCrouch = timePoint.isCrouch;
         _managerController._currentActualSpeed = timePoint._currentActualSpeed;
         jumpPressTime = timePoint.jumpPressTime;
-        isReadyToJump = timePoint.isReadyToJump;
+        _managerController.isReadyToJump = timePoint.isReadyToJump;
         _currentDashTime = timePoint._currentDashTime;
         _managerController.direction = timePoint.Direction;
         _tMesh.localScale = timePoint.localScale;
