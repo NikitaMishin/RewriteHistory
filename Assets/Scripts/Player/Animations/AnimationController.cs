@@ -71,7 +71,7 @@ public class AnimationController : MonoBehaviour {
 
     private void AnimateCrouch()
     {
-        if (_managerController.isCrouch || _managerController.onlySlide)
+        if (_managerController.isCrouch || _managerController.onlySlide && _managerController.IsOnTheIncline)
             _managerController.animator.SetBool("IsCrouching", true);
         else
             _managerController.animator.SetBool("IsCrouching", false);

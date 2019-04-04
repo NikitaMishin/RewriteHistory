@@ -35,7 +35,6 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
     protected Vector3 _initialLocalScale;
 
     // FOR JUMP
-    protected bool isReadyToJump = true;
     protected float jumpPressTime = -1; // when Jump button was pressed
 
     protected bool prevGround = false;
@@ -312,7 +311,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
                 _currentActualSpeed = _managerController._currentActualSpeed,
                 _currentDashTime = _currentDashTime,
                 jumpPressTime = jumpPressTime,
-                isReadyToJump = isReadyToJump,
+                isReadyToJump = _managerController.isReadyToJump,
                 Direction = _managerController.direction,
                 localScale = _tMesh.localScale,
                 jSpeed = _managerController.jSpeed,
@@ -344,7 +343,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
         _managerController.isCrouch = timePoint.isCrouch;
         _managerController._currentActualSpeed = timePoint._currentActualSpeed;
         jumpPressTime = timePoint.jumpPressTime;
-        isReadyToJump = timePoint.isReadyToJump;
+        _managerController.isReadyToJump = timePoint.isReadyToJump;
         _currentDashTime = timePoint._currentDashTime;
         _managerController.direction = timePoint.Direction;
         _tMesh.localScale = timePoint.localScale;
@@ -385,17 +384,22 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
 
     void IController.Jump()
     {
-        isReadyToJump = true;
+        _managerController.isReadyToJump = true;
         jumpPressTime = Time.time;
 
-        if ((charOnTheGround || Time.time - prevTime < 0.5f || _managerController.IsOnTheIncline) && isReadyToJump && !_managerController.isCrouch)
+        if ((charOnTheGround || Time.time - prevTime < 0.5f || _managerController.IsOnTheIncline) && _managerController.isReadyToJump && !_managerController.isCrouch)
         {
             wasJumped = true;
             prevTime = 0;
             Jump();
-            isReadyToJump = false;
+            _managerController.isReadyToJump = false;
         }
 
+    }
+
+    private void JumpInvoke()
+    {
+       
     }
 
     public void CrouchStart()
@@ -445,7 +449,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
     {
         if (Time.time - jumpPressTime > 0.3)
         {
-            isReadyToJump = false;
+            _managerController.isReadyToJump = false;
         }
     }
 

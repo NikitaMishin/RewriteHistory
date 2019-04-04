@@ -42,6 +42,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
     // JUMP and air
     public float JumpSpeed = 8f; //height of jump
     public float SpeedInAir = 4f; // velocity when in air
+    public bool isReadyToJump = false;
 
 
     //Inertia and 
