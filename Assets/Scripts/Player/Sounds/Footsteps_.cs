@@ -9,7 +9,14 @@ public class Footsteps_ : MonoBehaviour
     [FMODUnity.EventRef]
     public string inputsound;
     bool playerismoving = true;
+    
     public float currentSpeed, regulator_of_steps_speed;
+    void Start()
+    {
+        regulator_of_steps_speed = 2;
+        script = a.GetComponent<ManagerController>();
+        InvokeRepeating("CallFootsteps", 0.5f, currentSpeed / regulator_of_steps_speed);
+    }
     void FixedUpdate()
     {
         currentSpeed = script._currentActualSpeed;
@@ -23,12 +30,7 @@ public class Footsteps_ : MonoBehaviour
     {
         if (playerismoving) FMODUnity.RuntimeManager.PlayOneShot(inputsound);
     }
-    void Start()
-    {
-        regulator_of_steps_speed = 2;
-        script = a.GetComponent<ManagerController>();
-        InvokeRepeating("CallFootsteps", 0.5f, currentSpeed / regulator_of_steps_speed);
-    }
+   
 
 
 }
