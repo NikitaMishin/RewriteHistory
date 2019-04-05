@@ -1356,6 +1356,7 @@ GameObject:
   - component: {fileID: 114906959710548592}
   - component: {fileID: 114480361065565496}
   - component: {fileID: 114596507682563254}
+  - component: {fileID: 114298097861703048}
   m_Layer: 0
   m_Name: Player With Animation
   m_TagString: Player
@@ -3004,6 +3005,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114298097861703048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1929911677796450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560593f9c005f9c4eb5172afed03280f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToReturn: 0
 --- !u!114 &114302106078501026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3029,11 +3042,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f64a2da8d744ad79d21e3b0968dd305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTimeReverse: 0
+  speed: 1
+  IsUserShouldReverse: 0
   CouldUseReverse: 1
   IsReversing: 0
   MaxTimeReverse: 100
-  IsUserShouldReverse: 0
-  _currentTimeReverse: 0
 --- !u!114 &114351443256135098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3166,6 +3180,7 @@ MonoBehaviour:
   DashLimitSec: 10
   DashMaxSpeed: 12
   DashAccelerationPercent: 5
+  canDash: 1
   Gravity: -9.81
   FallSpeed: 1.5
   SpeedOnGround: 6
@@ -3174,6 +3189,7 @@ MonoBehaviour:
   ControllerHeight: 4
   JumpSpeed: 9
   SpeedInAir: 8
+  isReadyToJump: 0
   OnWhichSpeedCanRotate: 0
   InertiaStopPercentCoef: 0.33
   SpeedAccelerationPercent: 0.3

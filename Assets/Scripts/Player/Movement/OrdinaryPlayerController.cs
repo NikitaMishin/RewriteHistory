@@ -455,7 +455,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
 
     public void StopActualSpeed()
     {
-        _managerController._currentActualSpeed = 0;
+        _managerController._currentActualSpeed = _managerController._currentActualSpeed > 0 ? _managerController._currentActualSpeed - 0.5f : (_managerController._currentActualSpeed < 0 ? 0 : 0) ;
     }
 
     public void Move()
