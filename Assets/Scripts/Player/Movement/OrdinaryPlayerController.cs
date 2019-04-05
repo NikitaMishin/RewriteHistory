@@ -45,6 +45,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
    
     protected TimeControllerPlayer _timeController;
 
+    protected bool wasStopped = false;
+
 
     void Awake()
     {
@@ -435,13 +437,14 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
         _managerController._isDashPressed = false;
     }
 
-    public void RightMove()
-    {
+    public void RightMove() {
+        wasStopped = false;
         PressRightMove();
     }
 
     public void LeftMove()
     {
+        wasStopped = false;
         PressLeftMove();
     }
 
@@ -453,8 +456,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
         }
     }
 
-    public void StopActualSpeed()
-    {
+    public void StopActualSpeed() {
+        wasStopped = true;
         _managerController._currentActualSpeed = _managerController._currentActualSpeed > 0 ? _managerController._currentActualSpeed - 0.5f : (_managerController._currentActualSpeed < 0 ? 0 : 0) ;
     }
 
@@ -468,6 +471,10 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
     public void RestartDir()
     {
         dirVector = Vector3.zero;
+        
+        if (wasStopped)
+            dirVector.x = _managerController._currentActualSpeed * transform.forward.x;
+        
         InitialSpeedSetup();
     }
 }

@@ -306,11 +306,15 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
 
     public void RightMove()
     {
+        wasStopped = false;
+
         PressRightMove();
     }
 
     public void LeftMove()
     {
+        wasStopped = false;
+
         PressLeftMove();
     }
 }
