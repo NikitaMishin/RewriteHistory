@@ -34,6 +34,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     public bool wasStepped = false;
     public bool wasClosed = false;
 
+    private ManagerStates _managerStates;
+
     public float reachDistance = 1.0f; //to smooth
 
     private List<Vector3> PathPoints;
@@ -45,7 +47,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     {
         PathPoints = new List<Vector3>(Path.resolution * Path.pointCount);
         PathPoints.AddRange(Path.GetAllPointsAlongCurve());
-
+        _managerStates = FindObjectOfType<ManagerStates>();
       
         _timeController = FindObjectOfType<TimeControllerObject>();
 
@@ -68,7 +70,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
             //start reverse
             StartRewind();
         }
-        else
+        else if (_managerStates.GetCurrentState() != State.Dead)
         {
             //record point
             RecordTimePoint();
@@ -89,7 +91,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     // Update is called once per frame
     void Update()
     {
-        if (ShouldRewind()) return;
+        if (ShouldRewind() || _managerStates.GetCurrentState() == State.Dead) return;
         if (trigger != null && !trigger.WasStepped()) return;
         if (isShouldStopAtTheEnd && IsReachedEndOfCurve() && !withExitTrigger) return;
         if (trigger != null && withExitTrigger && !wasClosed && !wasStepped) return;

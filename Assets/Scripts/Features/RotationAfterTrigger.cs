@@ -9,15 +9,20 @@ public class RotationAfterTrigger : MonoBehaviour {
 
     private float _speed;
     private Quaternion _angle;
+    private ManagerStates _managerStates;
 
     private void Start()
     {
         _speed = speed;
         _angle = Quaternion.Euler(angleAfterTrigger);
+        _managerStates = FindObjectOfType<ManagerStates>();
     }
 
     // Update is called once per frame
     void Update () {
+        if (_managerStates.GetCurrentState() == State.Dead)
+            return;
+
         if (!startTrigger.WasStepped())
         {
             speed = _speed;

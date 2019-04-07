@@ -8,13 +8,13 @@ public class TimeControllerObject : TimeControllerPlayer {
     {
         if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
         {
-            currentTimeReverse = Mathf.Max(currentTimeReverse - Time.deltaTime * speed, 0f);
+            currentTimeReverse = Mathf.Max(currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
         }
         else
         {
             IsReversing = false;
-            currentTimeReverse = Mathf.Min(MaxTimeReverse, currentTimeReverse + Time.deltaTime * speed);
+            currentTimeReverse = Mathf.Min(MaxTimeReverse, currentTimeReverse + Time.deltaTime);
         }
 
         shouldRemoveOldRecord = currentTimeReverse >= MaxTimeReverse;

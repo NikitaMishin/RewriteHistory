@@ -68,6 +68,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private BezierCurvePlayerController _bezierCurvePlayerController;
     private StairController _stairController;
     private MoveObjectController _moveObjectController;
+    private ManagerStates _managerStates;
 
     private bool _isOnTheIncline = false;
 
@@ -98,6 +99,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
         _stairController = GetComponent<StairController>();
         TimePoints = new LinkedList<ITimePoint>();
         _moveObjectController = GetComponent<MoveObjectController>();
+        _managerStates = GetComponent<ManagerStates>();
 
         animator = gameObject.GetComponentInChildren<Animator>();
     }
@@ -115,7 +117,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
             DeleteOldRecord();
             RecordTimePoint();
         }
-        else
+        else if (_managerStates.GetCurrentState() != State.Dead)
         {
             //record point
             RecordTimePoint();

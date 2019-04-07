@@ -10,6 +10,8 @@ public class HiddenDoor : MonoBehaviour {
     [SerializeField] private GameObject door;
     [SerializeField] private float speed = 10f;
 
+    private ManagerStates _managerStates;
+
     private float _lastTime = 0;
 
     private bool _isActing = false;
@@ -22,10 +24,15 @@ public class HiddenDoor : MonoBehaviour {
     {
         _startAngle = new Vector3(0, 0, 0);
         _endAngle = new Vector3(0, 0, 90);
+        _managerStates = FindObjectOfType<ManagerStates>();
     }
 
     private void Update()
     {
+        if (_managerStates.GetCurrentState() == State.Dead)
+            return;
+
+
         if (!needToCLose || simpleRewind != null
             && simpleRewind.enabled
             && simpleRewind.ShouldRewind())

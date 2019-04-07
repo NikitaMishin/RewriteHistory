@@ -6,13 +6,21 @@ public class AnimationFallenCollumn : AnimationRewind {
 
     [SerializeField] protected float timeAfterFallNext = 0.2f;
 
+    private ManagerStates _managerStates;
+
     private void Start()
     {
         _animation = gameObject.transform.parent.gameObject.GetComponent<Animation>();
+        _managerStates = FindObjectOfType<ManagerStates>();
     }
 
     private void Update()
     {
+        if (_managerStates.GetCurrentState() == State.Dead)
+            _animation[nameAnimation].time = 0;
+        else
+            _animation[nameAnimation].time = 0;
+
         if (Time.time - _lastTime > timeAfterFallNext && _timeToRun)
         {
             _animation[nameAnimation].speed = 1;

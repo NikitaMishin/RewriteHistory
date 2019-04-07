@@ -18,10 +18,13 @@ public class SimpleRewindControllerWithStartTrigger : MonoBehaviour, IRevertList
     private LinkedList<TimePointWithStartTrigger> _timePoints;
     private TimeControllerObject _timeController;
 
+    private ManagerStates _managerStates;
+
     void Start()
     {
         _timePoints = new LinkedList<TimePointWithStartTrigger>();
         _timeController = FindObjectOfType<TimeControllerObject>();
+        _managerStates = FindObjectOfType<ManagerStates>();
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class SimpleRewindControllerWithStartTrigger : MonoBehaviour, IRevertList
         {
             StartRewind();
         }
-        else
+        else if (_managerStates.GetCurrentState() != State.Dead)
         {
             RecordTimePoint();
         }

@@ -17,6 +17,8 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 	private TimeControllerPlayer _timeController;
 	private Rigidbody _rb;
     private Collider _collider;
+
+    private ManagerStates _managerStates;
 	
 	void Start ()
 	{
@@ -24,6 +26,7 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 		_timeController = FindObjectOfType<TimeControllerPlayer>();
 		_rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
+        _managerStates = FindObjectOfType<ManagerStates>();
 	}
 	
 	// Update is called once per frame
@@ -33,8 +36,8 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 		{
 			StartRewind();
 		}
-		else
-		{
+		else if (_managerStates.GetCurrentState() != State.Dead)
+        {
             _collider.enabled = true;
 			RecordTimePoint();
 		}

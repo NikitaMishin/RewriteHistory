@@ -20,6 +20,7 @@ public class BezierCurveMovement : MonoBehaviour
     public float reachDistance = 1.0f; //to smooth
 
     private List<Vector3> PathPoints;
+    private ManagerStates _managerStates;
 
 
     // Use this for initialization
@@ -27,12 +28,16 @@ public class BezierCurveMovement : MonoBehaviour
     {
         PathPoints = new List<Vector3>(Path.resolution * Path.pointCount);
         PathPoints.AddRange(Path.GetAllPointsAlongCurve());
+        _managerStates = FindObjectOfType<ManagerStates>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        if (_managerStates.GetCurrentState() == State.Dead)
+            return;
+
         float distance = Vector3.Distance(PathPoints[CurrentWayPointId], transform.position);
         transform.position =
             Vector3.MoveTowards(transform.position, PathPoints[CurrentWayPointId], Time.deltaTime * Speed);

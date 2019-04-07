@@ -16,11 +16,14 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 	// Use this for initialization
 	private LinkedList<SimpleTimePoint> _timePoints;
 	private TimeControllerPlayer _timeController;
+
+    private ManagerStates _managerStates;
 	
 	void Start ()
 	{
 		_timePoints =  new LinkedList<SimpleTimePoint>();
 		_timeController = FindObjectOfType<TimeControllerPlayer>();
+        _managerStates = FindObjectOfType<ManagerStates>();
 	}
 	
 	// Update is called once per frame
@@ -30,8 +33,8 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 		{
 			StartRewind();
 		}
-		else
-		{
+		else if (_managerStates.GetCurrentState() != State.Dead)
+        {
 			RecordTimePoint();
 		}
 

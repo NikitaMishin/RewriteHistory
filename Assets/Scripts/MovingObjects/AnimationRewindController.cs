@@ -18,11 +18,13 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
     [SerializeField]
     private AnimationRewind animationRewind;
 
+    private ManagerStates _managerStates;
     private LinkedList<AnimationTimePoint> _timePoints;
     private TimeControllerPlayer _timeController;
 
     void Start()
     {
+        _managerStates = FindObjectOfType<ManagerStates>();
         _timePoints = new LinkedList<AnimationTimePoint>();
         _timeController = FindObjectOfType<TimeControllerPlayer>();
     }
@@ -35,7 +37,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
         {
             StartRewind();
         }
-        else
+        else if (_managerStates.GetCurrentState() != State.Dead)
         {
             RecordTimePoint();
         }

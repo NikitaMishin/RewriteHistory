@@ -20,12 +20,15 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
     private Rigidbody _rb;
     private Collider _collider;
 
+    private ManagerStates _managerStates;
+
     void Start()
     {
         _timePoints = new LinkedList<RigidBodyFallenColumnTimePoint>();
         _timeController = FindObjectOfType<TimeControllerPlayer>();
         _rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
+        _managerStates = FindObjectOfType<ManagerStates>();
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
         {
             StartRewind();
         }
-        else
+        else if (_managerStates.GetCurrentState() != State.Dead)
         {
             _collider.enabled = true;
             RecordTimePoint();

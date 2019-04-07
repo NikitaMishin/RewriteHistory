@@ -16,7 +16,6 @@ public class TimeControllerPlayer : MonoBehaviour
      * Q - reverse with other objects with player
      */
     [SerializeField] protected float currentTimeReverse = 0f; //current window time
-    [SerializeField] protected float speed = 1f;
     public bool IsUserShouldReverse = false; // weather user should also rewind
 
     public bool CouldUseReverse = true; // on some areas we can't use power
