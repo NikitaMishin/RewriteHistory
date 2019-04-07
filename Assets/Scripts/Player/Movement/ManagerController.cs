@@ -51,7 +51,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     public float
         SpeedAccelerationPercent = 0.23f; // percent of current normal speed that we apply to actualSpeed to reach limit
-
+    public float inertia = 0.3f;
 
     public float ThresholdPercent = 0.15f; //if abs(_actualSpeed - normalSpeed)/Max(_actualSpeed,normalSpeed)<threshold
     // then we assign normal speed to actual
