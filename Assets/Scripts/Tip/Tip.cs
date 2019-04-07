@@ -25,11 +25,11 @@ public class Tip : MonoBehaviour {
 
     public void SetVisible(bool value)
     {
-        gameObject.SetActive(value);
+        transform.GetChild(0).gameObject.SetActive(value);
     }
 
     public bool GetVisible()
     {
-        return gameObject.activeSelf;
+        return transform.GetChild(0).gameObject.activeSelf;
     }
 }

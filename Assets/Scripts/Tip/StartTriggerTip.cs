@@ -6,9 +6,12 @@ public class StartTriggerTip : MonoBehaviour {
 
     [SerializeField] private string text;
     [SerializeField] private float time;
-    [SerializeField] private float timeToClose;
+    [SerializeField] private bool onlyOneTime = false;
+  //  [SerializeField] private float timeToClose;
 
     private Tip _tip;
+
+    private bool _wasShown = false;
 
     private float _startTime = 0;
     private bool _needToShow;
@@ -21,6 +24,9 @@ public class StartTriggerTip : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_wasShown && onlyOneTime)
+            return;
+
         _needToShow = true;
         _startTime = Time.time;
     }
@@ -28,9 +34,6 @@ public class StartTriggerTip : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         _needToShow = false;
-
-   
-   //     Invoke("CloseTip", timeToClose);
     }
 
     private void OnTriggerStay(Collider other)
@@ -40,7 +43,7 @@ public class StartTriggerTip : MonoBehaviour {
             _needToShow = false;
             _tip.SetVisible(true);
             _tip.SetText(text);
-            Invoke("CloseTip", timeToClose);
+            _wasShown = true;
         }
     }
 
