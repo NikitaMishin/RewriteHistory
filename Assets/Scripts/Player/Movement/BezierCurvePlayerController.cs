@@ -102,7 +102,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
             }
             else
             {
-             //   ApplyInertia();
+                ApplyInertia();
             }
         }
         else
@@ -127,7 +127,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
             }
             else
             {
-            //    ApplyInertia();
+                ApplyInertia();
             }
         }
         else
