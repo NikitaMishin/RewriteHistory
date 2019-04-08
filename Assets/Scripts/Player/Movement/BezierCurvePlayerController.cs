@@ -93,7 +93,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
             // Rotate
             if (_managerController._currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
-                //  transform.rotation *= Quaternion.Euler(0, 180f, 0);
+                transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
                 UpdateIndexPoint();
@@ -117,7 +117,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
         {
             if (_managerController._currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
-                // transform.rotation *= Quaternion.Euler(0, 180f, 0);
+                transform.rotation *= Quaternion.Euler(0, 180f, 0);
                 _managerController.direction = !_managerController.direction;
                 directionCurve = !directionCurve;
                 UpdateIndexPoint();
