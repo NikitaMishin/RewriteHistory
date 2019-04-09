@@ -75,7 +75,7 @@ public class SimpleRewindControllerWithStartTrigger : MonoBehaviour, IRevertList
 
     public void DeleteAllRecord()
     {
-        throw new System.NotImplementedException();
+        _timePoints.Clear();
     }
 
     public bool ShouldRewind()
