@@ -32,9 +32,10 @@ public class CheckPointController : MonoBehaviour {
         {
             gameObject.transform.position = _currentTrigger.transform.position;
             _managerStates.ChangeState(State.Default);
+            Messenger.Broadcast(GameEventTypes.DEAD);
         }
 
-	}
+    }
 
     public void SetTrigger(CheckPointTrigger trigger)
     {

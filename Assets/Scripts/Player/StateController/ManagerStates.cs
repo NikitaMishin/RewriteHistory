@@ -71,7 +71,6 @@ public class ManagerStates : MonoBehaviour {
 
     public void Dead()
     {
-        Messenger.Broadcast(GameEventTypes.DEAD);
         _currentState = State.Dead;
         _interactSignal.InterruptInteract();
         canRewind = true;
