@@ -13,6 +13,7 @@ public class CheckPointTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        Messenger.Broadcast(GameEventTypes.CHECKPOINT);
         _checkPointController.SetTrigger(this);
     }
 }

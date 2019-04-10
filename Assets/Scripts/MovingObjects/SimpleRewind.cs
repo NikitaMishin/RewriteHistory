@@ -15,6 +15,7 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 	 */
 	// Use this for initialization
 	private LinkedList<SimpleTimePoint> _timePoints;
+    private SimpleTimePoint _checkPoint;
 	private TimeControllerPlayer _timeController;
 
     private ManagerStates _managerStates;
@@ -24,10 +25,23 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 		_timePoints =  new LinkedList<SimpleTimePoint>();
 		_timeController = FindObjectOfType<TimeControllerPlayer>();
         _managerStates = FindObjectOfType<ManagerStates>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
+        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+    }
+
+    private void SavePosition()
+    {
+        _checkPoint = new SimpleTimePoint(transform.position, transform.rotation);
+    }
+
+    private void RestartPosition()
+    {
+        transform.position = _checkPoint.position;
+        transform.rotation = _checkPoint.rotation;
+    }
+
+    // Update is called once per frame
+    void Update () {
 
 		if (ShouldRewind())
 		{
@@ -72,7 +86,7 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 
 	public void DeleteAllRecord()
 	{
-		throw new System.NotImplementedException();
+        _timePoints.Clear();
 	}
 
 	public bool ShouldRewind()

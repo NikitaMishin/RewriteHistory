@@ -16,6 +16,7 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
     [SerializeField] private AnimationRewind fallenColumn;
 
 	private LinkedList<RigidBodyFallenColumnTimePoint> _timePoints;
+    private RigidBodyFallenColumnTimePoint _checkPoint;
     private TimeControllerPlayer _timeController;
     private Rigidbody _rb;
     private Collider _collider;
@@ -29,6 +30,25 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
         _rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
         _managerStates = FindObjectOfType<ManagerStates>();
+        Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
+        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+    }
+
+    private void SavePosition()
+    {
+        _checkPoint = new RigidBodyFallenColumnTimePoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, fallenColumn.WasStepped());
+    }
+
+    private void RestartPosition()
+    {
+        transform.position = _checkPoint.Position;
+        transform.rotation = _checkPoint.Rotation;
+        _rb.velocity = _checkPoint.Velocity;
+        _rb.angularVelocity = _checkPoint.AngularVelocity;
+        _collider.enabled = false;
+        _rb.velocity = Vector3.zero;
+
+        fallenColumn.SetWasStepped(false);
     }
 
     // Update is called once per frame
@@ -87,7 +107,7 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
 
     public void DeleteAllRecord()
     {
-        throw new System.NotImplementedException();
+        _timePoints.Clear();
     }
 
     public bool ShouldRewind()

@@ -14,7 +14,8 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 	 */
 	// Use this for initialization
 	private LinkedList<RigidBodyTimePoint> _timePoints;
-	private TimeControllerPlayer _timeController;
+    private RigidBodyTimePoint _checkPoint;
+    private TimeControllerPlayer _timeController;
 	private Rigidbody _rb;
     private Collider _collider;
 
@@ -27,10 +28,28 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 		_rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
         _managerStates = FindObjectOfType<ManagerStates>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+        Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
+        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+    }
+
+    private void SavePosition()
+    {
+        _checkPoint = new RigidBodyTimePoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, _rb.useGravity);
+    }
+
+    private void RestartPosition()
+    {
+        transform.position = _checkPoint.Position;
+        transform.rotation = _checkPoint.Rotation;
+        _rb.velocity = _checkPoint.Velocity;
+        _rb.useGravity = _checkPoint.useGravity;
+        _rb.angularVelocity = _checkPoint.AngularVelocity;
+        _collider.enabled = false;
+        _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
 
 		if (ShouldRewind())
 		{
@@ -79,7 +98,7 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 
 	public void DeleteAllRecord()
 	{
-		throw new System.NotImplementedException();
+        _timePoints.Clear();
 	}
 
 	public bool ShouldRewind()

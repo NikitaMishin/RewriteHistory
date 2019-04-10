@@ -24,6 +24,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 
     private LinkedList<BezierCurveObjectTimePoint> _timePoints;
 
+    private BezierCurveObjectTimePoint _checkPoint;
+
     public BezierCurve Path;
     public int CurrentWayPointId = 0;
     public float Speed = 0.5f;
@@ -60,6 +62,35 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         if (!Direction)
         {
             CurrentWayPointId = PathPoints.Count - 1;
+        }
+
+        Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
+        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+
+    }
+
+    private void SavePosition()
+    {
+        _checkPoint = new BezierCurveObjectTimePoint(
+                transform.position,
+                transform.rotation,
+                Direction,
+                CurrentWayPointId,
+                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped
+                );
+    }
+
+    private void RestartPosition()
+    {
+        transform.position = _checkPoint.position;
+        transform.rotation = _checkPoint.rotation;
+        CurrentWayPointId = _checkPoint.curWaypointIndex;
+        Direction = _checkPoint.curveDir;
+
+        if (trigger != null)
+        {
+            wasStepped = _checkPoint.wasStepped;
+            trigger.SetWasStepped(_checkPoint.wasStepped);
         }
     }
 
@@ -102,7 +133,14 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 
 
         var lookPos = PathPoints[CurrentWayPointId] - transform.position;
-        var rotation = Quaternion.LookRotation(lookPos);
+
+
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+
+        if (lookPos != Vector3.zero)
+        {
+            rotation = Quaternion.LookRotation(lookPos);
+        }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
 

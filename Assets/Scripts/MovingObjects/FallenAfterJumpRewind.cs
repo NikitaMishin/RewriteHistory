@@ -18,6 +18,7 @@ public class FallenAfterJumpRewind : MonoBehaviour, IRevertListener
     private FallenAfterJumpController _fallenAfterJumpController;
 
     private LinkedList<FallenAfterJumpPoint> _timePoints;
+    private FallenAfterJumpPoint _checkPoint;
     private TimeControllerPlayer _timeController;
     private Rigidbody _rb;
     private Collider _collider;
@@ -33,6 +34,28 @@ public class FallenAfterJumpRewind : MonoBehaviour, IRevertListener
         _rb = GetComponent<Rigidbody>();
         _collider = GetComponent<Collider>();
         _managerStates = FindObjectOfType<ManagerStates>();
+        Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
+        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+    }
+
+    private void SavePosition()
+    {
+        _checkPoint = new FallenAfterJumpPoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, _fallenAfterJumpBlock.GetCurrentCount());
+    }
+
+    private void RestartPosition()
+    {
+        transform.position = _checkPoint.Position;
+        transform.rotation = _checkPoint.Rotation;
+        _rb.velocity = _checkPoint.Velocity;
+        _rb.angularVelocity = _checkPoint.AngularVelocity;
+        _collider.enabled = false;
+        _rb.velocity = Vector3.zero;
+
+        _fallenAfterJumpBlock.SetCurrentCount(_checkPoint.currentCount);
+
+        if (_fallenAfterJumpController.WasBroken())
+            _fallenAfterJumpController.SetWasBroken(_fallenAfterJumpBlock.IsBroken());
     }
 
     // Update is called once per frame
@@ -92,7 +115,7 @@ public class FallenAfterJumpRewind : MonoBehaviour, IRevertListener
 
     public void DeleteAllRecord()
     {
-        throw new System.NotImplementedException();
+        _timePoints.Clear();
     }
 
     public bool ShouldRewind()

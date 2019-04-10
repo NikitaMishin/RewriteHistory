@@ -20,6 +20,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 
     private ManagerStates _managerStates;
     private LinkedList<AnimationTimePoint> _timePoints;
+    private AnimationTimePoint _checkPoint;
     private TimeControllerPlayer _timeController;
 
     void Start()
@@ -27,6 +28,19 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
         _managerStates = FindObjectOfType<ManagerStates>();
         _timePoints = new LinkedList<AnimationTimePoint>();
         _timeController = FindObjectOfType<TimeControllerPlayer>();
+        Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
+        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+    }
+
+    private void SavePosition()
+    {
+        _checkPoint = new AnimationTimePoint(animationRewind.GetTime(), animationRewind.GetSpeed());
+    }
+
+    private void RestartPosition()
+    {
+        animationRewind.SetTime(_checkPoint.currentTime);
+        animationRewind.SetSpeed(_checkPoint.speed);
     }
 
     // Update is called once per frame

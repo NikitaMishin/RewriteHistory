@@ -16,6 +16,7 @@ public class SimpleRewindControllerWithStartTrigger : MonoBehaviour, IRevertList
     [SerializeField] private StartTrigger startTrigger;
 
     private LinkedList<TimePointWithStartTrigger> _timePoints;
+    private TimePointWithStartTrigger _checkPoint;
     private TimeControllerObject _timeController;
 
     private ManagerStates _managerStates;
@@ -25,6 +26,20 @@ public class SimpleRewindControllerWithStartTrigger : MonoBehaviour, IRevertList
         _timePoints = new LinkedList<TimePointWithStartTrigger>();
         _timeController = FindObjectOfType<TimeControllerObject>();
         _managerStates = FindObjectOfType<ManagerStates>();
+        Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
+        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+    }
+
+    private void SavePosition()
+    {
+        _checkPoint = new TimePointWithStartTrigger(transform.position, transform.rotation, startTrigger.WasStepped());
+    }
+
+    private void RestartPosition()
+    {
+        transform.position = _checkPoint.position;
+        transform.rotation = _checkPoint.rotation;
+        startTrigger.SetWasStepped(_checkPoint.wasStepped);
     }
 
     // Update is called once per frame

@@ -409,6 +409,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d58a55415a13aa14abba2117601c8100, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &1037610862
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -10.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254368084857360, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84f4e9ef4bce9ad489d54951a2d70127, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1139446286
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560593f9c005f9c4eb5172afed03280f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToReturn: 3
+  timeToReturn: 0
 --- !u!1001 &2074425288
 Prefab:
   m_ObjectHideFlags: 0
