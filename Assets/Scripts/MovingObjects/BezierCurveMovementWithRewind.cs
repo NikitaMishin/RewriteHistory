@@ -26,6 +26,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 
     private BezierCurveObjectTimePoint _checkPoint;
 
+    private float _timeClosedStart = 0;
+
     public BezierCurve Path;
     public int CurrentWayPointId = 0;
     public float Speed = 0.5f;
@@ -173,19 +175,22 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
             Direction = !Direction;
             _wasExecuteBack = false;
         }
-        else if (!wasClosed && Direction && CurrentWayPointId < PathPoints.Count - 1)
+        else if (wasStepped && !wasClosed && CurrentWayPointId < PathPoints.Count - 1)
         {
             CurrentWayPointId++;
             _wasExecuteBack = false;
         }
-        else if (wasClosed)
+        else if (wasClosed && Time.time - _timeClosedStart > timeAfterExit)
         {
-            Invoke("UpdatePointWithExiteBack", timeAfterExit);
+            UpdatePointWithExiteBack();
         }
     }
 
     private void UpdatePointWithExiteBack()
     {
+   //     if (wasStepped)
+     //       return;
+
         if (wasClosed && Direction && !Path.close && CurrentWayPointId > 0)
         {
             CurrentWayPointId--;
@@ -296,5 +301,11 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     public bool ShouldRewind()
     {
         return _timeController.IsReversing;
+    }
+
+    internal void SetWasClosed(bool v)
+    {
+        wasClosed = v;
+        _timeClosedStart = Time.time;
     }
 }

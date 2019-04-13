@@ -20,7 +20,7 @@ public class StartTrigger : MonoBehaviour {
         if (hasFewTriggers)
         {
             bezierCurveMovement.wasStepped = true;
-            bezierCurveMovement.wasClosed = false;
+            bezierCurveMovement.SetWasClosed(false);
         }
     }
 
@@ -30,7 +30,7 @@ public class StartTrigger : MonoBehaviour {
 
         if (hasFewTriggers)
         {
-            bezierCurveMovement.wasClosed = true;
+            bezierCurveMovement.SetWasClosed(true);
         }
     }
 
