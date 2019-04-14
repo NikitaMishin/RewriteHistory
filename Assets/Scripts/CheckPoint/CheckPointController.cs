@@ -6,6 +6,7 @@ public class CheckPointController : MonoBehaviour {
 
     [SerializeField] private float timeToReturn;
 
+    private List<CheckPointTrigger> _checkPointTriggers;
     private CheckPointTrigger _currentTrigger;
     private ManagerStates _managerStates;
     private ManagerController _managerController;
@@ -15,6 +16,7 @@ public class CheckPointController : MonoBehaviour {
 	void Start () {
         _managerStates = gameObject.GetComponent<ManagerStates>();
         _managerController = gameObject.GetComponent<ManagerController>();
+        _checkPointTriggers = new List<CheckPointTrigger>();
 	}
 	
 	// Update is called once per frame
@@ -37,9 +39,18 @@ public class CheckPointController : MonoBehaviour {
 
     }
 
-    public void SetTrigger(CheckPointTrigger trigger)
+    public bool SetTrigger(CheckPointTrigger trigger)
     {
-        _currentTrigger = trigger;
+        bool result = false;
+
+        if (!_checkPointTriggers.Contains(trigger))
+        {
+            result = true;
+            _currentTrigger = trigger;
+            _checkPointTriggers.Add(trigger);
+        }
+
+        return result;
     }
 
     public CheckPointTrigger GetTrigger()

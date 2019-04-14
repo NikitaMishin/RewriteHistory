@@ -13,10 +13,9 @@ public class CheckPointTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_checkPointController.GetTrigger() == this)
+        if (!_checkPointController.SetTrigger(this))
             return;
 
         Messenger.Broadcast(GameEventTypes.CHECKPOINT);
-        _checkPointController.SetTrigger(this);
     }
 }
