@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 114498315570985990}
   StringsBanks:
   - {fileID: 114027850964149174}
-  stringsBankWriteTime: 636894057308282598
+  stringsBankWriteTime: 636907722664704486
   cacheVersion: 3
 --- !u!114 &114001720568539658
 MonoBehaviour:
@@ -36,7 +36,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\rH.bank
-  lastModified: 636894057308362691
+  lastModified: 636907722664805073
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\SoundBanks\rH1\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636894057308282598
+  lastModified: 636907722664704486
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -97,6 +97,21 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 203000
+--- !u!114 &114272349643159346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SandSteps
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114472128958550130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master
     Bank.bank
-  lastModified: 636894057308202605
+  lastModified: 636907722664704486
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -150,8 +165,23 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114472128958550130}
-  - {fileID: 114168043467911926}
+  - {fileID: 114272349643159346}
+  - {fileID: 114979795364479910}
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &114979795364479910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StoneFoot
+  Min: 0
+  Max: 1
+  Default: 0
