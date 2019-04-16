@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class TimeControllerObject : TimeControllerPlayer {
 
+    private ManagerStates _managerStates;
+
+    private void Start()
+    {
+        _managerStates = FindObjectOfType<ManagerStates>();
+    }
+
     private void FixedUpdate()
     {
+        if (_managerStates.GetCurrentState() == State.Dead)
+            return;
+
         if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
         {
             currentTimeReverse = Mathf.Max(currentTimeReverse - Time.deltaTime, 0f);

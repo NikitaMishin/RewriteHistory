@@ -94,6 +94,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
             wasStepped = _checkPoint.wasStepped;
             trigger.SetWasStepped(_checkPoint.wasStepped);
         }
+
+        DeleteAllRecord();
     }
 
     private void FixedUpdate()
@@ -124,7 +126,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     // Update is called once per frame
     void Update()
     {
-        if (ShouldRewind() || _managerStates.GetCurrentState() == State.Dead) return;
+        if (ShouldRewind()) return;// || _managerStates.GetCurrentState() == State.Dead) return;
         if (trigger != null && !trigger.WasStepped()) return;
         if (isShouldStopAtTheEnd && IsReachedEndOfCurve() && !withExitTrigger) return;
         if (trigger != null && withExitTrigger && !wasClosed && !wasStepped) return;

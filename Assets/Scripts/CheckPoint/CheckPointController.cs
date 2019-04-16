@@ -30,7 +30,7 @@ public class CheckPointController : MonoBehaviour {
         if (_timeStart == 0)
             _timeStart = Time.time;
 
-        if (Time.time - _timeStart > timeToReturn && _currentTrigger != null)
+        if (Input.GetKey(KeyCode.Q) && _currentTrigger != null)
         {
             gameObject.transform.position = _currentTrigger.transform.position;
             _managerStates.ChangeState(State.Default);

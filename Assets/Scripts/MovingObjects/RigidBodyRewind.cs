@@ -44,7 +44,7 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
         _rb.velocity = _checkPoint.Velocity;
         _rb.useGravity = _checkPoint.useGravity;
         _rb.angularVelocity = _checkPoint.AngularVelocity;
-        _collider.enabled = false;
+    //    _collider.enabled = false;
         _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
     }
 
@@ -83,7 +83,7 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
             _rb.useGravity = timePoint.useGravity;
             _rb.angularVelocity = timePoint.AngularVelocity;
 			_timePoints.RemoveLast();
-            _collider.enabled = false;
+        //    _collider.enabled = false;
             _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
         }
 	}

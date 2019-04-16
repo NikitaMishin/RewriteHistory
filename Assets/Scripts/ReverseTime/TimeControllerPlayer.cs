@@ -34,7 +34,7 @@ public class TimeControllerPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
+     /*   if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
         {
             currentTimeReverse = Math.Max(currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
@@ -55,7 +55,7 @@ public class TimeControllerPlayer : MonoBehaviour
             currentTimeReverse = Math.Min(MaxTimeReverse, currentTimeReverse + Time.deltaTime);
         }
 
-        shouldRemoveOldRecord = currentTimeReverse >= MaxTimeReverse;
+        shouldRemoveOldRecord = currentTimeReverse >= MaxTimeReverse;*/
     }
 
     public bool ShouldRemoveOldRecord()

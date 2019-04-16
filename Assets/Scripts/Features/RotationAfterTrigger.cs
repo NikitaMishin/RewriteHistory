@@ -20,8 +20,8 @@ public class RotationAfterTrigger : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (_managerStates.GetCurrentState() == State.Dead)
-            return;
+        //if (_managerStates.GetCurrentState() == State.Dead)
+        //    return;
 
         if (!startTrigger.WasStepped())
         {

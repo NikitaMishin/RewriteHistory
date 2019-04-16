@@ -29,8 +29,8 @@ public class HiddenDoor : MonoBehaviour {
 
     private void Update()
     {
-        if (_managerStates.GetCurrentState() == State.Dead)
-            return;
+        //if (_managerStates.GetCurrentState() == State.Dead)
+        //    return;
 
 
         if (!needToCLose || simpleRewind != null

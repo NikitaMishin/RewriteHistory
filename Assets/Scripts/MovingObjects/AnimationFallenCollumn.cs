@@ -16,8 +16,8 @@ public class AnimationFallenCollumn : AnimationRewind {
 
     private void Update()
     {
-        if (_managerStates.GetCurrentState() == State.Dead)
-            _animation[nameAnimation].time = 0;
+        //if (_managerStates.GetCurrentState() == State.Dead)
+        //    _animation[nameAnimation].time = 0;
 
 
         if (Time.time - _lastTime > timeAfterFallNext && _timeToRun)

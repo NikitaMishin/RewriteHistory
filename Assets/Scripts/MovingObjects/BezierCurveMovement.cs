@@ -35,8 +35,8 @@ public class BezierCurveMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_managerStates.GetCurrentState() == State.Dead)
-            return;
+        //if (_managerStates.GetCurrentState() == State.Dead)
+        //    return;
 
         float distance = Vector3.Distance(PathPoints[CurrentWayPointId], transform.position);
         transform.position =
