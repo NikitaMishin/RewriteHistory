@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using ReverseTime;
 using UnityEngine;
+using UnityEngine.Playables;
+
 public class ManagerController : MonoBehaviour, IRevertListener
 {
     /*
@@ -62,6 +64,8 @@ public class ManagerController : MonoBehaviour, IRevertListener
     public bool onlySlide = false;
 
     public Animator animator;
+
+    public PlayableDirector playableDirector;
 
     public TimeControllerPlayer _timeController;
     private OrdinaryPlayerController _ordinaryPlayerController;
