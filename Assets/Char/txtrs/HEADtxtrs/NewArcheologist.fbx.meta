@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 6a63674c1e2af624bb549d1af3e51700
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: challenger_eyes_refl
+    100004: challenger_eyes_refl.001
+    100006: challenger_eyes_refl2
+    100008: Head
+    100010: Head_end
+    100012: Hips
+    100014: LeftArm
+    100016: LeftArmRoll
+    100018: LeftArmRoll_end
+    100020: LeftFoot
+    100022: LeftForeArm
+    100024: LeftForeArmRoll
+    100026: LeftForeArmRoll_end
+    100028: LeftHand
+    100030: LeftHandIndex1
+    100032: LeftHandIndex2
+    100034: LeftHandIndex3
+    100036: LeftHandIndex4
+    100038: LeftHandIndex4_end
+    100040: LeftHandMiddle1
+    100042: LeftHandMiddle2
+    100044: LeftHandMiddle3
+    100046: LeftHandMiddle4
+    100048: LeftHandMiddle4_end
+    100050: LeftHandPinky1
+    100052: LeftHandPinky2
+    100054: LeftHandPinky3
+    100056: LeftHandPinky4
+    100058: LeftHandPinky4_end
+    100060: LeftHandProp
+    100062: LeftHandProp_end
+    100064: LeftHandRing1
+    100066: LeftHandRing2
+    100068: LeftHandRing3
+    100070: LeftHandRing4
+    100072: LeftHandRing4_end
+    100074: LeftHandThumb1
+    100076: LeftHandThumb2
+    100078: LeftHandThumb3
+    100080: LeftHandThumb4
+    100082: LeftHandThumb4_end
+    100084: LeftLeg
+    100086: LeftLegRoll
+    100088: LeftLegRoll_end
+    100090: LeftShoulder
+    100092: LeftToeBase
+    100094: LeftToeBase_END
+    100096: LeftToeBase_END_end
+    100098: LeftUpLeg
+    100100: LeftUpLegRoll
+    100102: LeftUpLegRoll_end
+    100104: Neck
+    100106: //RootNode
+    100108: Plane.001
+    100110: Plane.004
+    100112: Plane.008
+    100114: Plane.014
+    100116: RightArm
+    100118: RightArmRoll
+    100120: RightArmRoll_end
+    100122: RightFoot
+    100124: RightForeArm
+    100126: RightForeArmRoll
+    100128: RightForeArmRoll_end
+    100130: RightHand
+    100132: RightHandIndex1
+    100134: RightHandIndex2
+    100136: RightHandIndex3
+    100138: RightHandIndex4
+    100140: RightHandIndex4_end
+    100142: RightHandMiddle1
+    100144: RightHandMiddle2
+    100146: RightHandMiddle3
+    100148: RightHandMiddle4
+    100150: RightHandMiddle4_end
+    100152: RightHandPinky1
+    100154: RightHandPinky2
+    100156: RightHandPinky3
+    100158: RightHandPinky4
+    100160: RightHandPinky4_end
+    100162: RightHandProp
+    100164: RightHandProp_end
+    100166: RightHandRing1
+    100168: RightHandRing2
+    100170: RightHandRing3
+    100172: RightHandRing4
+    100174: RightHandRing4_end
+    100176: RightHandThumb1
+    100178: RightHandThumb2
+    100180: RightHandThumb3
+    100182: RightHandThumb4
+    100184: RightHandThumb4_end
+    100186: RightLeg
+    100188: RightLegRoll
+    100190: RightLegRoll_end
+    100192: RightShoulder
+    100194: RightToeBase
+    100196: RightToeBase_END
+    100198: RightToeBase_END_end
+    100200: RightUpLeg
+    100202: RightUpLegRoll
+    100204: RightUpLegRoll_end
+    100206: Root
+    100208: SideBurns
+    100210: SideHair.002
+    100212: Spine
+    100214: Spine1
+    100216: Plane.000
+    100218: Plane.011
+    400000: Armature
+    400002: challenger_eyes_refl
+    400004: challenger_eyes_refl.001
+    400006: challenger_eyes_refl2
+    400008: Head
+    400010: Head_end
+    400012: Hips
+    400014: LeftArm
+    400016: LeftArmRoll
+    400018: LeftArmRoll_end
+    400020: LeftFoot
+    400022: LeftForeArm
+    400024: LeftForeArmRoll
+    400026: LeftForeArmRoll_end
+    400028: LeftHand
+    400030: LeftHandIndex1
+    400032: LeftHandIndex2
+    400034: LeftHandIndex3
+    400036: LeftHandIndex4
+    400038: LeftHandIndex4_end
+    400040: LeftHandMiddle1
+    400042: LeftHandMiddle2
+    400044: LeftHandMiddle3
+    400046: LeftHandMiddle4
+    400048: LeftHandMiddle4_end
+    400050: LeftHandPinky1
+    400052: LeftHandPinky2
+    400054: LeftHandPinky3
+    400056: LeftHandPinky4
+    400058: LeftHandPinky4_end
+    400060: LeftHandProp
+    400062: LeftHandProp_end
+    400064: LeftHandRing1
+    400066: LeftHandRing2
+    400068: LeftHandRing3
+    400070: LeftHandRing4
+    400072: LeftHandRing4_end
+    400074: LeftHandThumb1
+    400076: LeftHandThumb2
+    400078: LeftHandThumb3
+    400080: LeftHandThumb4
+    400082: LeftHandThumb4_end
+    400084: LeftLeg
+    400086: LeftLegRoll
+    400088: LeftLegRoll_end
+    400090: LeftShoulder
+    400092: LeftToeBase
+    400094: LeftToeBase_END
+    400096: LeftToeBase_END_end
+    400098: LeftUpLeg
+    400100: LeftUpLegRoll
+    400102: LeftUpLegRoll_end
+    400104: Neck
+    400106: //RootNode
+    400108: Plane.001
+    400110: Plane.004
+    400112: Plane.008
+    400114: Plane.014
+    400116: RightArm
+    400118: RightArmRoll
+    400120: RightArmRoll_end
+    400122: RightFoot
+    400124: RightForeArm
+    400126: RightForeArmRoll
+    400128: RightForeArmRoll_end
+    400130: RightHand
+    400132: RightHandIndex1
+    400134: RightHandIndex2
+    400136: RightHandIndex3
+    400138: RightHandIndex4
+    400140: RightHandIndex4_end
+    400142: RightHandMiddle1
+    400144: RightHandMiddle2
+    400146: RightHandMiddle3
+    400148: RightHandMiddle4
+    400150: RightHandMiddle4_end
+    400152: RightHandPinky1
+    400154: RightHandPinky2
+    400156: RightHandPinky3
+    400158: RightHandPinky4
+    400160: RightHandPinky4_end
+    400162: RightHandProp
+    400164: RightHandProp_end
+    400166: RightHandRing1
+    400168: RightHandRing2
+    400170: RightHandRing3
+    400172: RightHandRing4
+    400174: RightHandRing4_end
+    400176: RightHandThumb1
+    400178: RightHandThumb2
+    400180: RightHandThumb3
+    400182: RightHandThumb4
+    400184: RightHandThumb4_end
+    400186: RightLeg
+    400188: RightLegRoll
+    400190: RightLegRoll_end
+    400192: RightShoulder
+    400194: RightToeBase
+    400196: RightToeBase_END
+    400198: RightToeBase_END_end
+    400200: RightUpLeg
+    400202: RightUpLegRoll
+    400204: RightUpLegRoll_end
+    400206: Root
+    400208: SideBurns
+    400210: SideHair.002
+    400212: Spine
+    400214: Spine1
+    400216: Plane.000
+    400218: Plane.011
+    2100000: challenger_head
+    2100002: 23 - Default
+    2100004: Material.005
+    2100006: defaultMat.001
+    2100008: defaultMat
+    2100010: Material.008
+    2100012: Material.001
+    2100014: Material.004
+    2100016: Material.006
+    2100018: No Name
+    2100020: Material.002
+    2100022: Material.000
+    4300000: challenger_eyes_refl.001
+    4300002: challenger_eyes_refl2
+    4300004: challenger_eyes_refl
+    4300006: Plane.008
+    4300008: SideHair.002
+    4300010: SideBurns
+    4300012: Plane.014
+    4300014: Plane.004
+    4300016: Plane.001
+    4300018: Plane.000
+    4300020: Plane.011
+    7400000: Armature|Armature|BindPose|BindPose:BaseAnimation
+    7400002: Armature|Armature|SprintFwdLoop|SprintFwdLoop:BaseAnimation
+    7400004: Armature|challenger_beard|Take 001|BaseLayer
+    7400006: Armature|challenger_boots|Take 001|BaseLayer
+    7400008: Armature|challenger_dress|Take 001|BaseLayer
+    7400010: Armature|challenger_eyes_refl.001|Take 001|BaseLayer
+    7400012: Armature|challenger_eyes_refl2|Take 001|BaseLayer
+    7400014: Armature|challenger_eyes_refl|Take 001|BaseLayer
+    7400016: Armature|challenger_fingers|Take 001|BaseLayer
+    7400018: Armature|challenger_hair|Take 001|BaseLayer
+    7400020: Armature|challenger_hands|Take 001|BaseLayer
+    7400022: Armature|challenger_head|Take 001|BaseLayer
+    7400024: Armature|challenger_helm|Take 001|BaseLayer
+    7400026: Armature|challenger_hood|Take 001|BaseLayer
+    7400028: Armature|challenger_knife|Take 001|BaseLayer
+    7400030: Armature|challenger_pants|Take 001|BaseLayer
+    7400032: Armature|challenger_sholders|Take 001|BaseLayer
+    7400034: Armature|challenger_sword_holder2|Take 001|BaseLayer
+    7400036: Armature|challenger_sword_holder|Take 001|BaseLayer
+    7400038: Armature|challenger_teeths|Take 001|BaseLayer
+    7400040: Armature|challenger_torso|Take 001|BaseLayer
+    9500000: //RootNode
+    13700000: challenger_eyes_refl
+    13700002: challenger_eyes_refl.001
+    13700004: challenger_eyes_refl2
+    13700006: Plane.001
+    13700008: Plane.004
+    13700010: Plane.008
+    13700012: Plane.014
+    13700014: SideBurns
+    13700016: SideHair.002
+    13700018: Plane.000
+    13700020: Plane.011
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
