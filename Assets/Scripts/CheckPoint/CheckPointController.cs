@@ -12,6 +12,8 @@ public class CheckPointController : MonoBehaviour {
     private ManagerController _managerController;
     private float _timeStart = 0;
 
+    public bool isOrdinary;
+
 	// Use this for initialization
 	void Start () {
         _managerStates = gameObject.GetComponent<ManagerStates>();
@@ -46,6 +48,7 @@ public class CheckPointController : MonoBehaviour {
         if (!_checkPointTriggers.Contains(trigger))
         {
             result = true;
+            isOrdinary = _managerController.IsOrdinary();
             _currentTrigger = trigger;
             _checkPointTriggers.Add(trigger);
         }

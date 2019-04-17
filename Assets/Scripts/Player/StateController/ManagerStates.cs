@@ -9,6 +9,7 @@ public class ManagerStates : MonoBehaviour {
     private InteractSignal _interactSignal;
     private CharacterController _characterController;
     private BezierCurvePlayerController _bezierCurvePlayerController;
+    public CheckPointController _checkPointController;
 
     [SerializeField]
     private State _currentState;
@@ -37,6 +38,7 @@ public class ManagerStates : MonoBehaviour {
         _trapController = gameObject.GetComponent<TrapController>();
         _interactSignal = gameObject.GetComponent<InteractSignal>();
         _characterController = gameObject.GetComponent<CharacterController>();
+        _checkPointController = gameObject.GetComponent<CheckPointController>();
         _managerController.Init();
     }
 

@@ -63,7 +63,11 @@ public class InteractSignal : MonoBehaviour
         }
 
         //  _hit.collider.gameObject.transform.parent = null;
-        _managerController.SendSignal(Signals.ActivatePlayerController);
+
+        if (_managerStates._checkPointController.isOrdinary)
+            _managerController.SendSignal(Signals.ActivatePlayerController);
+        else
+            _managerController.SendSignal(Signals.ActivateBezierController);
     }
 
     public void ActivateInteract()

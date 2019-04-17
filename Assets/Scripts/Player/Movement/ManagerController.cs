@@ -298,5 +298,15 @@ public class ManagerController : MonoBehaviour, IRevertListener
     {
         return _timeController.IsReversing && !_timeController.IsUserShouldReverse;
     }
-    
+
+    public bool IsOrdinary()
+    {
+        return _ordinaryPlayerController.enabled;
+    }
+
+    public bool IsBezier()
+    {
+        return _bezierCurvePlayerController.enabled;
+    }
+
 }
