@@ -13,7 +13,7 @@ public class CheckPointTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!_checkPointController.SetTrigger(this))
+        if (!_checkPointController.SetTrigger(this, other.gameObject.transform.position, other.gameObject.transform.rotation))
             return;
 
         Messenger.Broadcast(GameEventTypes.CHECKPOINT);
