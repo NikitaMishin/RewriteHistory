@@ -1137,6 +1137,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114472150086213138, guid: 5e32e5cfb229f8c47ae91512974e80c1,
+        type: 2}
+      propertyPath: inertia
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e32e5cfb229f8c47ae91512974e80c1, type: 2}
   m_IsPrefabAsset: 0
