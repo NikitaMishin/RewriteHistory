@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,12 @@ public class CheckPointTrigger : MonoBehaviour {
         if (!_checkPointController.SetTrigger(this, other.gameObject.transform.position, other.gameObject.transform.rotation))
             return;
 
-        Messenger.Broadcast(GameEventTypes.CHECKPOINT);
+        try
+        {
+            Messenger.Broadcast(GameEventTypes.CHECKPOINT);
+        } catch (Exception e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,7 +55,14 @@ public class CheckPointController : MonoBehaviour {
            // _managerController.direction = _direction;
             _curveController.CurrentWayPointId = _cureveId;
             _managerStates.ChangeState(State.Default);
-            Messenger.Broadcast(GameEventTypes.DEAD);
+            try
+            {
+                Messenger.Broadcast(GameEventTypes.DEAD);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
     }

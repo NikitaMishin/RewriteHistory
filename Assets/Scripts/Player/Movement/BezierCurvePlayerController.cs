@@ -24,11 +24,16 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
     public int CurrentWayPointId = 0;
     public float RotationSpeed = 3f;
     public float ReachDistance = 0.5f;
-
+    public GameObject curveObject;
     public List<Vector3> CurvePoints;
  
     void Awake()
     {
+        for (int i = 0; i < curveObject.transform.childCount; i++)
+        {
+            CurvePoints.Add(curveObject.transform.GetChild(i).position);
+        }
+
         _controller = GetComponent<CharacterController>();
         _tMesh = GetComponent<Transform>();
         _managerController = GetComponent<ManagerController>();
