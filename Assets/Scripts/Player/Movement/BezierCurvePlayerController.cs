@@ -191,7 +191,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
             lookPos = CurvePoints[0] - CurvePoints[1];
             lookPos.y = 0;
             rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
             dirVector += lookPos.normalized * _managerController._currentActualSpeed;
             return;
         }
@@ -224,7 +224,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
         lookPos = CurvePoints[CurrentWayPointId] - transform.position;
         lookPos.y = 0;
         rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
         //ROTATION
 
         if (distance <= ReachDistance)

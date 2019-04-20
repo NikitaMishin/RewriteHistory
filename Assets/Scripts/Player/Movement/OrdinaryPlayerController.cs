@@ -471,9 +471,12 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
     public void RestartDir()
     {
         dirVector = Vector3.zero;
-        
+
         if (wasStopped)
+        {
             dirVector.x = _managerController._currentActualSpeed * transform.forward.x;
+            dirVector.y = _managerController._currentActualSpeed * transform.forward.y;
+        }
         
         InitialSpeedSetup();
     }
