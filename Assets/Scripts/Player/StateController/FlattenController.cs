@@ -39,9 +39,11 @@ public class FlattenController : MonoBehaviour {
                _managerStates.GetCurrentState() != State.Dead
                && Physics.Raycast(transform.position, -transform.up, out hitUp, rayLenght)
                && Physics.Raycast(transform.position + _vectorUp, transform.up, out hitDown, rayLenght)
-
+               
             )
         {
+            if (!hitDown.collider.gameObject.tag.Equals("FlattenObject"))
+                return;
             _managerStates.ChangeState(State.Dead);
         }
 

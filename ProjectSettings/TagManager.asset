@@ -9,6 +9,7 @@ TagManager:
   - Trap1
   - FallenObject
   - FootprintSurface
+  - FlattenObject
   layers:
   - Default
   - TransparentFX
