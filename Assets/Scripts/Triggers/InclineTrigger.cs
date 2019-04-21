@@ -76,7 +76,8 @@ public class InclineTrigger : MonoBehaviour {
         if (!other.gameObject.tag.Equals("Player"))
             return;
 
-        Invoke("EndSlide", 1f);
+        //   Invoke("EndSlide", 1f);
+        EndSlide();
         _managerController.IsOnTheIncline = false;
         isExit = true;
     }

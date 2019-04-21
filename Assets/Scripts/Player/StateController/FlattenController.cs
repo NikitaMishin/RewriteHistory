@@ -37,7 +37,7 @@ public class FlattenController : MonoBehaviour {
 
         if (
                _managerStates.GetCurrentState() != State.Dead
-               &&Physics.Raycast(transform.position, -transform.up, out hitUp, rayLenght)
+               && Physics.Raycast(transform.position, -transform.up, out hitUp, rayLenght)
                && Physics.Raycast(transform.position + _vectorUp, transform.up, out hitDown, rayLenght)
 
             )
