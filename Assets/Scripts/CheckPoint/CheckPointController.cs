@@ -44,25 +44,19 @@ public class CheckPointController : MonoBehaviour {
         {
             _curveController.ReachDistance = _distance;
             gameObject.transform.position = _position;
-          //  if (_managerController.direction == _direction)
-       //     {
-                gameObject.transform.rotation = _rotation;
-       //     }
-      //      else
-       //     {
-               
-        //    }
-           // _managerController.direction = _direction;
+
+            gameObject.transform.rotation = _rotation;
+
             _curveController.CurrentWayPointId = _cureveId;
             _managerStates.ChangeState(State.Default);
-            try
+       /*     try
             {
                 Messenger.Broadcast(GameEventTypes.DEAD);
             }
             catch (Exception e)
             {
 
-            }
+            }*/
         }
 
     }

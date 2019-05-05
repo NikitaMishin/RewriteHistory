@@ -67,7 +67,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         }
 
         Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
-        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+        Messenger.AddListener(GameEventTypes.DEFAULT, RestartPosition);
 
     }
 

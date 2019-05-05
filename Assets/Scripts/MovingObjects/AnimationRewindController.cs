@@ -29,7 +29,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
         _timePoints = new LinkedList<AnimationTimePoint>();
         _timeControllerObject = FindObjectOfType<TimeControllerObject>();
         Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
-        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+        Messenger.AddListener(GameEventTypes.DEFAULT, RestartPosition);
     }
 
     private void SavePosition()
