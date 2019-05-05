@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AnimationRewind : MonoBehaviour, IAnimation {
 
-    [SerializeField] protected ManagerController _managerController;
     [SerializeField] protected string nameAnimation;
 
     protected bool _wasStepped = false;
@@ -14,6 +13,11 @@ public class AnimationRewind : MonoBehaviour, IAnimation {
     protected float _lastTime = 0;
     protected bool _timeToRun = false;
 
+    private void Start()
+    {
+        _animation = gameObject.GetComponent<Animation>();
+    }
+    
     public bool WasStepped()
     {
         return _wasStepped;
@@ -26,6 +30,12 @@ public class AnimationRewind : MonoBehaviour, IAnimation {
 
     public void SetTime(float time)
     {
+        if (_animation[nameAnimation].clip.isLooping)
+        {
+            _animation[nameAnimation].time = time;
+            return;
+        }
+        
         if (time == 0)
         {
             _animation.Stop();
@@ -45,6 +55,9 @@ public class AnimationRewind : MonoBehaviour, IAnimation {
 
     public float GetTime()
     {
+        if (_animation[nameAnimation].clip.isLooping)
+            return _animation[nameAnimation].time;
+        
         if (_wasStepped && _animation[nameAnimation].time == 0)
             return _animation[nameAnimation].length - 0.1f;
 

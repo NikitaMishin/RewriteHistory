@@ -21,13 +21,13 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
     private ManagerStates _managerStates;
     private LinkedList<AnimationTimePoint> _timePoints;
     private AnimationTimePoint _checkPoint;
-    private TimeControllerPlayer _timeController;
+    private TimeControllerObject _timeControllerObject;
 
     void Start()
     {
         _managerStates = FindObjectOfType<ManagerStates>();
         _timePoints = new LinkedList<AnimationTimePoint>();
-        _timeController = FindObjectOfType<TimeControllerPlayer>();
+        _timeControllerObject = FindObjectOfType<TimeControllerObject>();
         Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
         Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
     }
@@ -56,7 +56,7 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
             RecordTimePoint();
         }
 
-        if (_timeController.ShouldRemoveOldRecord())
+        if (_timeControllerObject.ShouldRemoveOldRecord())
         {
             DeleteOldRecord();
         }
@@ -93,6 +93,6 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 
     public bool ShouldRewind()
     {
-        return _timeController.IsReversing;
+        return _timeControllerObject.IsReversing;
     }
 }
