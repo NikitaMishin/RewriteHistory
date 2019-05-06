@@ -16,6 +16,7 @@ public class CheckPointController : MonoBehaviour {
     private float _timeStart = 0;
     private Vector3 _position;
     private Quaternion _rotation;
+    public bool _directionCurve;
     public bool _direction;
     public float _distance;
 
@@ -46,6 +47,8 @@ public class CheckPointController : MonoBehaviour {
             gameObject.transform.position = _position;
 
             gameObject.transform.rotation = _rotation;
+            _curveController.directionCurve = _directionCurve;
+            _managerController.direction = _direction;
 
             _curveController.CurrentWayPointId = _cureveId;
             _managerStates.ChangeState(State.Default);
@@ -70,12 +73,14 @@ public class CheckPointController : MonoBehaviour {
             _distance = _curveController.ReachDistance;
             _rotation = rotation;
             _position = position;
-            _direction = _managerController.direction;
+            _directionCurve = _managerController.direction;
             _cureveId = _curveController.CurrentWayPointId;
             result = true;
             isOrdinary = _managerController.IsOrdinary();
             _currentTrigger = trigger;
             _checkPointTriggers.Add(trigger);
+            _directionCurve = _curveController.directionCurve;
+            _direction = _managerController.direction;
         }
 
         return result;
