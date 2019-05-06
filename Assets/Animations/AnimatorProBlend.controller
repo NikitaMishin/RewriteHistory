@@ -222,22 +222,6 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: FallSpeed
     m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400080, guid: eb65b94e02613d44da5b33263ca74761, type: 3}
-    m_Threshold: 1
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: FallSpeed
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400072, guid: eb65b94e02613d44da5b33263ca74761, type: 3}
-    m_Threshold: 10
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: FallSpeed
-    m_Mirror: 0
   m_BlendParameter: MovementSpeed
   m_BlendParameterY: FallSpeed
   m_MinThreshold: 0
@@ -1103,7 +1087,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: MovementSpeed
-    m_EventTreshold: 1
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102509598364139534}
   m_Solo: 0
