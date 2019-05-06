@@ -8,6 +8,7 @@ public class ColdText : MonoBehaviour
 {
 
 	private Text _textMesh;
+	[SerializeField]
 	private string _text = "Вы замерзли..." +
 	                       "\nНажмите Q, чтобы попробовать снова";
 	

@@ -6,33 +6,34 @@ using UnityEngine;
 public class ColdLogic : MonoBehaviour
 {
 
-	[SerializeField] private float time = 5f;
+	[SerializeField] private float warmTime = 5f;
 	
 	private ColdAlphaController _alpha;
-	private float _timeForTick;
-
+	private float _timeForTickWarm;
+	private float _timeForTickCold;
+	
 	private float _startTime;
 	private ManagerStates _managerStates;
-	
-	
+
 	// Use this for initialization
 	void Start ()
 	{
 		_alpha = FindObjectOfType<ColdAlphaController>();
 		_managerStates = FindObjectOfType<ManagerStates>();
-		_timeForTick = time / 100;
+		_timeForTickWarm = warmTime / 100f;
 		
 		_startTime = Time.time;
 		Messenger.AddListener(GameEventTypes.DEFAULT, Restart);
 	}
 
-	public void StayInCold()
+	public void StayInCold(float time)
 	{
-		if (IsTimeForTick())
+		_timeForTickCold = time / 100f;
+		
+		if (IsTimeForTickCold())
 		{
 			_alpha.IncreaseAlpha();
 			_startTime = Time.time;
-			
 		}
 
 		if (_alpha.GetAlpha() > 0.9f)
@@ -41,9 +42,14 @@ public class ColdLogic : MonoBehaviour
 		}
 	}
 
+	private bool IsTimeForTickCold()
+	{
+		return Time.time - _startTime > _timeForTickCold;
+	}
+
 	public void StayInWarm()
 	{
-		if (IsTimeForTick())
+		if (IsTimeForTickWarm())
 		{
 			_alpha.DecreaseAlpha();
 			_startTime = Time.time;
@@ -51,9 +57,9 @@ public class ColdLogic : MonoBehaviour
 		}
 	}
 	
-	private bool IsTimeForTick()
+	private bool IsTimeForTickWarm()
 	{
-		return Time.time - _startTime > _timeForTick;
+		return Time.time - _startTime > _timeForTickWarm;
 	}
 	
 	private void Restart()

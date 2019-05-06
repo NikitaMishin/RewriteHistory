@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ColdTrigger : MonoBehaviour
 {
-
+	[SerializeField] private float timeCold = 5f;
+	
 	private ColdLogic _coldLogic;
 
 	// Use this for initialization
@@ -19,6 +20,6 @@ public class ColdTrigger : MonoBehaviour
 		if (!other.gameObject.tag.Equals("Player"))
 			return;
 		
-		_coldLogic.StayInCold();
+		_coldLogic.StayInCold(timeCold);
 	}
 }
