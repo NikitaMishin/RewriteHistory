@@ -6,8 +6,7 @@ using UnityEngine;
 public class SphereRewind : AnimationRewind
 {
     [SerializeField] private float rotationSpeed = 1;
-
-
+    
     private void Start()
     {
         _animation = gameObject.GetComponent<Animation>();
