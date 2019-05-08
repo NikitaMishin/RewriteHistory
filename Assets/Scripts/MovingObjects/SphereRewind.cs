@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
+using System;
 using UnityEngine;
 
 public class SphereRewind : AnimationRewind
 {
     [SerializeField] private float rotationSpeed = 1;
     
+    private AnimationRewindController _animationRewind;
+
     private void Start()
     {
         _animation = gameObject.GetComponent<Animation>();
         _animation[nameAnimation].speed = rotationSpeed;
+        _animationRewind = GetComponent<AnimationRewindController>();
+    }
+
+    private void Update()
+    {
+        if (_animationRewind.ShouldRewind())
+        {
+            _animation[nameAnimation].speed = 0;
+        }
+        else
+        {
+            _animation[nameAnimation].speed = rotationSpeed;
+        }
     }
 
     private void OnValidate()
@@ -18,14 +32,4 @@ public class SphereRewind : AnimationRewind
         if (_animation != null) 
             _animation[nameAnimation].speed = rotationSpeed;
     }
-
-
-    /*   private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag.Equals("Player"))
-        {
-            if (!_animation.isPlaying)
-                _animation.Play();
-        }
-    }*/
 }
