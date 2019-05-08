@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,12 @@ public class StartTrigger : MonoBehaviour {
 
     private bool _wasStepped = false;
     private bool _wasCLosed = false;
+
+    private void Start()
+    {
+        if (hasFewTriggers)
+            bezierCurveMovement.SetFewTrigger(true);
+    }
 
     private void OnTriggerStay(Collider other)
     {
