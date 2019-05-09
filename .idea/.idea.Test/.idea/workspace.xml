@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f62af6-5312-4ea8-aa7f-07c8cc403b74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovingObjects/SphereRewind.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovingObjects/SphereRewind.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,85 +16,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/SphereRewind.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
-                <marker date="1557336360660" expanded="true" signature="7:33" ph="..." />
-                <marker date="1557336360660" expanded="true" signature="78:735" ph="{...}" />
-                <marker date="1557336360660" expanded="true" signature="221:349" ph="{...}" />
-                <marker date="1557336360660" expanded="true" signature="376:596" ph="{...}" />
-                <marker date="1557336360660" expanded="true" signature="427:496" ph="{...}" />
-                <marker date="1557336360660" expanded="true" signature="509:590" ph="{...}" />
-                <marker date="1557336360660" expanded="true" signature="627:733" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewind.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-              <folding>
-                <marker date="1557056156277" expanded="false" signature="6:78" ph="..." />
-                <marker date="1557056156277" expanded="true" signature="137:1661" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="408:479" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="513:553" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="596:637" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="674:1144" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="734:825" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="857:941" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="979:1043" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="1067:1138" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="1172:1470" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="1509:1570" ph="{...}" />
-                <marker date="1557056156277" expanded="true" signature="1599:1659" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-              <folding>
-                <marker date="1557336003285" expanded="false" signature="6:97" ph="..." />
-                <marker date="1557336003285" expanded="true" signature="170:2680" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="178:479" ph="/* USAGE: ... */" />
-                <marker date="1557336003285" expanded="true" signature="798:1148" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="1181:1294" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="1330:1453" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="1516:1831" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="1551:1598" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="1663:1714" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="1774:1825" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="1866:1986" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="2017:2344" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="2058:2283" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="2379:2485" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="2420:2479" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="2520:2584" ph="{...}" />
-                <marker date="1557336003285" expanded="true" signature="2616:2678" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/ReverseTime/TimeControllerObject.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-              <folding>
-                <marker date="1555536641039" expanded="true" signature="6:78" ph="..." />
-                <marker date="1555536641039" expanded="true" signature="137:833" ph="{...}" />
-                <marker date="1555536641039" expanded="true" signature="207:279" ph="{...}" />
-                <marker date="1555536641039" expanded="true" signature="311:831" ph="{...}" />
-                <marker date="1555536641039" expanded="true" signature="454:591" ph="{...}" />
-                <marker date="1555536641039" expanded="true" signature="604:754" ph="{...}" />
+                <marker date="1557336435797" expanded="true" signature="7:33" ph="..." />
+                <marker date="1557336435797" expanded="true" signature="78:805" ph="{...}" />
+                <marker date="1557336435797" expanded="true" signature="221:419" ph="{...}" />
+                <marker date="1557336435797" expanded="true" signature="446:666" ph="{...}" />
+                <marker date="1557336435797" expanded="true" signature="497:566" ph="{...}" />
+                <marker date="1557336435797" expanded="true" signature="579:660" ph="{...}" />
+                <marker date="1557336435797" expanded="true" signature="697:803" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -126,6 +56,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewind.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/SimpleRewind.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/FallenColumnRewind.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/BezierCurveMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/LauncherEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/SphereRewind.cs" root0="FORCE_HIGHLIGHTING" />
@@ -180,8 +111,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ReverseTime/TimePoints/BezierCurveObjectTimePoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Triggers/StartTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MovingObjects/BezierCurveMovementWithRewind.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewind.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MovingObjects/SphereRewind.cs" />
       </list>
     </option>
@@ -274,12 +205,12 @@
       <workItem from="1556650239214" duration="152000" />
       <workItem from="1557051823544" duration="3359000" />
       <workItem from="1557324478538" duration="2542000" />
-      <workItem from="1557335818124" duration="543000" />
+      <workItem from="1557335818124" duration="1662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16643000" />
+    <option name="totallyTimeSpent" value="17762000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,7 +223,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20309168" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -311,8 +241,8 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5053305" side_tool="true" visible="true" weight="0.32942432" />
-      <window_info active="true" anchor="bottom" id="Build" order="15" sideWeight="0.4946695" visible="true" weight="0.32942432" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50586355" side_tool="true" visible="true" weight="0.32942432" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" sideWeight="0.49413645" visible="true" weight="0.32942432" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1109,44 +1039,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/BezierCurveMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1555536640872" expanded="true" signature="6:78" ph="..." />
+            <marker date="1555536640872" expanded="true" signature="128:2523" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="135:367" ph="/* NOTE: direction of Curve determined by direction of point (0,1,2,3 and so on) e.t 01234==positive,4321=negativ ... */" />
+            <marker date="1555536640872" expanded="true" signature="724:931" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="990:1652" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="1005:1080" ph="/* if (_managerStates.GetCurrentState() == State.Dead) ... */" />
+            <marker date="1555536640872" expanded="true" signature="1594:1646" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="1659:1776" ph="/// Assign next point to follow based on  Direction Current poinr and Path.close ... " />
+            <marker date="1555536640872" expanded="true" signature="1812:2521" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="1961:2016" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="2104:2193" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="2263:2352" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="2380:2433" ph="{...}" />
+            <marker date="1555536640872" expanded="true" signature="2462:2515" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="266">
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
           <folding>
-            <marker date="1557336003285" expanded="false" signature="6:97" ph="..." />
-            <marker date="1557336003285" expanded="true" signature="170:2680" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="178:479" ph="/* USAGE: ... */" />
-            <marker date="1557336003285" expanded="true" signature="798:1148" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="1181:1294" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="1330:1453" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="1516:1831" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="1551:1598" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="1663:1714" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="1774:1825" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="1866:1986" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="2017:2344" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="2058:2283" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="2379:2485" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="2420:2479" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="2520:2584" ph="{...}" />
-            <marker date="1557336003285" expanded="true" signature="2616:2678" ph="{...}" />
+            <marker date="1557336385433" expanded="false" signature="6:97" ph="..." />
+            <marker date="1557336385433" expanded="true" signature="170:2625" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="178:479" ph="/* USAGE: ... */" />
+            <marker date="1557336385433" expanded="true" signature="798:1148" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="1181:1294" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="1330:1453" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="1516:1831" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="1551:1598" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="1663:1714" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="1774:1825" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="1866:1986" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="2017:2289" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="2058:2283" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="2324:2430" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="2365:2424" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="2465:2529" ph="{...}" />
+            <marker date="1557336385433" expanded="true" signature="2561:2623" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/SphereRewind.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <marker date="1557336360660" expanded="true" signature="7:33" ph="..." />
-            <marker date="1557336360660" expanded="true" signature="78:735" ph="{...}" />
-            <marker date="1557336360660" expanded="true" signature="221:349" ph="{...}" />
-            <marker date="1557336360660" expanded="true" signature="376:596" ph="{...}" />
-            <marker date="1557336360660" expanded="true" signature="427:496" ph="{...}" />
-            <marker date="1557336360660" expanded="true" signature="509:590" ph="{...}" />
-            <marker date="1557336360660" expanded="true" signature="627:733" ph="{...}" />
+            <marker date="1557336435797" expanded="true" signature="7:33" ph="..." />
+            <marker date="1557336435797" expanded="true" signature="78:805" ph="{...}" />
+            <marker date="1557336435797" expanded="true" signature="221:419" ph="{...}" />
+            <marker date="1557336435797" expanded="true" signature="446:666" ph="{...}" />
+            <marker date="1557336435797" expanded="true" signature="497:566" ph="{...}" />
+            <marker date="1557336435797" expanded="true" signature="579:660" ph="{...}" />
+            <marker date="1557336435797" expanded="true" signature="697:803" ph="{...}" />
           </folding>
         </state>
       </provider>

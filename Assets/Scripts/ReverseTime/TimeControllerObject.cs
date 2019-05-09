@@ -9,6 +9,13 @@ public class TimeControllerObject : TimeControllerPlayer {
     private void Start()
     {
         _managerStates = FindObjectOfType<ManagerStates>();
+        
+        Messenger.AddListener(GameEventTypes.DEFAULT, RestoreTimeUpdate);
+    }
+
+    private void RestoreTimeUpdate()
+    {
+        currentTimeReverse = 0;
     }
 
     private void FixedUpdate()
