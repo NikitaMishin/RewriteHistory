@@ -106,6 +106,9 @@
           </e>
         </e>
         <e p="Azure[Sky] Dynamic Skybox" t="Include">
+          <e p="_Old Version with Precomputed Sky" t="Include">
+            <e p="Read-Me First.txt" t="Include" />
+          </e>
           <e p="Editor" t="Include">
             <e p="AzureSkyControllerEditor.cs" t="Include" />
             <e p="AzureSkyProfileEditor.cs" t="Include" />
