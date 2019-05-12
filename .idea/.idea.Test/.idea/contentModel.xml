@@ -531,6 +531,7 @@
             <e p="FinishTrigger.cs" t="Include" />
             <e p="InclineTrigger.cs" t="Include" />
             <e p="PlayerAttachToMovingPlatform.cs" t="Include" />
+            <e p="RewindTrigger.cs" t="Include" />
             <e p="SkyBoxTrigger.cs" t="Include" />
             <e p="StairTrigger.cs" t="Include" />
             <e p="StartTrigger.cs" t="Include" />

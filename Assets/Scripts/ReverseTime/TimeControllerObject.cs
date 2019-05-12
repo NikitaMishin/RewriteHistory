@@ -5,10 +5,12 @@ using UnityEngine;
 public class TimeControllerObject : TimeControllerPlayer {
 
     private ManagerStates _managerStates;
+    private ManagerController _managerController;
 
     private void Start()
     {
         _managerStates = FindObjectOfType<ManagerStates>();
+        _managerController = FindObjectOfType<ManagerController>();
         
         Messenger.AddListener(GameEventTypes.DEFAULT, RestoreTimeUpdate);
     }
@@ -23,7 +25,7 @@ public class TimeControllerObject : TimeControllerPlayer {
         if (_managerStates.GetCurrentState() == State.Dead)
             return;
 
-        if (Input.GetKey(KeyCode.Q) && CouldUseReverse)
+        if (Input.GetKey(KeyCode.Q) && CouldUseReverse && _managerController.CanRewind())
         {
             currentTimeReverse = Mathf.Max(currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
