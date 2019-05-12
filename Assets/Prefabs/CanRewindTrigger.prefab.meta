@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/CanRewindTrigger.prefab.meta
 guid: 6bd5fc625d3d1b84bb130997582c31a1
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 100100000
+=======
+guid: 7624136359fe4ca41b8f13c2eaf44cf3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+>>>>>>> 5413727a9cd4e1d674a8f43174893578fd6aac6c:Assets/Scenes/Timelines/VCA_CameraTransitBridgeDownscaleTimeline.playable.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
