@@ -530,6 +530,7 @@
             <e p="Tip.cs" t="Include" />
           </e>
           <e p="Triggers" t="Include">
+            <e p="ColdActivation.cs" t="Include" />
             <e p="FallTrigger.cs" t="Include" />
             <e p="FinishTrigger.cs" t="Include" />
             <e p="InclineTrigger.cs" t="Include" />
