@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeControllerObject : TimeControllerPlayer {
+public class TimeControllerObject : TimeControllerPlayer
+{
 
+    [SerializeField] private GameObject rewindNoise; 
+
+    
     private ManagerStates _managerStates;
     private ManagerController _managerController;
-
+    
     private void Start()
     {
         _managerStates = FindObjectOfType<ManagerStates>();
@@ -29,11 +33,13 @@ public class TimeControllerObject : TimeControllerPlayer {
         {
             currentTimeReverse = Mathf.Max(currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
+            rewindNoise.SetActive(true);
         }
         else
         {
             IsReversing = false;
             currentTimeReverse = Mathf.Min(MaxTimeReverse, currentTimeReverse + Time.deltaTime);
+            rewindNoise.SetActive(false);
         }
 
         shouldRemoveOldRecord = currentTimeReverse >= MaxTimeReverse;
