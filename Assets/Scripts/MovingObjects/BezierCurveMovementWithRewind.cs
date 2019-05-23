@@ -37,6 +37,9 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     public GameObject objectWithActivatedTrigger = null;
     public bool wasStepped = false;
     public bool wasClosed = false;
+    
+    
+    private bool hasFewStartTrigger = false;
 
     private ManagerStates _managerStates;
 
@@ -67,7 +70,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         }
 
         Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
-        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+        Messenger.AddListener(GameEventTypes.DEFAULT, RestartPosition);
 
     }
 
@@ -78,7 +81,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
                 transform.rotation,
                 Direction,
                 CurrentWayPointId,
-                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped
+                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped,
+                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasClosed() : wasClosed
                 );
     }
 
@@ -91,8 +95,10 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 
         if (trigger != null)
         {
-            wasStepped = _checkPoint.wasStepped;
+            wasStepped = _checkPoint.wasStepped;    
+            wasClosed = _checkPoint.wasClosed;
             trigger.SetWasStepped(_checkPoint.wasStepped);
+            trigger.SetWasClosed(_checkPoint.wasClosed);
         }
 
         DeleteAllRecord();
@@ -127,7 +133,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     void Update()
     {
         if (ShouldRewind()) return;// || _managerStates.GetCurrentState() == State.Dead) return;
-        if (trigger != null && !trigger.WasStepped()) return;
+        if (trigger != null && !withExitTrigger && !trigger.WasStepped()) return;
         if (isShouldStopAtTheEnd && IsReachedEndOfCurve() && !withExitTrigger) return;
         if (trigger != null && withExitTrigger && !wasClosed && !wasStepped) return;
 
@@ -172,7 +178,7 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         if (!Direction && CurrentWayPointId == 0 && !Path.close)
         {
             wasStepped = false;
-            wasClosed = false;
+          //  wasClosed = false;
             CurrentWayPointId = 0;
             Direction = !Direction;
             _wasExecuteBack = false;
@@ -247,7 +253,8 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
                 transform.rotation,
                 Direction,
                 CurrentWayPointId,
-                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped
+                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped,
+                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasClosed() : wasClosed
                 )
             );
     }
@@ -272,8 +279,10 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 
         if (trigger != null)
         {
-            wasStepped = tmp.wasStepped;
+         /*   wasStepped = tmp.wasStepped;
+            wasClosed = tmp.wasClosed;
             trigger.SetWasStepped(tmp.wasStepped);
+            trigger.SetWasClosed(tmp.wasClosed);*/
         }
 
         //remove record
@@ -303,6 +312,11 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
     public bool ShouldRewind()
     {
         return _timeController.IsReversing;
+    }
+
+    public void SetFewTrigger(bool value)
+    {
+        hasFewStartTrigger = value;
     }
 
     internal void SetWasClosed(bool v)

@@ -463,7 +463,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
 
     public void StopActualSpeed() {
         wasStopped = true;
-        _managerController._currentActualSpeed = _managerController._currentActualSpeed > 0 ? _managerController._currentActualSpeed - _managerController.inertia : (_managerController._currentActualSpeed < 0 ? 0 : 0) ;
+        _managerController._currentActualSpeed = 0;//_managerController._currentActualSpeed > 0 ? _managerController._currentActualSpeed - _managerController.inertia : (_managerController._currentActualSpeed < 0 ? 0 : 0) ;
     }
 
     public void Move()
@@ -476,10 +476,13 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
     public void RestartDir()
     {
         dirVector = Vector3.zero;
-        
-        if (wasStopped)
+
+    /*    if (wasStopped)
+        {
             dirVector.x = _managerController._currentActualSpeed * transform.forward.x;
-        
+            dirVector.y = _managerController._currentActualSpeed * transform.forward.y;
+        }
+        */
         InitialSpeedSetup();
     }
 }

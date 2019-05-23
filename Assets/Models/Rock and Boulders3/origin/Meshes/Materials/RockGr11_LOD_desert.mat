@@ -115,7 +115,7 @@ Material:
     - _Albedo05default: 0.5
     - _AldeboContrast: 0.35
     - _BumpScale: 1
-    - _CoverAmount: 0.5
+    - _CoverAmount: 1
     - _CoverTiling: 0.5
     - _Cutoff: 0.5
     - _DetailBlendDodge: 0

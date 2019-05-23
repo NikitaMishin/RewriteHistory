@@ -26,7 +26,7 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 		_timeController = FindObjectOfType<TimeControllerPlayer>();
         _managerStates = FindObjectOfType<ManagerStates>();
         Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
-        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+        Messenger.AddListener(GameEventTypes.DEFAULT, RestartPosition);
     }
 
     private void SavePosition()

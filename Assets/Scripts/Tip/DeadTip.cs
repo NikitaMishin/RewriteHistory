@@ -54,7 +54,9 @@ public class DeadTip : MonoBehaviour {
 
     protected void OpenTip()
     {
-        _tip.SetText(text);
-        _tip.SetVisible(true);
+        if (_managerStates.GetCurrentState() == State.Dead) { 
+            _tip.SetText(text);
+            _tip.SetVisible(true);
+        }
     }
 }

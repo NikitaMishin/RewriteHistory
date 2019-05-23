@@ -84,6 +84,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
 
     public LinkedList<ITimePoint> TimePoints; //storage where we save user move
     private bool _wasInit = false;
+    private bool _canRewind = false;
 
     private void Start()
     {
@@ -307,6 +308,16 @@ public class ManagerController : MonoBehaviour, IRevertListener
     public bool IsBezier()
     {
         return _bezierCurvePlayerController.enabled;
+    }
+
+    public bool CanRewind()
+    {
+        return _canRewind;
+    }
+
+    public void SetRewind(bool value)
+    {
+        _canRewind = value;
     }
 
 }

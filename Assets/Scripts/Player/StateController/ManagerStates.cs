@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,11 +42,7 @@ public class ManagerStates : MonoBehaviour {
         _checkPointController = gameObject.GetComponent<CheckPointController>();
         _managerController.Init();
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    
 
     public State GetCurrentState()
     {
@@ -73,6 +70,15 @@ public class ManagerStates : MonoBehaviour {
 
     public void Dead()
     {
+        try
+        {
+            Messenger.Broadcast(GameEventTypes.DEAD);
+        }
+        catch (Exception e)
+        {
+
+        }
+        
         _currentState = State.Dead;
     //    _interactSignal.InterruptInteract();
         canRewind = true;
@@ -112,7 +118,8 @@ public class ManagerStates : MonoBehaviour {
 
 
         _currentState = State.Default;
-        _interactSignal.InterruptInteract();
+        Messenger.Broadcast(GameEventTypes.DEFAULT);
+    //    _interactSignal.InterruptInteract();
     }
 
     public void MoveBox()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,14 @@ public class CheckPointController : MonoBehaviour {
     private CheckPointTrigger _currentTrigger;
     private ManagerStates _managerStates;
     private ManagerController _managerController;
+    private BezierCurvePlayerController _curveController;
+    private int _cureveId = 0;
     private float _timeStart = 0;
+    private Vector3 _position;
+    private Quaternion _rotation;
+    public bool _directionCurve;
+    public bool _direction;
+    public float _distance;
 
     public bool isOrdinary;
 
@@ -19,6 +27,7 @@ public class CheckPointController : MonoBehaviour {
         _managerStates = gameObject.GetComponent<ManagerStates>();
         _managerController = gameObject.GetComponent<ManagerController>();
         _checkPointTriggers = new List<CheckPointTrigger>();
+        _curveController = GetComponent<BezierCurvePlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -34,23 +43,44 @@ public class CheckPointController : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Q) && _currentTrigger != null)
         {
-            gameObject.transform.position = _currentTrigger.transform.position;
+            _curveController.ReachDistance = _distance;
+            gameObject.transform.position = _position;
+
+            gameObject.transform.rotation = _rotation;
+            _curveController.directionCurve = _directionCurve;
+            _managerController.direction = _direction;
+
+            _curveController.CurrentWayPointId = _cureveId;
             _managerStates.ChangeState(State.Default);
-            Messenger.Broadcast(GameEventTypes.DEAD);
+       /*     try
+            {
+                Messenger.Broadcast(GameEventTypes.DEAD);
+            }
+            catch (Exception e)
+            {
+
+            }*/
         }
 
     }
 
-    public bool SetTrigger(CheckPointTrigger trigger)
+    public bool SetTrigger(CheckPointTrigger trigger, Vector3 position, Quaternion rotation)
     {
         bool result = false;
 
         if (!_checkPointTriggers.Contains(trigger))
         {
+            _distance = _curveController.ReachDistance;
+            _rotation = rotation;
+            _position = position;
+            _directionCurve = _managerController.direction;
+            _cureveId = _curveController.CurrentWayPointId;
             result = true;
             isOrdinary = _managerController.IsOrdinary();
             _currentTrigger = trigger;
             _checkPointTriggers.Add(trigger);
+            _directionCurve = _curveController.directionCurve;
+            _direction = _managerController.direction;
         }
 
         return result;

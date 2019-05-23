@@ -1,5 +1,6 @@
 ﻿public enum GameEventTypes : byte{
     DEAD,
-    CHECKPOINT
+    CHECKPOINT,
+    DEFAULT
 }
 

@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a8d8846a2492e4aac5b06459564002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: AlexeySceneWithFreeModells
+  startScene: ComicStrip
 --- !u!4 &1311096336
 Transform:
   m_ObjectHideFlags: 0

@@ -123,7 +123,7 @@ Material:
     - _Albedo05default: 1
     - _AldeboContrast: 0.45
     - _BumpScale: 1
-    - _CoverAmount: 0.3
+    - _CoverAmount: 0.73
     - _CoverNormalPower: 0.7
     - _CoverTiling: 0.56
     - _Cutoff: 0.5
@@ -140,7 +140,7 @@ Material:
     - _MaskPowerAO: 0.5
     - _Maskscale: 7
     - _Metallic: 0
-    - _MicrodetailAlbedo: 0.78
+    - _MicrodetailAlbedo: 0.97
     - _MicrodetailNormalPower: 0.5
     - _MicrodetailTiling: 0.5
     - _Mode: 0

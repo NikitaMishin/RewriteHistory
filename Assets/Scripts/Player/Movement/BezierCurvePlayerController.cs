@@ -24,11 +24,16 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
     public int CurrentWayPointId = 0;
     public float RotationSpeed = 3f;
     public float ReachDistance = 0.5f;
-
+    public GameObject curveObject;
     public List<Vector3> CurvePoints;
  
     void Awake()
     {
+        for (int i = 0; i < curveObject.transform.childCount; i++)
+        {
+            CurvePoints.Add(curveObject.transform.GetChild(i).position);
+        }
+
         _controller = GetComponent<CharacterController>();
         _tMesh = GetComponent<Transform>();
         _managerController = GetComponent<ManagerController>();
@@ -186,7 +191,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
             lookPos = CurvePoints[0] - CurvePoints[1];
             lookPos.y = 0;
             rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
             dirVector += lookPos.normalized * _managerController._currentActualSpeed;
             return;
         }
@@ -219,7 +224,7 @@ public class BezierCurvePlayerController : OrdinaryPlayerController, IRevertList
         lookPos = CurvePoints[CurrentWayPointId] - transform.position;
         lookPos.y = 0;
         rotation = Quaternion.LookRotation(lookPos); // rotation in zx plane
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * RotationSpeed);
         //ROTATION
 
         if (distance <= ReachDistance)

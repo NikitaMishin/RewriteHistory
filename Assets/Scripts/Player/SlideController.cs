@@ -44,6 +44,7 @@ public class SlideController : MonoBehaviour {
         if (Time.time - _timeWithouGround < maxTimeWithoutGround)
         {
             Vector3 force = _managerController.forceVector + groundSlopeDir;
+            force.z = 0;
                /* new Vector3(
                             (1f - _hitNormal.y) * _hitNormal.x * (1f - _friction),
                             (1f - _hitNormal.y) * _hitNormal.y * (1f - _friction) * -1,

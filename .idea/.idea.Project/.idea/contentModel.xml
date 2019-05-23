@@ -47,6 +47,53 @@
             </e>
           </e>
         </e>
+        <e p="AQUAS" t="Include">
+          <e p="readme.txt" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="AQUAS_BubbleBehaviour.cs" t="Include" />
+            <e p="AQUAS_BubbleMorph.cs" t="Include" />
+            <e p="AQUAS_Buoyancy.cs" t="Include" />
+            <e p="AQUAS_Camera.cs" t="Include" />
+            <e p="AQUAS_CameraSwitcher.cs" t="Include" />
+            <e p="AQUAS_Caustics.cs" t="Include" />
+            <e p="AQUAS_Gaia.cs" t="Include" />
+            <e p="AQUAS_LensEffects.cs" t="Include" />
+            <e p="AQUAS_Look.cs" t="Include" />
+            <e p="AQUAS_Parameters.cs" t="Include" />
+            <e p="AQUAS_Reflection.cs" t="Include" />
+            <e p="AQUAS_RenderQueueEditor.cs" t="Include" />
+            <e p="AQUAS_Screenshotter.cs" t="Include" />
+            <e p="AQUAS_SmallBubbleBehaviour.cs" t="Include" />
+            <e p="AQUAS_Walk.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Bubble.shader" t="Include" />
+            <e p="Camera Effects" t="Include">
+              <e p="UnderWaterLens.shader" t="Include" />
+              <e p="WetLens.shader" t="Include" />
+            </e>
+            <e p="Caustics.shader" t="Include" />
+            <e p="DepthMask.shader" t="Include" />
+            <e p="Water" t="Include">
+              <e p="Desktop&amp;Web" t="Include">
+                <e p="2SidedDoubleTextured.shader" t="Include" />
+                <e p="2SidedSingleTextured.shader" t="Include" />
+                <e p="2SidedTripleTextured.shader" t="Include" />
+                <e p="DoubleTextured.shader" t="Include" />
+                <e p="River.shader" t="Include" />
+                <e p="SingleTextured.shader" t="Include" />
+              </e>
+              <e p="Mobile" t="Include">
+                <e p="BiColored.shader" t="Include" />
+                <e p="BiColoredPseudoOpaque.shader" t="Include" />
+                <e p="FoamyBiColored.shader" t="Include" />
+                <e p="FoamyOneColored.shader" t="Include" />
+                <e p="OneColored.shader" t="Include" />
+                <e p="OneColoredOpaque.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="AssetStore" t="Include">
           <e p="Almgp_automapping_shader" t="Include">
             <e p="Shaders" t="Include">
@@ -57,6 +104,9 @@
           </e>
         </e>
         <e p="Azure[Sky] Dynamic Skybox" t="Include">
+          <e p="_Old Version with Precomputed Sky" t="Include">
+            <e p="Read-Me First.txt" t="Include" />
+          </e>
           <e p="Editor" t="Include">
             <e p="AzureSkyControllerEditor.cs" t="Include" />
             <e p="AzureSkyProfileEditor.cs" t="Include" />
@@ -148,6 +198,10 @@
         </e>
         <e p="DropRigidBlock.cs" t="Include" />
         <e p="Editor" t="Include">
+          <e p="AQUAS_AddDefine.cs" t="Include" />
+          <e p="AQUAS_QuickSetup.cs" t="Include" />
+          <e p="AQUAS_RemoveDefine.cs" t="Include" />
+          <e p="AQUAS_RiverSetup.cs" t="Include" />
           <e p="FMODMigrationUtil.cs" t="Include" />
         </e>
         <e p="Editor Default Resources" t="Include">
@@ -161,6 +215,35 @@
                 <e p="CanvasUtil.cginc" t="Include" />
                 <e p="UnlitColorAlpha.shader" t="Include" />
               </e>
+            </e>
+          </e>
+        </e>
+        <e p="EffectExamples" t="Include">
+          <e p="Editor" t="Include">
+            <e p="PackageManagerAssembly" t="Include">
+              <e p="PackageImportList.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Shared" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="DecalDestroyer.cs" t="Include" />
+              <e p="ExtinguishableFire.cs" t="Include" />
+              <e p="GunAim.cs" t="Include" />
+              <e p="GunShoot.cs" t="Include" />
+              <e p="ParticleCollision.cs" t="Include" />
+              <e p="ParticleExamples.cs" t="Include" />
+              <e p="ParticleMenu.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="SurfaceShader_VC.shader" t="Include" />
+            </e>
+          </e>
+          <e p="TutorialInfo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ReadmeEditor.cs" t="Include" />
+              </e>
+              <e p="Readme.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -339,10 +422,23 @@
           <e p="ComicStrip" t="Include">
             <e p="ComicEndTimer.cs" t="Include" />
           </e>
+          <e p="Editor" t="Include">
+            <e p="LauncherEditor.cs" t="Include" />
+          </e>
+          <e p="Effects" t="Include">
+            <e p="InclineEffect.cs" t="Include" />
+          </e>
           <e p="Features" t="Include">
             <e p="AnimationCallback.cs" t="Include" />
             <e p="BalancerController.cs" t="Include" />
             <e p="BatAnimation.cs" t="Include" />
+            <e p="Cold" t="Include">
+              <e p="ColdAlphaController.cs" t="Include" />
+              <e p="ColdLogic.cs" t="Include" />
+              <e p="ColdText.cs" t="Include" />
+              <e p="ColdTrigger.cs" t="Include" />
+              <e p="WarmTrigger.cs" t="Include" />
+            </e>
             <e p="FallenAfterJumpBlock.cs" t="Include" />
             <e p="FallenAfterJumpController.cs" t="Include" />
             <e p="HiddenDoor.cs" t="Include" />
@@ -350,6 +446,9 @@
             <e p="RotationAfterTrigger.cs" t="Include" />
             <e p="StopFallenColumn.cs" t="Include" />
             <e p="TrapController.cs" t="Include" />
+          </e>
+          <e p="Footprints" t="Include">
+            <e p="FootprintCreator.cs" t="Include" />
           </e>
           <e p="MovingObjects" t="Include">
             <e p="AnimationFallenCollumn.cs" t="Include" />
@@ -432,10 +531,13 @@
             <e p="Tip.cs" t="Include" />
           </e>
           <e p="Triggers" t="Include">
+            <e p="ColdActivation.cs" t="Include" />
             <e p="FallTrigger.cs" t="Include" />
             <e p="FinishTrigger.cs" t="Include" />
             <e p="InclineTrigger.cs" t="Include" />
             <e p="PlayerAttachToMovingPlatform.cs" t="Include" />
+            <e p="RewindTrigger.cs" t="Include" />
+            <e p="SkyBoxTrigger.cs" t="Include" />
             <e p="StairTrigger.cs" t="Include" />
             <e p="StartTrigger.cs" t="Include" />
           </e>

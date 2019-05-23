@@ -35,7 +35,7 @@ public class FallenAfterJumpRewind : MonoBehaviour, IRevertListener
         _collider = GetComponent<Collider>();
         _managerStates = FindObjectOfType<ManagerStates>();
         Messenger.AddListener(GameEventTypes.CHECKPOINT, SavePosition);
-        Messenger.AddListener(GameEventTypes.DEAD, RestartPosition);
+        Messenger.AddListener(GameEventTypes.DEFAULT, RestartPosition);
     }
 
     private void SavePosition()

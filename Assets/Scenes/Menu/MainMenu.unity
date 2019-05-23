@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+>>>>>>> 7b0f970ed7385d27e20ea41c2d0b84b0e44208ee
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -718,7 +722,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a8d8846a2492e4aac5b06459564002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   startScene: ComicStrip
+=======
+  startScene: ShnytkinCurveLocation
+>>>>>>> 7b0f970ed7385d27e20ea41c2d0b84b0e44208ee
 --- !u!4 &1762023564
 Transform:
   m_ObjectHideFlags: 0

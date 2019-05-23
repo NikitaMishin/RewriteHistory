@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu/MainMenu.unity
-    guid: 853d32d91c6fbd64098c2a6738fa4381
-  - enabled: 1
-    path: Assets/Scenes/ShnytkinCurveLocation.unity
-    guid: 191bfd93872f39246a664266f766e35b
+    path: Assets/Scenes/Menu/Winner.unity
+    guid: 05af7df01d54fb04d97263c3de8a3989
   - enabled: 1
     path: Assets/Scenes/Menu/ComicStrip.unity
     guid: 4bc4d25dcab7d6045ab2fad344728428
+  - enabled: 1
+    path: Assets/Scenes/ShnytkinCurveLocation.unity
+    guid: 191bfd93872f39246a664266f766e35b
   m_configObjects: {}
