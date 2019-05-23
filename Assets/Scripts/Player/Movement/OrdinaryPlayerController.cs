@@ -47,9 +47,10 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
 
     protected bool wasStopped = false;
 
+    protected Quaternion lastRotation;
 
-    void Awake()
-    {
+    void Awake() {
+        lastRotation = Quaternion.Euler(new Vector3(0, 90, 0));
         _controller = GetComponent<CharacterController>();
         _tMesh = GetComponent<Transform>();
         _managerController = GetComponent<ManagerController>();
@@ -71,6 +72,8 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
     {
         charOnTheGround = IsOnTheGround();
 
+     //   transform.rotation = lastRotation;
+        
         if (prevGround && !charOnTheGround && Mathf.Abs(_managerController.jSpeed) < 1f && !wasJumped)
         {
             prevTime = Time.time;
@@ -103,6 +106,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
             if (_managerController._currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
+                lastRotation = transform.rotation;
                 _managerController.direction = !_managerController.direction;
                 MoveForward();
             }
@@ -124,6 +128,7 @@ public class OrdinaryPlayerController : MonoBehaviour, IRevertListener, IControl
             if (_managerController._currentActualSpeed <= _managerController.OnWhichSpeedCanRotate)
             {
                 transform.rotation *= Quaternion.Euler(0, 180f, 0);
+                lastRotation = transform.rotation;
                 _managerController.direction = !_managerController.direction;
             }
             else
