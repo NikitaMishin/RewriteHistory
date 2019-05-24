@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{b5aa912f-fbd8-498e-8b87-b60acada2045}">
+        <property name="assetPath">
+            <value>priglashenie_v_grobnicu.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>19.539591836734694</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{d13640af-0fcb-488d-83ad-4f39f6fe0242}</destination>
+        </relationship>
+    </object>
+</objects>
