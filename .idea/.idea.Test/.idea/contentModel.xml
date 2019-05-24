@@ -56,7 +56,6 @@
             <e p="AQUAS_BubbleMorph.cs" t="Include" />
             <e p="AQUAS_Buoyancy.cs" t="Include" />
             <e p="AQUAS_Camera.cs" t="Include" />
-            <e p="AQUAS_CameraSwitcher.cs" t="Include" />
             <e p="AQUAS_Caustics.cs" t="Include" />
             <e p="AQUAS_Gaia.cs" t="Include" />
             <e p="AQUAS_LensEffects.cs" t="Include" />
@@ -420,6 +419,11 @@
           <e p="CheckPoint" t="Include">
             <e p="CheckPointController.cs" t="Include" />
             <e p="CheckPointTrigger.cs" t="Include" />
+          </e>
+          <e p="ComicStrip" t="Include">
+            <e p="ComicController.cs" t="Include" />
+            <e p="ComicEndTimer.cs" t="Include" />
+            <e p="EnableButton.cs" t="Include" />
           </e>
           <e p="Editor" t="Include">
             <e p="LauncherEditor.cs" t="Include" />
