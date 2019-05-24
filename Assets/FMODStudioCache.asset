@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114810031606123976}
-  - {fileID: 114333863805223466}
-  - {fileID: 114310671416539216}
+  - {fileID: 114718738449806990}
+  - {fileID: 114246538203406364}
+  - {fileID: 114055195751861076}
   EditorEvents:
-  - {fileID: 114831502486026508}
-  - {fileID: 114210475767563684}
-  - {fileID: 114987971344437714}
+  - {fileID: 114099887608895324}
+  - {fileID: 114461499825100272}
+  - {fileID: 114259309016088498}
+  - {fileID: 114202143572417858}
+  - {fileID: 114248502584401394}
   MasterBanks:
-  - {fileID: 114498315570985990}
-  - {fileID: 114310671416539216}
+  - {fileID: 114055195751861076}
   StringsBanks:
-  - {fileID: 114027850964149174}
-  - {fileID: 114810031606123976}
-  stringsBankWriteTime: 636911330604424958
+  - {fileID: 114718738449806990}
+  stringsBankWriteTime: 636942622569046511
   cacheVersion: 3
 --- !u!114 &114001720568539658
 MonoBehaviour:
@@ -63,6 +63,65 @@ MonoBehaviour:
   - Name: Desktop
     Value: 818
   Exists: 0
+--- !u!114 &114055195751861076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH_1\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636942622568956486
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 19057376
+  Exists: 1
+--- !u!114 &114069239708265064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\SoundBanks\FootstepsEvent\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636942065421609640
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 672
+  Exists: 1
+--- !u!114 &114099887608895324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient
+  guid: 55bdc1198f802147baddca5d871f1e7c
+  Banks:
+  - {fileID: 114055195751861076}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 224417
 --- !u!114 &114168043467911926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +137,28 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114202143572417858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/fire
+  guid: 037784add55b5e46ade643d387725e95
+  Banks:
+  - {fileID: 114055195751861076}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 138448
 --- !u!114 &114210475767563684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +174,83 @@ MonoBehaviour:
   guid: d62a40198550cb4a90b5f789157d54d2
   Banks:
   - {fileID: 114310671416539216}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 203000
+--- !u!114 &114246538203406364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH_1\Build\Desktop\rH.bank
+  lastModified: 636942622569136506
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 450
+  Exists: 1
+--- !u!114 &114248502584401394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/ColdAmbient
+  guid: fc89c6bcb9ea2c4b8e4a6a1c82a7d260
+  Banks:
+  - {fileID: 114055195751861076}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 49000
+--- !u!114 &114254127505447148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StoneFoot
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114259309016088498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/MainTheme
+  guid: d62a40198550cb4a90b5f789157d54d2
+  Banks:
+  - {fileID: 114055195751861076}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -197,6 +355,45 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114377359430829904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SandSteps
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114461499825100272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/footSteps1
+  guid: c40ce45ceea6dc4b9645e5cb7d1b5d48
+  Banks:
+  - {fileID: 114055195751861076}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114516750956566904}
+  - {fileID: 114254127505447148}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &114472128958550130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +443,56 @@ MonoBehaviour:
   - Name: Desktop
     Value: 4965632
   Exists: 0
+--- !u!114 &114516750956566904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SandSteps
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114527255869673122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\FootstepsEvent\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636942065421479646
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 12474
+  Exists: 1
 --- !u!114 &114574058520496696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SandSteps
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114632435772519174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,6 +522,84 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114651122887685622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StoneFoot
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114658987245152056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StoneFoot
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114687518458231766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SandSteps
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114714753607732278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StoneFoot
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114718738449806990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\SoundBanks\rH_1\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636942622569046511
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 944
+  Exists: 1
 --- !u!114 &114810031606123976
 MonoBehaviour:
   m_ObjectHideFlags: 0
