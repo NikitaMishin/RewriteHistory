@@ -6,7 +6,9 @@ public class TimeControllerObject : TimeControllerPlayer
 {
 
     [SerializeField] private GameObject rewindNoise; 
+
     
+    private ManagerStates _managerStates;
     private ManagerController _managerController;
     
     private void Start()

@@ -21,7 +21,6 @@
       <Path>Library</Path>
       <Path>Mono</Path>
       <Path>New Unity Project_Data</Path>
-      <Path>PlayTest</Path>
       <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>

@@ -25,7 +25,7 @@ public class TimeControllerPlayer : MonoBehaviour
     protected bool shouldRemoveOldRecord = false; //is we need to delete old record  when reach MaxTimeReverse
 
     private bool start = false;
-    protected ManagerStates _managerStates;
+    private ManagerStates _managerStates;
 
     private void Awake()
     {
