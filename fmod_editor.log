@@ -7,35 +7,119 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000000045E51398 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 00000000734B5EA8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[LOG] SoundI::release                          : Tribal_Drums_Ambient_-_Secrets_of_Silver_Sand (00000000505E06F8)
-[LOG] SoundI::release                          :     Tribal_Drums_Ambient_-_Secrets_of_Silver_Sand (0000000069544C28)
-[LOG] SoundI::release                          :     Tribal_Drums_Ambient_-_Secrets_of_Silver_Sand (0000000039ECC5E8)
-[LOG] SoundI::release                          : ritual_dark_ambient_Herbst9_-_Buried_Under_Time_And_Sand (00000000505E0548)
-[LOG] SoundI::release                          :     ritual_dark_ambient_Herbst9_-_Buried_Under_Time_And_Sand (0000000069544A88)
-[LOG] SoundI::release                          :     ritual_dark_ambient_Herbst9_-_Buried_Under_Time_And_Sand (0000000039ECCCA8)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
-[LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::finishLoadBank                  : Bank with guid {c64d26cd-57bb-4b95-ad0b-1238f88c0b6f} has already been loaded
+[LOG] SystemI::createSound                     : filename = D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Priority: 1, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
+[LOG] SystemI::createSound                     : setdata soundi = 0000000039347088 : node = 0000000037E03A30
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000208D86C8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000000039347088
+[LOG] SystemI::createSoundInternal             :     Create name='D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4948448
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 17184
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000037E03B48
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 800
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='02795', format=2, channels=2, frequency=48000, lengthbytes=452736, lengthpcm=2430014, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.820068.
+[LOG] Thread::initThread                       :     Init FMOD file thread. Priority: 1, Stack Size: 16384, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000000039347088
+[LOG] SoundI::getSubSound                      : sound 0000000039347088.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000000738E2E68 : node = 0000000037E02FB0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000208D86C8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000738E2E68
+[LOG] SystemI::createSoundInternal             :     Create name='D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4948448
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 17184
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000037E030C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 10586
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='300533_SOUNDDOGS__fo', format=2, channels=1, frequency=48000, lengthbytes=294432, lengthpcm=1760444, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.982086.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000738E2E68
+[LOG] SoundI::getSubSound                      : sound 00000000738E2E68.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000000738E36D8 : node = 0000000037E03B80
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000208D86C8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000738E36D8
+[LOG] SystemI::createSoundInternal             :     Create name='D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4948448
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 17184
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000037E03C98
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 800
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='02795', format=2, channels=2, frequency=48000, lengthbytes=452736, lengthpcm=2430014, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.820068.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000738E36D8
+[LOG] SoundI::release                          : 300533_SOUNDDOGS__fo (00000000738E2E68)
+[LOG] SoundI::release                          :     300533_SOUNDDOGS__fo (0000000037A5EE78)
+[LOG] SoundI::release                          :     300533_SOUNDDOGS__fo (00000000385C5698)
+[LOG] SoundI::release                          : 02795 (0000000039347088)
+[LOG] SoundI::release                          :     02795 (000000003A8A6078)
+[LOG] SoundI::release                          :     02795 (0000000076B625B8)
+[LOG] SoundI::getSubSound                      : sound 00000000738E36D8.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000000738E3888 : node = 0000000037E02FB0
+[LOG] SystemI::createSound                     : add node to async list : head = 00000000208D86C8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000738E3888
+[LOG] SystemI::createSoundInternal             :     Create name='D:\GitHubRepositories\RewriteHistory\Assets\SoundBanks\rH1\Build\Desktop\Master Bank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4948448
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 17184
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000037E030C8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 10586
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='300533_SOUNDDOGS__fo', format=2, channels=1, frequency=48000, lengthbytes=294432, lengthpcm=1760444, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.982086.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000738E3888
+[LOG] SoundI::getSubSound                      : sound 00000000738E3888.  Subsound index 0 / 1
+[LOG] SoundI::release                          : 02795 (00000000738E36D8)
+[LOG] SoundI::release                          :     02795 (0000000037A5B3F8)
+[LOG] SoundI::release                          :     02795 (00000000385C40A8)
+[LOG] SoundI::release                          : 300533_SOUNDDOGS__fo (00000000738E3888)
+[LOG] SoundI::release                          :     300533_SOUNDDOGS__fo (0000000037A5BC18)
+[LOG] SoundI::release                          :     300533_SOUNDDOGS__fo (00000000385C5D58)
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[ERR] assert                                   : assertion: 'mMasterBus == nullptr' failed
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::finishLoadBank                  : Bank with guid {c64d26cd-57bb-4b95-ad0b-1238f88c0b6f} has already been loaded
+[WRN] ObjectLookup::get                        : Lookup failed for EventModel: {ad847703-5bd5-465e-ade6-43d387725e95}
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::finishLoadBank                  : Bank with guid {c64d26cd-57bb-4b95-ad0b-1238f88c0b6f} has already been loaded
+[LOG] Manager::readBank                        : fileversion = 101, compatVersion = 99 (oldest = 44, newest = 103)
+[LOG] Manager::finishLoadBank                  : Bank with guid {c64d26cd-57bb-4b95-ad0b-1238f88c0b6f} has already been loaded
+[WRN] ObjectLookup::get                        : Lookup failed for EventModel: {bcc689fc-eab9-4b2c-8e4a-6a1c82a7d260}
