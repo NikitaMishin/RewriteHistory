@@ -80,7 +80,7 @@ public class ManagerStates : MonoBehaviour {
         }
         
         _currentState = State.Dead;
-        _interactSignal.InterruptInteract();
+    //    _interactSignal.InterruptInteract();
         canRewind = true;
         if (HasRespawn)
             DeadRespawn();
