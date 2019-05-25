@@ -34,13 +34,27 @@ public class AnimationRewindController : MonoBehaviour, IRevertListener
 
     private void SavePosition()
     {
-        _checkPoint = new AnimationTimePoint(animationRewind.GetTime(), animationRewind.GetSpeed());
+        StartCoroutine(Save());
     }
+    
+    IEnumerator Save()
+    {
+        _checkPoint = new AnimationTimePoint(animationRewind.GetTime(), animationRewind.GetSpeed());
 
-    private void RestartPosition()
+        yield return null;
+    } 
+    
+    IEnumerator Restart()
     {
         animationRewind.SetTime(_checkPoint.currentTime);
         animationRewind.SetSpeed(_checkPoint.speed);
+        
+        yield return null;
+    } 
+
+    private void RestartPosition()
+    {
+        StartCoroutine(Restart());
     }
 
     // Update is called once per frame

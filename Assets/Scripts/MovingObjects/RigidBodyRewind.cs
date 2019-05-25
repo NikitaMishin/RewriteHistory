@@ -34,18 +34,32 @@ public class RigidBodyRewind : MonoBehaviour,IRevertListener {
 
     private void SavePosition()
     {
-        _checkPoint = new RigidBodyTimePoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, _rb.useGravity);
+	    StartCoroutine(Save());
     }
+    
+    IEnumerator Save()
+    {
+	    _checkPoint = new RigidBodyTimePoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, _rb.useGravity);
+
+	    yield return null;
+    } 
+    
+    IEnumerator Restart()
+    {
+	    transform.position = _checkPoint.Position;
+	    transform.rotation = _checkPoint.Rotation;
+	    _rb.velocity = _checkPoint.Velocity;
+	    _rb.useGravity = _checkPoint.useGravity;
+	    _rb.angularVelocity = _checkPoint.AngularVelocity;
+	    //    _collider.enabled = false;
+	    _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
+        
+	    yield return null;
+    } 
 
     private void RestartPosition()
     {
-        transform.position = _checkPoint.Position;
-        transform.rotation = _checkPoint.Rotation;
-        _rb.velocity = _checkPoint.Velocity;
-        _rb.useGravity = _checkPoint.useGravity;
-        _rb.angularVelocity = _checkPoint.AngularVelocity;
-    //    _collider.enabled = false;
-        _rb.velocity = new Vector3(0, _rb.velocity.y, _rb.velocity.z);
+	    StartCoroutine(Restart());
     }
 
     // Update is called once per frame

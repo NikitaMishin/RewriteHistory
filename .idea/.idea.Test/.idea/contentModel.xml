@@ -259,6 +259,49 @@
             </e>
           </e>
         </e>
+        <e p="Metadata" t="Include">
+          <e p="Asset" t="Include">
+            <e p="{3e558355-04c9-4c04-b8cd-6efe2ad88505}.xml" t="Include" />
+          </e>
+          <e p="AudioFile" t="Include">
+            <e p="{25ac66fc-83b0-46dd-92b4-438f981bcb8b}.xml" t="Include" />
+          </e>
+          <e p="Bank" t="Include">
+            <e p="{e39c95d1-f7e4-4843-81cd-bf2f7885944c}.xml" t="Include" />
+          </e>
+          <e p="BankFolder" t="Include">
+            <e p="{faa7fc98-19f2-459c-819f-69ab7232d721}.xml" t="Include" />
+          </e>
+          <e p="EffectPresetFolder" t="Include">
+            <e p="{51cf6087-094d-4e47-aa4c-eb5f1dfadd7e}.xml" t="Include" />
+          </e>
+          <e p="EncodingSetting" t="Include">
+            <e p="{24539bd4-c0d1-4f0c-8416-f8bf794eabef}.xml" t="Include" />
+          </e>
+          <e p="Event" t="Include">
+            <e p="{39e81648-542e-4d96-9fd4-a92fa128406b}.xml" t="Include" />
+            <e p="{56b636b0-5d7e-4c71-83a6-8746ab97260e}.xml" t="Include" />
+          </e>
+          <e p="EventFolder" t="Include">
+            <e p="{61c4707d-3cc2-4a9c-8ccc-6cf6700cca19}.xml" t="Include" />
+          </e>
+          <e p="Master.xml" t="Include" />
+          <e p="Mixer.xml" t="Include" />
+          <e p="ParameterPresetFolder" t="Include">
+            <e p="{0e5d0ec9-e8a5-476d-b467-9e3226dc8817}.xml" t="Include" />
+          </e>
+          <e p="Platform" t="Include">
+            <e p="{57c8d985-4dad-466f-847b-50b797580475}.xml" t="Include" />
+          </e>
+          <e p="Return" t="Include">
+            <e p="{32da2e13-c6bc-4fb0-b532-2e59a802f0ae}.xml" t="Include" />
+          </e>
+          <e p="SnapshotGroup" t="Include">
+            <e p="{fc5150e2-c1ca-43a8-9521-49ed1ca125f0}.xml" t="Include" />
+          </e>
+          <e p="Tags.xml" t="Include" />
+          <e p="Workspace.xml" t="Include" />
+        </e>
         <e p="Models" t="Include">
           <e p="Bat" t="Include">
             <e p="readme.txt" t="Include" />
@@ -488,6 +531,7 @@
             </e>
             <e p="SlideController.cs" t="Include" />
             <e p="Sounds" t="Include">
+              <e p="Foot_steps.cs" t="Include" />
               <e p="Footsteps.cs" t="Include" />
               <e p="Footsteps_.cs" t="Include" />
             </e>
@@ -555,6 +599,50 @@
           </e>
         </e>
         <e p="SoundBanks" t="Include">
+          <e p="footsteps" t="Include">
+            <e p="Metadata" t="Include">
+              <e p="Asset" t="Include">
+                <e p="{3e558355-04c9-4c04-b8cd-6efe2ad88505}.xml" t="Include" />
+              </e>
+              <e p="AudioFile" t="Include">
+                <e p="{25ac66fc-83b0-46dd-92b4-438f981bcb8b}.xml" t="Include" />
+              </e>
+              <e p="Bank" t="Include">
+                <e p="{e39c95d1-f7e4-4843-81cd-bf2f7885944c}.xml" t="Include" />
+              </e>
+              <e p="BankFolder" t="Include">
+                <e p="{faa7fc98-19f2-459c-819f-69ab7232d721}.xml" t="Include" />
+              </e>
+              <e p="EffectPresetFolder" t="Include">
+                <e p="{51cf6087-094d-4e47-aa4c-eb5f1dfadd7e}.xml" t="Include" />
+              </e>
+              <e p="EncodingSetting" t="Include">
+                <e p="{24539bd4-c0d1-4f0c-8416-f8bf794eabef}.xml" t="Include" />
+              </e>
+              <e p="Event" t="Include">
+                <e p="{39e81648-542e-4d96-9fd4-a92fa128406b}.xml" t="Include" />
+              </e>
+              <e p="EventFolder" t="Include">
+                <e p="{61c4707d-3cc2-4a9c-8ccc-6cf6700cca19}.xml" t="Include" />
+              </e>
+              <e p="Master.xml" t="Include" />
+              <e p="Mixer.xml" t="Include" />
+              <e p="ParameterPresetFolder" t="Include">
+                <e p="{0e5d0ec9-e8a5-476d-b467-9e3226dc8817}.xml" t="Include" />
+              </e>
+              <e p="Platform" t="Include">
+                <e p="{57c8d985-4dad-466f-847b-50b797580475}.xml" t="Include" />
+              </e>
+              <e p="Return" t="Include">
+                <e p="{32da2e13-c6bc-4fb0-b532-2e59a802f0ae}.xml" t="Include" />
+              </e>
+              <e p="SnapshotGroup" t="Include">
+                <e p="{fc5150e2-c1ca-43a8-9521-49ed1ca125f0}.xml" t="Include" />
+              </e>
+              <e p="Tags.xml" t="Include" />
+              <e p="Workspace.xml" t="Include" />
+            </e>
+          </e>
           <e p="rH1" t="Include">
             <e p="Metadata" t="Include">
               <e p="Asset" t="Include">
@@ -622,11 +710,19 @@
               <e p="AudioFile" t="Include">
                 <e p="{01b31166-8312-4dbd-887b-a4fab0be20da}.xml" t="Include" />
                 <e p="{41189cf5-bbc9-4298-bba2-2529d4246755}.xml" t="Include" />
+                <e p="{46afa005-c41d-4c5d-a078-7257b8038f38}.xml" t="Include" />
+                <e p="{4ef759f4-2d7c-495a-b44b-4fb9dd71ad95}.xml" t="Include" />
                 <e p="{531171e7-1b77-434f-b7d3-c2e99e6adaa8}.xml" t="Include" />
                 <e p="{66c74db6-8e56-4dd1-bc8d-40c9ec916e00}.xml" t="Include" />
+                <e p="{6a335202-d541-429b-b458-aa4f6f77b96c}.xml" t="Include" />
                 <e p="{773ec7a9-5839-45ae-9666-176258dd1646}.xml" t="Include" />
+                <e p="{8cbe0db9-1178-4466-993e-4aa8e84b1068}.xml" t="Include" />
+                <e p="{a9331686-bffb-4c4f-bbd0-2669c726b7d1}.xml" t="Include" />
+                <e p="{ac50c0b5-9bbd-4ac7-8560-bf5869f02b9e}.xml" t="Include" />
+                <e p="{b5aa912f-fbd8-498e-8b87-b60acada2045}.xml" t="Include" />
                 <e p="{bbcf3d66-6bd9-45d3-9bd5-03cff6d815b9}.xml" t="Include" />
                 <e p="{c2fab5bf-14d1-4f78-b84a-556339a01e31}.xml" t="Include" />
+                <e p="{eff23fc4-1930-466b-8007-b565bc8c27e4}.xml" t="Include" />
                 <e p="{fe514126-cede-432e-a7fa-57482b1a6953}.xml" t="Include" />
               </e>
               <e p="Bank" t="Include">
@@ -643,9 +739,15 @@
                 <e p="{84942b54-0a0a-46e2-90a2-b30128b5909b}.xml" t="Include" />
               </e>
               <e p="Event" t="Include">
+                <e p="{186f996a-f421-481a-b3f0-c3d107a859f1}.xml" t="Include" />
                 <e p="{19402ad6-5085-4acb-90b5-f789157d54d2}.xml" t="Include" />
                 <e p="{19c1bd55-808f-4721-badd-ca5d871f1e7c}.xml" t="Include" />
+                <e p="{23770c89-794e-458c-9795-534abde1c63b}.xml" t="Include" />
+                <e p="{2899b28e-aaca-44d2-ac9f-0f244f344a7c}.xml" t="Include" />
+                <e p="{28f50916-bf33-497e-9c8f-a20c110a0f65}.xml" t="Include" />
                 <e p="{5ce40cc4-a6ee-4bdc-9645-e5cb7d1b5d48}.xml" t="Include" />
+                <e p="{ad847703-5bd5-465e-ade6-43d387725e95}.xml" t="Include" />
+                <e p="{bcc689fc-eab9-4b2c-8e4a-6a1c82a7d260}.xml" t="Include" />
               </e>
               <e p="EventFolder" t="Include">
                 <e p="{e7628fc2-fac5-45a1-bcb6-b35f5307bc52}.xml" t="Include" />
