@@ -31,13 +31,27 @@ public class SimpleRewind : MonoBehaviour,IRevertListener {
 
     private void SavePosition()
     {
-        _checkPoint = new SimpleTimePoint(transform.position, transform.rotation);
+	    StartCoroutine(Save());
     }
+    
+    IEnumerator Save()
+    {
+	    _checkPoint = new SimpleTimePoint(transform.position, transform.rotation);
+
+	    yield return null;
+    } 
+    
+    IEnumerator Restart()
+    {
+	    transform.position = _checkPoint.position;
+	    transform.rotation = _checkPoint.rotation;
+        
+	    yield return null;
+    } 
 
     private void RestartPosition()
     {
-        transform.position = _checkPoint.position;
-        transform.rotation = _checkPoint.rotation;
+	    StartCoroutine(Restart());
     }
 
     // Update is called once per frame
