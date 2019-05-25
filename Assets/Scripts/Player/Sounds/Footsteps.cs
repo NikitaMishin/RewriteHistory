@@ -12,6 +12,7 @@ public class Footsteps : MonoBehaviour {
     public float currentSpeed , regulator_of_steps_speed = 2f ;
     public float time;
     public float RegulatorTime = 50;
+
     void Start()
     {
         script = Player.GetComponent<ManagerController>();
@@ -21,13 +22,14 @@ public class Footsteps : MonoBehaviour {
     void FixedUpdate()
     {
         currentSpeed = script._currentActualSpeed;
+       
         if (currentSpeed > 0)
         {
             playerismoving = true;
         }
         else playerismoving = false;
 
-        if (playerismoving && Time.time - time > RegulatorTime) { time = Time.time; CallFootsteps(); }
+        if (script.IsOnTheGround() && playerismoving && Time.time - time > RegulatorTime) { time = Time.time; CallFootsteps(); }
     }
     void CallFootsteps()
     {
