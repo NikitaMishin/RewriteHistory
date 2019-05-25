@@ -60,5 +60,6 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master Bank
+  - Master Bank
   Banks:
   - rH
