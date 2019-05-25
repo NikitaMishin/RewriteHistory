@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets\SoundBanks\rH_1\rH_1.fspro
-  SourceProjectPathUnformatted: Assets\SoundBanks\rH_1\rH_1.fspro
-  SourceBankPathUnformatted: Assets\SoundBanks\rH_1\Build
+  sourceProjectPath: D:\GitHubRepositories\rH_1\rH_1.fspro
+  SourceProjectPathUnformatted: D:\GitHubRepositories\rH_1\rH_1.fspro
+  SourceBankPathUnformatted: D:\GitHubRepositories\rH_1\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
