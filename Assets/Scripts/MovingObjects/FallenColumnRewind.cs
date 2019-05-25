@@ -36,19 +36,33 @@ public class FallenColumnRewind : MonoBehaviour, IRevertListener {
 
     private void SavePosition()
     {
-        _checkPoint = new RigidBodyFallenColumnTimePoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, fallenColumn.WasStepped());
+        StartCoroutine(Save());
     }
+    
+    IEnumerator Save()
+    {
+        _checkPoint = new RigidBodyFallenColumnTimePoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, fallenColumn.WasStepped());
 
-    private void RestartPosition()
+        yield return null;
+    } 
+    
+    IEnumerator Restart()
     {
         transform.position = _checkPoint.Position;
         transform.rotation = _checkPoint.Rotation;
         _rb.velocity = _checkPoint.Velocity;
         _rb.angularVelocity = _checkPoint.AngularVelocity;
-   //     _collider.enabled = false;
+        //     _collider.enabled = false;
         _rb.velocity = Vector3.zero;
 
         fallenColumn.SetWasStepped(false);
+        
+        yield return null;
+    } 
+
+    private void RestartPosition()
+    {
+        StartCoroutine(Restart());
     }
 
     // Update is called once per frame

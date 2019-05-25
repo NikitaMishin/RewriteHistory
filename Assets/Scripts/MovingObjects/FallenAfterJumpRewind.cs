@@ -40,22 +40,35 @@ public class FallenAfterJumpRewind : MonoBehaviour, IRevertListener
 
     private void SavePosition()
     {
-        _checkPoint = new FallenAfterJumpPoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, _fallenAfterJumpBlock.GetCurrentCount());
+        StartCoroutine(Save());
     }
-
-    private void RestartPosition()
+    
+    IEnumerator Save()
+    {
+        _checkPoint = new FallenAfterJumpPoint(transform.position, transform.rotation, _rb.velocity, _rb.angularVelocity, _fallenAfterJumpBlock.GetCurrentCount());
+        yield return null;
+    } 
+    
+    IEnumerator Restart()
     {
         transform.position = _checkPoint.Position;
         transform.rotation = _checkPoint.Rotation;
         _rb.velocity = _checkPoint.Velocity;
         _rb.angularVelocity = _checkPoint.AngularVelocity;
         _collider.enabled = false;
-      //  _rb.velocity = Vector3.zero;
+        //  _rb.velocity = Vector3.zero;
 
         _fallenAfterJumpBlock.SetCurrentCount(_checkPoint.currentCount);
 
         if (_fallenAfterJumpController.WasBroken())
             _fallenAfterJumpController.SetWasBroken(_fallenAfterJumpBlock.IsBroken());
+        
+        yield return null;
+    } 
+
+    private void RestartPosition()
+    {
+        StartCoroutine(Restart());
     }
 
     // Update is called once per frame

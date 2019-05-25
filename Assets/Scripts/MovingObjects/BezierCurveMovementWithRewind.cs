@@ -76,17 +76,24 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
 
     private void SavePosition()
     {
-        _checkPoint = new BezierCurveObjectTimePoint(
-                transform.position,
-                transform.rotation,
-                Direction,
-                CurrentWayPointId,
-                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped,
-                trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasClosed() : wasClosed
-                );
+        StartCoroutine(Save());
     }
 
-    private void RestartPosition()
+    IEnumerator Save()
+    {
+        _checkPoint = new BezierCurveObjectTimePoint(
+            transform.position,
+            transform.rotation,
+            Direction,
+            CurrentWayPointId,
+            trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasStepped() : wasStepped,
+            trigger == null ? false : trigger.HasFewTriggers() ? trigger.WasClosed() : wasClosed
+        );
+
+        yield return null;
+    } 
+    
+    IEnumerator Restart()
     {
         transform.position = _checkPoint.position;
         transform.rotation = _checkPoint.rotation;
@@ -102,6 +109,14 @@ public class BezierCurveMovementWithRewind : MonoBehaviour, IRevertListener
         }
 
         DeleteAllRecord();
+        
+        yield return null;
+    } 
+
+
+    private void RestartPosition()
+    {
+        StartCoroutine(Restart());
     }
 
     private void FixedUpdate()
