@@ -34,7 +34,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 114006472811639156}
   - {fileID: 114110154629362480}
-  stringsBankWriteTime: 636945067515924887
+  stringsBankWriteTime: 636945069820227071
   cacheVersion: 3
 --- !u!114 &114006472811639156
 MonoBehaviour:
@@ -117,6 +117,21 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3500
+--- !u!114 &114097863531341384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: SandSteps
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114110154629362480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\SoundBanks\rH_1\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636945067515924887
+  lastModified: 636945069820227071
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -184,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\GitHubRepositories\RewriteHistory_\RewriteHistory\Assets\SoundBanks\rH_1\Build\Desktop\rH.bank
-  lastModified: 636945067516034917
+  lastModified: 636945069820317066
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -231,8 +246,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114549434241468738}
-  - {fileID: 114600581739988826}
+  - {fileID: 114097863531341384}
+  - {fileID: 114932151011868280}
   MinDistance: 1
   MaxDistance: 20
   Length: 680
@@ -331,7 +346,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 601279
+  Length: 598000
 --- !u!114 &114363858644874468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:\GitHubRepositories\RewriteHistory_\RewriteHistory\Assets\SoundBanks\rH_1\Build\Desktop\Master
     Bank.bank
-  lastModified: 636945067515634939
+  lastModified: 636945069820137031
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -825,6 +840,21 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 680
 --- !u!114 &114922334277575480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StoneFoot
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114932151011868280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
