@@ -25,13 +25,13 @@ MonoBehaviour:
         motionVectorsResolution: 24
         motionVectorsAmplitude: 64
   fog:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       excludeSkybox: 1
   antialiasing:
     m_Enabled: 1
     m_Settings:
-      method: 0
+      method: 1
       fxaaSettings:
         preset: 1
       taaSettings:
@@ -72,7 +72,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       focusDistance: 0.1
-      aperture: 12
+      aperture: 26
       focalLength: 22
       useCameraFov: 0
       kernelSize: 2
@@ -85,8 +85,8 @@ MonoBehaviour:
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
-      lowPercent: 45
-      highPercent: 95
+      lowPercent: 38.336166
+      highPercent: 88.33617
       minLuminance: -5
       maxLuminance: 1
       keyValue: 0.25
@@ -94,8 +94,8 @@ MonoBehaviour:
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -8
-      logMax: 4
+      logMin: -16
+      logMax: 5
   bloom:
     m_Enabled: 1
     m_Settings:
@@ -121,11 +121,11 @@ MonoBehaviour:
         neutralWhiteClip: 10
       basic:
         postExposure: -0.12
-        temperature: 38
+        temperature: -25
         tint: -7
         hueShift: -2
-        saturation: 1.19
-        contrast: 1.36
+        saturation: 0.96
+        contrast: 1.03
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
@@ -305,16 +305,16 @@ MonoBehaviour:
       lut: {fileID: 0}
       contribution: 1
   chromaticAberration:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       spectralTexture: {fileID: 0}
       intensity: 0.1
   grain:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       colored: 1
-      intensity: 0.5
-      size: 1
+      intensity: 0.166
+      size: 0.9
       luminanceContribution: 0.8
   vignette:
     m_Enabled: 1
@@ -322,7 +322,7 @@ MonoBehaviour:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.1
+      intensity: 0.363
       smoothness: 0.2
       roundness: 1
       mask: {fileID: 0}
