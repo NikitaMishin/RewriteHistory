@@ -8,7 +8,7 @@ public class ColdLogic : MonoBehaviour
 
 	[SerializeField] private float warmTime = 5f;
 	
-	private ColdAlphaController _alpha;
+	public ColdAlphaController _alpha;
 	private float _timeForTickWarm;
 	private float _timeForTickCold;
 	
