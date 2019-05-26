@@ -74,7 +74,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private MoveObjectController _moveObjectController;
     private ManagerStates _managerStates;
 
-    private bool _isOnTheIncline = false;
+    public bool _isOnTheIncline = false;
 
     private Signals currentSignal = Signals.ActivatePlayerController;
 
