@@ -5,23 +5,31 @@ using UnityEngine;
 public class Footsteps : MonoBehaviour {
     public GameObject Player;
     private ManagerController script;
+    
     [FMODUnity.EventRef]
    
     public string inputsound;
+    
     public bool playerismoving = true;
     public float currentSpeed , regulator_of_steps_speed = 2f ;
     public float time;
+    public float time1;
     public float RegulatorTime = 50;
+    
     public bool Skolzhenie;
+   
+
     void Start()
     {
         script = Player.GetComponent<ManagerController>();
+        
        //InvokeRepeating("CallFootsteps", 0, currentSpeed / regulator_of_steps_speed);
         
     }
     void FixedUpdate()
     {
         currentSpeed = script._currentActualSpeed;
+       
         Skolzhenie = script._isOnTheIncline;
         if (currentSpeed > 0)
         {
@@ -30,6 +38,7 @@ public class Footsteps : MonoBehaviour {
         else playerismoving = false;
 
         if (!Skolzhenie && script.IsOnTheGround() && playerismoving && Time.time - time > RegulatorTime) { time = Time.time; CallFootsteps(); }
+        
     }
     void CallFootsteps()
     {
@@ -39,4 +48,6 @@ public class Footsteps : MonoBehaviour {
         e.release();
          //FMODUnity.RuntimeManager.PlayOneShot(inputsound);
     }
+
+   
 }
