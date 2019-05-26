@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartTriggerTip : MonoBehaviour {
+public class StartTriggerTip : MonoBehaviour
+{
 
+    [SerializeField] private Sprite sprite;
+    
     [SerializeField] private string text;
     [SerializeField] private float time;
     [SerializeField] private bool onlyOneTime = false;
@@ -42,7 +45,11 @@ public class StartTriggerTip : MonoBehaviour {
         {
             _needToShow = false;
             _tip.SetVisible(true);
-            _tip.SetText(text);
+            
+            if (sprite != null)
+                _tip.SetImage(sprite);
+            else
+                _tip.SetText(text);
             _wasShown = true;
         }
     }
