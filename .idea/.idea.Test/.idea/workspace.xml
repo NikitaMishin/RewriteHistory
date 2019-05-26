@@ -2,60 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f62af6-5312-4ea8-aa7f-07c8cc403b74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/AnimatorPro.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AnimatorPro.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/AnimatorProBlend.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AnimatorProBlend.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/ComicStrip/Second.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/ComicStrip/Second.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/ComicStrip/SecondPage.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/ComicStrip/SecondPage.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Dead.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Dead.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spikes.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LvlArtScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LvlArtScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu/ComicStrip.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu/ComicStrip.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Azure[Sky] Dynamic Skybox/Materials/AzureSkyMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Azure[Sky] Dynamic Skybox/Materials/AzureSkyMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/EffectPreset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/MixerView.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/Snapshot.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/VCA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Plugins.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/rH.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/rH.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Temp.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (1).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (2).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (2).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (1).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (2).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (2).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (3).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (3).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (1).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (2).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (2).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (3).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (3).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/nu Assets/Easy Decal/External/easy_decal_playmaker_1_0_0.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +125,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Triggers/InclineTrigger.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -194,6 +142,23 @@
                 <marker date="1555860262168" expanded="true" signature="1897:2113" ph="{...}" />
                 <marker date="1555860262168" expanded="true" signature="2142:2200" ph="{...}" />
                 <marker date="1555860262168" expanded="true" signature="2249:2513" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tip/Tip.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-79">
+              <folding>
+                <marker date="1555536641098" expanded="true" signature="6:91" ph="..." />
+                <marker date="1555536641098" expanded="true" signature="127:676" ph="{...}" />
+                <marker date="1555536641098" expanded="true" signature="220:301" ph="{...}" />
+                <marker date="1555536641098" expanded="true" signature="331:377" ph="{...}" />
+                <marker date="1555536641098" expanded="true" signature="415:461" ph="{...}" />
+                <marker date="1555536641098" expanded="true" signature="501:572" ph="{...}" />
+                <marker date="1555536641098" expanded="true" signature="602:674" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -291,27 +256,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Camera/MyCamera.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1555539955196" expanded="true" signature="6:78" ph="..." />
-                <marker date="1555539955196" expanded="true" signature="99:4015" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="143:4013" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="991:1209" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="1279:1999" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="2035:2964" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="2205:2731" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="2782:2903" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="3000:4007" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="3169:3774" ph="{...}" />
-                <marker date="1555539955196" expanded="true" signature="3825:3946" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -360,6 +304,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Triggers/SkyBoxTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ReverseTime/TimePoints/BezierCurveObjectTimePoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ComicStrip/EnableButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tip/Tip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tip/FirstDeadTip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/FMOD/Wrapper/fmod_dsp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewind.cs" root0="FORCE_HIGHLIGHTING" />
@@ -1760,6 +1705,21 @@
             <marker date="1555860262168" expanded="true" signature="1897:2113" ph="{...}" />
             <marker date="1555860262168" expanded="true" signature="2142:2200" ph="{...}" />
             <marker date="1555860262168" expanded="true" signature="2249:2513" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tip/Tip.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-79">
+          <folding>
+            <marker date="1555536641098" expanded="true" signature="6:91" ph="..." />
+            <marker date="1555536641098" expanded="true" signature="127:676" ph="{...}" />
+            <marker date="1555536641098" expanded="true" signature="220:301" ph="{...}" />
+            <marker date="1555536641098" expanded="true" signature="331:377" ph="{...}" />
+            <marker date="1555536641098" expanded="true" signature="415:461" ph="{...}" />
+            <marker date="1555536641098" expanded="true" signature="501:572" ph="{...}" />
+            <marker date="1555536641098" expanded="true" signature="602:674" ph="{...}" />
           </folding>
         </state>
       </provider>
