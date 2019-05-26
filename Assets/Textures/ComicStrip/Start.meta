@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Textures/ComicStrip/Start.meta
 guid: fbe8a37019b137845af6f44dc7990586
+=======
+guid: 183d3b764d953504b9562e5ba7860d76
+>>>>>>> 5fad18b1bf0037c8cd46c51f4b45cf87529c5a55:Assets/Textures/Gates.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

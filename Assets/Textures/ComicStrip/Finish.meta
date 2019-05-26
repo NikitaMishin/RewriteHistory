@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Textures/ComicStrip/Finish.meta
 guid: e2f0fb673a54fec449e7aa4e3f123490
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 96f16337e20f4e749b79defcb8d8f31e
+TextScriptImporter:
+>>>>>>> 5fad18b1bf0037c8cd46c51f4b45cf87529c5a55:Assets/SoundBanks/rH_1/Metadata/AudioFile/{a078aef5-3e4f-4273-89c4-b1a70c90c436}.xml.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
