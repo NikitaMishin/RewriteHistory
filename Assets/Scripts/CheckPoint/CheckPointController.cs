@@ -41,7 +41,7 @@ public class CheckPointController : MonoBehaviour {
         if (_timeStart == 0)
             _timeStart = Time.time;
 
-        if (Input.GetKey(KeyCode.Q) && _currentTrigger != null)
+        if (Input.GetKey(KeyCode.LeftShift) && _currentTrigger != null)
         {
             _curveController.ReachDistance = _distance;
             gameObject.transform.position = _position;

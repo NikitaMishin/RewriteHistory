@@ -27,7 +27,7 @@ public class TimeControllerObject : TimeControllerPlayer
         if (_managerStates.GetCurrentState() == State.Dead)
             return;
 
-        if (Input.GetKey(KeyCode.Q) && CouldUseReverse && _managerController.CanRewind())
+        if (Input.GetKey(KeyCode.LeftShift) && CouldUseReverse && _managerController.CanRewind())
         {
             currentTimeReverse = Mathf.Max(currentTimeReverse - Time.deltaTime, 0f);
             IsReversing = true;
