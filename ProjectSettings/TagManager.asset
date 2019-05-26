@@ -10,6 +10,8 @@ TagManager:
   - FallenObject
   - FootprintSurface
   - FlattenObject
+  - Music_Stop
+  - sand_music_start
   layers:
   - Default
   - TransparentFX

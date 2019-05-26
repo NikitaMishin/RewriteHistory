@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using ReverseTime;
 using UnityEngine;
 using UnityEngine.Playables;
-//[RequireComponent(typeof(Foot_steps))]
+
 public class ManagerController : MonoBehaviour, IRevertListener
 {
     /*
@@ -74,7 +74,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private MoveObjectController _moveObjectController;
     private ManagerStates _managerStates;
 
-    private bool _isOnTheIncline = false;
+    public bool _isOnTheIncline = false;
 
     private Signals currentSignal = Signals.ActivatePlayerController;
 
@@ -86,11 +86,7 @@ public class ManagerController : MonoBehaviour, IRevertListener
     private bool _wasInit = false;
     private bool _canRewind = false;
 
-    //FOOTSTEPS
-    //public float stepTimer = 0.8f; // интервал шагов во время ходьбы (секунды)
-    //public float stepTimerRun = 0.35f; // интервал шагов во время бега (секунды)
-    //private float curSpeed, curStepTimer;
-    //private Footsteps foot;
+    
 
 
     private void Start()
@@ -328,47 +324,5 @@ public class ManagerController : MonoBehaviour, IRevertListener
     {
         _canRewind = value;
     }
-    /*
-    void Steps()
-    {
-        // округляем текущее значение скорости по оси X и Z, до сотых
-        // чтобы исключить те, которые близкие к нулю, например: 0.000001805331f
-        // в противном случаи, функция будет срабатывать, даже если персонаж не движется
-        float velocityZ = RoundTo(Mathf.Abs(_currentActualSpeed, 100));
-        
-
-        if (velocityZ > 0 && Mathf.Abs(v) > 0 || velocityX > 0 && Mathf.Abs(h) > 0) // если персонаж движется
-        {
-            curT += Time.deltaTime;
-
-            if (curT > curStepTimer)
-            {
-                curT = 0;
-                GetStep();
-            }
-        }
-        else
-        {
-            curT = 1000;
-        }
-    }
-
-    void GetStep() // фильтр по тегу
-    {
-        switch (tagName)
-        {
-            case "GameController":
-                foot.PlayStep(Footsteps.StepsOn.Beton, 1);
-                break;
-            case "Finish":
-                foot.PlayStep(Footsteps.StepsOn.Ground, 1);
-                break;
-        }
-    }
-
-    float RoundTo(float f, int to) // округлить до, указанного значения
-    {
-        return ((int)(f * to)) / (float)to;
-    }
-    */
+    
 }
