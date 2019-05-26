@@ -709,6 +709,7 @@
               </e>
               <e p="AudioFile" t="Include">
                 <e p="{01b31166-8312-4dbd-887b-a4fab0be20da}.xml" t="Include" />
+                <e p="{234db2d5-6e68-4531-8b6f-8fa82ca79367}.xml" t="Include" />
                 <e p="{41189cf5-bbc9-4298-bba2-2529d4246755}.xml" t="Include" />
                 <e p="{46afa005-c41d-4c5d-a078-7257b8038f38}.xml" t="Include" />
                 <e p="{4ef759f4-2d7c-495a-b44b-4fb9dd71ad95}.xml" t="Include" />
@@ -739,6 +740,7 @@
                 <e p="{84942b54-0a0a-46e2-90a2-b30128b5909b}.xml" t="Include" />
               </e>
               <e p="Event" t="Include">
+                <e p="{1352cb84-5f55-4a6c-8472-c04a18d92ef7}.xml" t="Include" />
                 <e p="{186f996a-f421-481a-b3f0-c3d107a859f1}.xml" t="Include" />
                 <e p="{19402ad6-5085-4acb-90b5-f789157d54d2}.xml" t="Include" />
                 <e p="{19c1bd55-808f-4721-badd-ca5d871f1e7c}.xml" t="Include" />

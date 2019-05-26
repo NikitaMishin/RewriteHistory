@@ -2,8 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f62af6-5312-4ea8-aa7f-07c8cc403b74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPointController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPointController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ReverseTime/TimeControllerObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ReverseTime/TimeControllerObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AnimatorPro.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AnimatorPro.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AnimatorProBlend.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AnimatorProBlend.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/ComicStrip/Second.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/ComicStrip/Second.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/ComicStrip/SecondPage.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/ComicStrip/SecondPage.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Dead.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Dead.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spikes.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LvlArtScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LvlArtScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu/ComicStrip.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu/ComicStrip.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/EffectPreset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/MixerView.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/Snapshot.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Metadata/VCA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundBanks/rH_1/Plugins.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/rH.bank" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/rH.bank.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Temp.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1 (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1,2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2 (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (2).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (3).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3 (3).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ComicStrip/3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/nu Assets/Easy Decal/External/easy_decal_playmaker_1_0_0.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,10 +66,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/ComicStrip/ComicController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+              <folding>
+                <marker date="1558715008592" expanded="true" signature="6:114" ph="..." />
+                <marker date="1558715008592" expanded="true" signature="160:720" ph="{...}" />
+                <marker date="1558715008592" expanded="true" signature="378:419" ph="{...}" />
+                <marker date="1558715008592" expanded="true" signature="449:718" ph="{...}" />
+                <marker date="1558715008592" expanded="true" signature="492:663" ph="{...}" />
+                <marker date="1558715008592" expanded="true" signature="670:715" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+              <folding>
+                <marker date="1558890366127" expanded="true" signature="6:135" ph="..." />
+                <marker date="1558890366127" expanded="true" signature="179:641" ph="{...}" />
+                <marker date="1558890366127" expanded="true" signature="340:395" ph="{...}" />
+                <marker date="1558890366127" expanded="true" signature="430:639" ph="{...}" />
+                <marker date="1558890366127" expanded="true" signature="471:581" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateController/ManagerStates.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
-              <caret line="109" column="63" lean-forward="true" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
+              <caret line="109" column="63" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
               <folding>
                 <marker date="1558709785870" expanded="false" signature="6:92" ph="..." />
                 <marker date="1558709785870" expanded="true" signature="137:3938" ph="{...}" />
@@ -45,7 +130,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Char/Features/FreeCamera/FreeCamera.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1316">
@@ -191,6 +276,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Char/Features/FreeCamera/FreeCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/AnimationRewindController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovingObjects/SphereRewind.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StateMachine/Scripts/GameEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TimelineActivator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Signals.cs" root0="FORCE_HIGHLIGHTING" />
@@ -265,6 +351,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MovingObjects/SimpleRewind.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPointController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ReverseTime/TimeControllerObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs" />
       </list>
     </option>
   </component>
@@ -363,12 +450,12 @@
       <workItem from="1558120275141" duration="1442000" />
       <workItem from="1558461442049" duration="2532000" />
       <workItem from="1558712986705" duration="1990000" />
-      <workItem from="1558803861233" duration="2123000" />
+      <workItem from="1558803861233" duration="2725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28189000" />
+    <option name="totallyTimeSpent" value="28791000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1222,21 +1309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/ComicStrip/ComicController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <marker date="1558715008592" expanded="true" signature="6:114" ph="..." />
-            <marker date="1558715008592" expanded="true" signature="160:720" ph="{...}" />
-            <marker date="1558715008592" expanded="true" signature="378:419" ph="{...}" />
-            <marker date="1558715008592" expanded="true" signature="449:718" ph="{...}" />
-            <marker date="1558715008592" expanded="true" signature="492:663" ph="{...}" />
-            <marker date="1558715008592" expanded="true" signature="670:715" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/ComicStrip/EnableButton.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1474,7 +1546,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateController/ManagerStates.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="109" column="63" lean-forward="true" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
+          <caret line="109" column="63" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
           <folding>
             <marker date="1558709785870" expanded="false" signature="6:92" ph="..." />
             <marker date="1558709785870" expanded="true" signature="137:3938" ph="{...}" />
@@ -1551,6 +1623,35 @@
             <marker date="1555539428154" expanded="true" signature="1223:2343" ph="{...}" />
             <marker date="1555539428154" expanded="true" signature="1248:1420" ph="{...}" />
             <marker date="1555539428154" expanded="true" signature="1479:1653" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/ComicStrip/ComicController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+          <folding>
+            <marker date="1558715008592" expanded="true" signature="6:114" ph="..." />
+            <marker date="1558715008592" expanded="true" signature="160:720" ph="{...}" />
+            <marker date="1558715008592" expanded="true" signature="378:419" ph="{...}" />
+            <marker date="1558715008592" expanded="true" signature="449:718" ph="{...}" />
+            <marker date="1558715008592" expanded="true" signature="492:663" ph="{...}" />
+            <marker date="1558715008592" expanded="true" signature="670:715" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Triggers/FinishTrigger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+          <folding>
+            <marker date="1558890366127" expanded="true" signature="6:135" ph="..." />
+            <marker date="1558890366127" expanded="true" signature="179:641" ph="{...}" />
+            <marker date="1558890366127" expanded="true" signature="340:395" ph="{...}" />
+            <marker date="1558890366127" expanded="true" signature="430:639" ph="{...}" />
+            <marker date="1558890366127" expanded="true" signature="471:581" ph="{...}" />
           </folding>
         </state>
       </provider>
