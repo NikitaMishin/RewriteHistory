@@ -98,7 +98,9 @@ public class ManagerStates : MonoBehaviour {
 
     public void SimpleDead()
     {
-        _managerController.animator.SetBool("IsDead", true); 
+       // _managerController.animator.SetBool("IsDead", true); 
+        _managerController.animator.SetBool("Dead",  true);
+
         
      //  _characterController.enabled = false;
      //   gameObject.AddComponent<Rigidbody>();
@@ -114,8 +116,8 @@ public class ManagerStates : MonoBehaviour {
 
     public void Default()
     {
-        _managerController.animator.SetBool("IsDead", false);
-
+        _managerController.animator.SetBool("Dead", false);
+     //   _managerController.animator.SetBool("Dead", false);
 
         _currentState = State.Default;
         Messenger.Broadcast(GameEventTypes.DEFAULT);

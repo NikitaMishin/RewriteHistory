@@ -473,6 +473,7 @@
           </e>
           <e p="Effects" t="Include">
             <e p="InclineEffect.cs" t="Include" />
+            <e p="SaveEffect.cs" t="Include" />
           </e>
           <e p="Features" t="Include">
             <e p="AnimationCallback.cs" t="Include" />

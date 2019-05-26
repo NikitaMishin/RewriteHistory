@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Tip : MonoBehaviour {
 
     private TextMeshProUGUI _textMeshPro;
 
+    [SerializeField] private Image image;
 	// Use this for initialization
 	void Awake () {
         _textMeshPro = gameObject.GetComponentInChildren<TextMeshProUGUI>();
@@ -20,6 +22,8 @@ public class Tip : MonoBehaviour {
 
     public void SetText(string text)
     {
+        _textMeshPro.gameObject.SetActive(true);
+        image.gameObject.SetActive(false);
         _textMeshPro.text = text;
     }
 
@@ -27,9 +31,12 @@ public class Tip : MonoBehaviour {
     {
         transform.GetChild(0).gameObject.SetActive(value);
     }
-
-    public bool GetVisible()
+    
+    public void SetImage(Sprite sprite)
     {
-        return transform.GetChild(0).gameObject.activeSelf;
+        _textMeshPro.gameObject.SetActive(false);
+        image.gameObject.SetActive(true);
+        image.sprite = sprite;
     }
+    
 }
