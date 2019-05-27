@@ -10,7 +10,7 @@ public class ColdActivation : MonoBehaviour
 	[SerializeField] private bool isEnd;
 	
 	private ColdText coldText;
-	
+
 	void Start ()
 	{
 		coldText = FindObjectOfType<ColdText>();
@@ -19,8 +19,8 @@ public class ColdActivation : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (isEnd)
-			coldText.gameObject.SetActive(false);
+			coldText.transform.parent.gameObject.SetActive(false);
 		else
-			coldText.gameObject.SetActive(true);
+			coldText.transform.parent.gameObject.SetActive(true);
 	}
 }
