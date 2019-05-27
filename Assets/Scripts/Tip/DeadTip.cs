@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadTip : MonoBehaviour {
+public class DeadTip : MonoBehaviour
+{
 
-    [SerializeField]
+    [SerializeField] protected Sprite sprite;
+
+        [SerializeField]
     protected string text;
     [SerializeField]
     private float timeAfterDead = 0f;
@@ -55,7 +58,11 @@ public class DeadTip : MonoBehaviour {
     protected void OpenTip()
     {
         if (_managerStates.GetCurrentState() == State.Dead) { 
-            _tip.SetText(text);
+            
+            if (sprite != null)
+                _tip.SetImage(sprite);
+            else
+                _tip.SetText(text);
             _tip.SetVisible(true);
         }
     }

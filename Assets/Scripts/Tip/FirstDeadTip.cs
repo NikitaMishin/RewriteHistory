@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FirstDeadTip : DeadTip {
-
+    
     public bool _wasOpen = false;
     
 
