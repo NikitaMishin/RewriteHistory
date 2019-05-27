@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets\SoundBanks\rH1\rH1.fspro
-  SourceProjectPathUnformatted: Assets\SoundBanks\rH1\rH1.fspro
-  SourceBankPathUnformatted: Assets\SoundBanks\rH1\Build
+  sourceProjectPath: Assets\SoundBanks\rH_1\rH_1.fspro
+  SourceProjectPathUnformatted: Assets\SoundBanks\rH_1\rH_1.fspro
+  SourceBankPathUnformatted: Assets\SoundBanks\rH_1\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
@@ -58,5 +58,8 @@ MonoBehaviour:
   - Platform: 2
     Value: 32
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Master Bank
+  - Master Bank
+  Banks:
+  - rH
