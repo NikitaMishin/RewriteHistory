@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f62af6-5312-4ea8-aa7f-07c8cc403b74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Test/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tip/ControllerTip.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tip/ControllerTip.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tip/StartTriggerTip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tip/StartTriggerTip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tip/Tip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tip/Tip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Tips/Cold.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Tips/Cold.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Tips/Shift.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Tips/Shift.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Tips/огонь.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Tips/огонь.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Tips/огонь.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Tips/огонь.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShnytkinCurveLocation — копия — копия — копия.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ShnytkinCurveLocation — копия — копия — копия.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tip/DeadTip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tip/DeadTip.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,16 +151,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tip/DeadTip.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="8" />
+              <folding>
+                <marker date="1558914093463" expanded="true" signature="6:78" ph="..." />
+                <marker date="1558914093463" expanded="true" signature="116:1641" ph="{...}" />
+                <marker date="1558914093463" expanded="true" signature="562:795" ph="{...}" />
+                <marker date="1558914093463" expanded="true" signature="850:1457" ph="{...}" />
+                <marker date="1558914093463" expanded="true" signature="1146:1342" ph="{...}" />
+                <marker date="1558914093463" expanded="true" signature="1184:1332" ph="{...}" />
+                <marker date="1558914093463" expanded="true" signature="1372:1454" ph="{...}" />
+                <marker date="1558914093463" expanded="true" signature="1487:1639" ph="{...}" />
+                <marker date="1558914093463" expanded="true" signature="1554:1633" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Effects/SaveEffect.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="255">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
               <folding>
-                <marker date="1558911522586" expanded="false" signature="6:100" ph="..." />
-                <marker date="1558911522586" expanded="true" signature="141:351" ph="{...}" />
-                <marker date="1558911522586" expanded="true" signature="214:253" ph="{...}" />
-                <marker date="1558911522586" expanded="true" signature="271:301" ph="{...}" />
-                <marker date="1558911522586" expanded="true" signature="318:349" ph="{...}" />
+                <marker date="1558911640902" expanded="false" signature="6:100" ph="..." />
+                <marker date="1558911640902" expanded="true" signature="141:462" ph="{...}" />
+                <marker date="1558911640902" expanded="true" signature="214:340" ph="{...}" />
+                <marker date="1558911640902" expanded="true" signature="358:412" ph="{...}" />
+                <marker date="1558911640902" expanded="true" signature="429:460" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -315,6 +328,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tip/Tip.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tip/StartTriggerTip.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Effects/SaveEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tip/DeadTip.cs" />
       </list>
     </option>
   </component>
@@ -414,12 +428,12 @@
       <workItem from="1558461442049" duration="2532000" />
       <workItem from="1558712986705" duration="1990000" />
       <workItem from="1558803861233" duration="4059000" />
-      <workItem from="1558909200639" duration="2270000" />
+      <workItem from="1558909200639" duration="3006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32395000" />
+    <option name="totallyTimeSpent" value="33131000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1436,13 +1450,6 @@
     <entry file="file://$PROJECT_DIR$/Assets/Plugins/FMOD/Wrapper/fmod_studio.cs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tip/DeadTip.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Triggers/InclineTrigger.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1730,14 +1737,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Effects/SaveEffect.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="255">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding>
-            <marker date="1558911522586" expanded="false" signature="6:100" ph="..." />
-            <marker date="1558911522586" expanded="true" signature="141:351" ph="{...}" />
-            <marker date="1558911522586" expanded="true" signature="214:253" ph="{...}" />
-            <marker date="1558911522586" expanded="true" signature="271:301" ph="{...}" />
-            <marker date="1558911522586" expanded="true" signature="318:349" ph="{...}" />
+            <marker date="1558911640902" expanded="false" signature="6:100" ph="..." />
+            <marker date="1558911640902" expanded="true" signature="141:462" ph="{...}" />
+            <marker date="1558911640902" expanded="true" signature="214:340" ph="{...}" />
+            <marker date="1558911640902" expanded="true" signature="358:412" ph="{...}" />
+            <marker date="1558911640902" expanded="true" signature="429:460" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tip/DeadTip.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+          <folding>
+            <marker date="1558914093463" expanded="true" signature="6:78" ph="..." />
+            <marker date="1558914093463" expanded="true" signature="116:1641" ph="{...}" />
+            <marker date="1558914093463" expanded="true" signature="562:795" ph="{...}" />
+            <marker date="1558914093463" expanded="true" signature="850:1457" ph="{...}" />
+            <marker date="1558914093463" expanded="true" signature="1146:1342" ph="{...}" />
+            <marker date="1558914093463" expanded="true" signature="1184:1332" ph="{...}" />
+            <marker date="1558914093463" expanded="true" signature="1372:1454" ph="{...}" />
+            <marker date="1558914093463" expanded="true" signature="1487:1639" ph="{...}" />
+            <marker date="1558914093463" expanded="true" signature="1554:1633" ph="{...}" />
           </folding>
         </state>
       </provider>
