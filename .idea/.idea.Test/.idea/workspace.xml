@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="26f62af6-5312-4ea8-aa7f-07c8cc403b74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShnytkinCurveLocation — копия — копия — копия 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ShnytkinCurveLocation — копия — копия — копия 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/rH.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/rH.bank.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Temp.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Textures/Lvl 1/Materials/PostProcessing/Runtime/PostProcessingBehaviour.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="420">
+              <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
               <folding>
                 <marker date="1555536644524" expanded="true" signature="6:76" ph="..." />
                 <marker date="1555536644524" expanded="true" signature="114:16974" ph="{...}" />
@@ -394,7 +386,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="240" />
     <option name="y" value="130" />
     <option name="width" value="1440" />
@@ -476,12 +468,12 @@
       <workItem from="1558461442049" duration="2532000" />
       <workItem from="1558712986705" duration="1990000" />
       <workItem from="1558803861233" duration="4059000" />
-      <workItem from="1558909200639" duration="4362000" />
+      <workItem from="1558909200639" duration="4365000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34487000" />
+    <option name="totallyTimeSpent" value="34490000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -493,8 +485,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22014925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1794,7 +1785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Textures/Lvl 1/Materials/PostProcessing/Runtime/PostProcessingBehaviour.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="420">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
           <folding>
             <marker date="1555536644524" expanded="true" signature="6:76" ph="..." />
             <marker date="1555536644524" expanded="true" signature="114:16974" ph="{...}" />
